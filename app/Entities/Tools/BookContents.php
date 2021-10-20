@@ -98,8 +98,7 @@ class BookContents
         $query = Page::visible()
             ->select($getPageContent ? Page::$contentAttributes : Page::$listAttributes)
             ->where('book_id', '=', $this->book->id);
-        echo var_dump($query->toSql());
-        exit;
+
         if (!$showDrafts) {
             $query->where('draft', '=', false);
         }

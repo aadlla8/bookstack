@@ -19,10 +19,10 @@ header {
   z-index: 11;
   top: 0;
   color: rgb(250, 250, 250);
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
   box-shadow: $bs-card;
   padding: $-xxs 0;
-  @include lightDark(border-bottom-color, #DDD, #000);
+  @include lightDark(border-bottom-color, #ddd, #000);
   @include whenDark {
     filter: saturate(0.8) brightness(0.8);
   }
@@ -33,13 +33,14 @@ header {
   .links a {
     display: inline-block;
     padding: $-m;
-    color: #FFF;
+    color: #fff;
   }
   .dropdown-container {
     padding-inline-start: $-m;
     padding-inline-end: 0;
   }
-  .avatar, .user-name {
+  .avatar,
+  .user-name {
     display: inline-block;
   }
   .avatar {
@@ -72,19 +73,19 @@ header {
   }
 }
 
-.header *, .primary-background * {
-  outline-color: #FFF;
+.header *,
+.primary-background * {
+  outline-color: #fff;
 }
-
 
 header .search-box {
   display: inline-block;
   margin-top: 10px;
   input {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(104, 101, 101, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
-    color: #EEE;
+    color: #eee;
     z-index: 2;
     padding-inline-start: 40px;
     &:focus {
@@ -95,7 +96,7 @@ header .search-box {
   button {
     z-index: 1;
     left: 16px;
-    @include lightDark(color, rgba(255, 255, 255, 0.8), #AAA);
+    @include lightDark(color, rgba(255, 255, 255, 0.8), #aaa);
     @include rtl {
       left: auto;
       right: 16px;
@@ -104,11 +105,13 @@ header .search-box {
       margin-block-end: 0;
     }
   }
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #DDD;
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #ddd;
   }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: #DDD;
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ddd;
   }
   @include between($l, $xl) {
     max-width: 200px;
@@ -118,7 +121,7 @@ header .search-box {
 .logo {
   display: inline-block;
   &:hover {
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
   }
 }
@@ -138,8 +141,8 @@ header .search-box {
 }
 
 .mobile-menu-toggle {
-  color: #FFF;
-  fill: #FFF;
+  color: #fff;
+  fill: #fff;
   font-size: 2em;
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 4px;
@@ -160,8 +163,6 @@ header .search-box {
   }
 }
 
-
-
 @include smaller-than($l) {
   header .header-links {
     @include lightDark(background-color, #fff, #333);
@@ -177,7 +178,9 @@ header .search-box {
       display: block;
     }
   }
-  header .links a, header .dropdown-container ul li a, header .dropdown-container ul li button {
+  header .links a,
+  header .dropdown-container ul li a,
+  header .dropdown-container ul li button {
     text-align: start;
     display: block;
     padding: $-s $-m;
@@ -219,21 +222,21 @@ header .search-box {
   position: sticky;
   top: 0;
   z-index: 5;
-  background-color: #FFF;
-  border-bottom: 1px solid #DDD;
-  @include lightDark(border-bottom-color, #DDD, #333);
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  @include lightDark(border-bottom-color, #ddd, #333);
   box-shadow: $bs-card;
 }
 .tri-layout-mobile-tab {
   text-align: center;
-  border-bottom: 3px solid #BBB;
+  border-bottom: 3px solid #bbb;
   cursor: pointer;
   margin: 0;
-  @include lightDark(background-color, #FFF, #222);
-  @include lightDark(border-bottom-color, #BBB, #333);
+  @include lightDark(background-color, #fff, #222);
+  @include lightDark(border-bottom-color, #bbb, #333);
   &:first-child {
-    border-inline-end: 1px solid #DDD;
-    @include lightDark(border-inline-end-color, #DDD, #000);
+    border-inline-end: 1px solid #ddd;
+    @include lightDark(border-inline-end-color, #ddd, #000);
   }
   &[aria-selected="true"] {
     border-bottom-color: currentColor !important;
@@ -259,7 +262,8 @@ header .search-box {
     line-height: 0.8;
     margin: -2px 0 0;
   }
-  &:hover, &:focus-within {
+  &:hover,
+  &:focus-within {
     opacity: 1;
   }
 }
@@ -283,7 +287,7 @@ header .search-box {
     border: 1px solid transparent;
     border-radius: 4px;
     &:hover {
-      border-color: #DDD;
+      border-color: #ddd;
     }
   }
   .svg-icon {
@@ -300,7 +304,10 @@ header .search-box {
 }
 
 .faded {
-  a, button, span, span > div {
+  a,
+  button,
+  span,
+  span > div {
     color: #666;
     fill: #666;
   }
@@ -329,7 +336,6 @@ header .search-box {
     padding-inline-start: 0;
   }
 }
-
 
 .action-buttons .dropdown-container:last-child a {
   padding-inline-end: 0;

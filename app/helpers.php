@@ -4,7 +4,11 @@ use BookStack\Auth\Permissions\PermissionService;
 use BookStack\Auth\User;
 use BookStack\Model;
 use BookStack\Settings\SettingService;
+use BookStack\Entities\Models\Bookshelf;
 
+function shelfs() {
+    return Bookshelf::all();
+}
 /**
  * Get the path to a versioned file.
  *

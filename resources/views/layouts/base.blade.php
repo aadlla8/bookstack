@@ -19,7 +19,10 @@
     <!-- Styles and Fonts -->
     <link rel="stylesheet" href="{{ versioned_asset('dist/styles.css') }}">
     <link rel="stylesheet" media="print" href="{{ versioned_asset('dist/print-styles.css') }}">
-
+      <!-- SmartMenus core CSS (required) -->
+      <link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+      <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+      <link href="/css/sm-mint/sm-mint.css" rel="stylesheet" type="text/css" />
     @yield('head')
 
     <!-- Custom Styles & Head Content -->
@@ -51,7 +54,23 @@
 
     @yield('bottom')
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
+    <!-- jQuery -->
+     
+    <script src="{{ url('/libs/jquery.js')}}" nonce="{{ $cspNonce }}"></script>
+    <!-- SmartMenus jQuery plugin -->
+    <script src="{{ url('/libs/jquery.smartmenus.js')}}" nonce="{{ $cspNonce }}"></script>
+    <!-- SmartMenus jQuery init -->
+    <script type="text/javascript" nonce="{{ $cspNonce }}">
+        $(function() {
+            $('#main-menu').smartmenus({
+                subMenusSubOffsetX: 1,
+                subMenusSubOffsetY: -8
+            });
+        });
+    </script>
     @yield('scripts')
+
+      
 
 </body>
 </html>

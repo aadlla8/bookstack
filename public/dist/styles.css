@@ -4521,10 +4521,10 @@ header {
   z-index: 11;
   top: 0;
   color: #fafafa;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
   box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
   padding: 3px 0;
-  border-bottom-color: #DDD;
+  border-bottom-color: #ddd;
 }
 html.dark-mode header {
   border-bottom-color: #000;
@@ -4539,13 +4539,14 @@ header .links {
 header .links a {
   display: inline-block;
   padding: 16px;
-  color: #FFF;
+  color: #fff;
 }
 header .dropdown-container {
   padding-inline-start: 16px;
   padding-inline-end: 0;
 }
-header .avatar, header .user-name {
+header .avatar,
+header .user-name {
   display: inline-block;
 }
 header .avatar {
@@ -4579,8 +4580,9 @@ header .user-name > svg {
   }
 }
 
-.header *, .primary-background * {
-  outline-color: #FFF;
+.header *,
+.primary-background * {
+  outline-color: #fff;
 }
 
 header .search-box {
@@ -4588,10 +4590,10 @@ header .search-box {
   margin-top: 10px;
 }
 header .search-box input {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(104, 101, 101, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 40px;
-  color: #EEE;
+  color: #eee;
   z-index: 2;
   padding-inline-start: 40px;
 }
@@ -4605,7 +4607,7 @@ header .search-box button {
   color: rgba(255, 255, 255, 0.8);
 }
 html.dark-mode header .search-box button {
-  color: #AAA;
+  color: #aaa;
 }
 html[dir=rtl] header .search-box button {
   left: auto;
@@ -4616,11 +4618,11 @@ header .search-box button svg {
 }
 header .search-box ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #DDD;
+  color: #ddd;
 }
 header .search-box ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #DDD;
+  color: #ddd;
 }
 @media screen and (min-width: 1000px) and (max-width: 1100px) {
   header .search-box {
@@ -4632,7 +4634,7 @@ header .search-box ::-moz-placeholder {
   display: inline-block;
 }
 .logo:hover {
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -4659,8 +4661,8 @@ header .search-box ::-moz-placeholder {
 }
 
 .mobile-menu-toggle {
-  color: #FFF;
-  fill: #FFF;
+  color: #fff;
+  fill: #fff;
   font-size: 2em;
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 4px;
@@ -4700,36 +4702,52 @@ html[dir=rtl] .mobile-menu-toggle {
     display: block;
   }
 
-  header .links a, header .dropdown-container ul li a, header .dropdown-container ul li button {
+  header .links a,
+header .dropdown-container ul li a,
+header .dropdown-container ul li button {
     text-align: start;
     display: block;
     padding: 12px 16px;
     color: #444;
     color: #444;
   }
-  html.dark-mode header .links a, html.dark-mode header .dropdown-container ul li a, html.dark-mode header .dropdown-container ul li button {
+  html.dark-mode header .links a,
+html.dark-mode header .dropdown-container ul li a,
+html.dark-mode header .dropdown-container ul li button {
     color: #eee;
   }
-  header .links a svg, header .dropdown-container ul li a svg, header .dropdown-container ul li button svg {
+  header .links a svg,
+header .dropdown-container ul li a svg,
+header .dropdown-container ul li button svg {
     margin-inline-end: 12px;
   }
-  header .links a:hover, header .dropdown-container ul li a:hover, header .dropdown-container ul li button:hover {
+  header .links a:hover,
+header .dropdown-container ul li a:hover,
+header .dropdown-container ul li button:hover {
     background-color: #eee;
     color: #000;
     text-decoration: none;
   }
-  html.dark-mode header .links a:hover, html.dark-mode header .dropdown-container ul li a:hover, html.dark-mode header .dropdown-container ul li button:hover {
+  html.dark-mode header .links a:hover,
+html.dark-mode header .dropdown-container ul li a:hover,
+html.dark-mode header .dropdown-container ul li button:hover {
     background-color: #333;
   }
-  html.dark-mode header .links a:hover, html.dark-mode header .dropdown-container ul li a:hover, html.dark-mode header .dropdown-container ul li button:hover {
+  html.dark-mode header .links a:hover,
+html.dark-mode header .dropdown-container ul li a:hover,
+html.dark-mode header .dropdown-container ul li button:hover {
     color: #fff;
   }
-  header .links a:focus, header .dropdown-container ul li a:focus, header .dropdown-container ul li button:focus {
+  header .links a:focus,
+header .dropdown-container ul li a:focus,
+header .dropdown-container ul li button:focus {
     background-color: #eee;
     outline-color: var(--color-primary);
     color: var(--color-primary);
   }
-  html.dark-mode header .links a:focus, html.dark-mode header .dropdown-container ul li a:focus, html.dark-mode header .dropdown-container ul li button:focus {
+  html.dark-mode header .links a:focus,
+html.dark-mode header .dropdown-container ul li a:focus,
+html.dark-mode header .dropdown-container ul li button:focus {
     background-color: #333;
   }
 
@@ -4756,9 +4774,9 @@ html[dir=rtl] .mobile-menu-toggle {
   position: sticky;
   top: 0;
   z-index: 5;
-  background-color: #FFF;
-  border-bottom: 1px solid #DDD;
-  border-bottom-color: #DDD;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  border-bottom-color: #ddd;
   box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
 }
 html.dark-mode .tri-layout-mobile-tabs {
@@ -4767,11 +4785,11 @@ html.dark-mode .tri-layout-mobile-tabs {
 
 .tri-layout-mobile-tab {
   text-align: center;
-  border-bottom: 3px solid #BBB;
+  border-bottom: 3px solid #bbb;
   cursor: pointer;
   margin: 0;
-  background-color: #FFF;
-  border-bottom-color: #BBB;
+  background-color: #fff;
+  border-bottom-color: #bbb;
 }
 html.dark-mode .tri-layout-mobile-tab {
   background-color: #222;
@@ -4780,8 +4798,8 @@ html.dark-mode .tri-layout-mobile-tab {
   border-bottom-color: #333;
 }
 .tri-layout-mobile-tab:first-child {
-  border-inline-end: 1px solid #DDD;
-  border-inline-end-color: #DDD;
+  border-inline-end: 1px solid #ddd;
+  border-inline-end-color: #ddd;
 }
 html.dark-mode .tri-layout-mobile-tab:first-child {
   border-inline-end-color: #000;
@@ -4834,7 +4852,7 @@ html.dark-mode .tri-layout-mobile-tab:first-child {
   border-radius: 4px;
 }
 .dropdown-search .dropdown-search-toggle:hover {
-  border-color: #DDD;
+  border-color: #ddd;
 }
 .dropdown-search .svg-icon {
   margin-inline-end: 0;
@@ -4848,7 +4866,10 @@ html.dark-mode .tri-layout-mobile-tab:first-child {
   width: 22px;
 }
 
-.faded a, .faded button, .faded span, .faded span > div {
+.faded a,
+.faded button,
+.faded span,
+.faded span > div {
   color: #666;
   fill: #666;
 }
