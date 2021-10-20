@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->rememberToken();
             $table->nullableTimestamps();
+            $table->string('title')->nullable();
+            $table->boolean('type')->default(0); // 0 = student , 1 = instructor
         });
 
         // Create the initial admin user

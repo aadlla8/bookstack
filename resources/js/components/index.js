@@ -51,6 +51,7 @@ import toggleSwitch from "./toggle-switch.js"
 import triLayout from "./tri-layout.js"
 import userSelect from "./user-select.js"
 import wysiwygEditor from "./wysiwyg-editor.js"
+import deleteButton from "./delete-button.js"
 
 const componentMapping = {
     "add-remove-rows": addRemoveRows,
@@ -106,6 +107,7 @@ const componentMapping = {
     "tri-layout": triLayout,
     "user-select": userSelect,
     "wysiwyg-editor": wysiwygEditor,
+    "delete-button": deleteButton,
 };
 
 window.components = {};

@@ -12,17 +12,17 @@ return [
 
     // The environment to run BookStack in.
     // Options: production, development, demo, testing
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
 
     // Enter the application in debug mode.
     // Shows much more verbose error messages. Has potential to show
     // private configuration variables so should remain disabled in public.
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     // The number of revisions to keep in the database.
     // Once this limit is reached older revisions will be deleted.
     // If set to false then a limit will not be enforced.
-    'revision_limit' => env('REVISION_LIMIT', 50),
+    'revision_limit' => env('REVISION_LIMIT', 150),
 
     // The number of days that content will remain in the recycle bin before
     // being considered for auto-removal. It is not a guarantee that content will

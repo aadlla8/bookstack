@@ -37,6 +37,8 @@
                             <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a>
                         @endif
                         <a href="{{ url('/books') }}">@icon('books'){{ trans('entities.books') }}</a>
+                        <a href="{{ url('/homeStudent') }}">@icon('settings'){{ 'Courses' }}</a>
+
                         @if(signedInUser() && userCan('settings-manage'))
                             <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
                         @endif
@@ -70,6 +72,9 @@
                             <li>
                                 <a href="{{ $currentUser->getEditUrl() }}">@icon('edit'){{ trans('common.edit_profile') }}</a>
                             </li>
+                            @if(signedInUser() && userCan('settings-manage'))
+                             <li><a href="{{ url('/Courses/create') }}">@icon('settings'){{ 'AddCourse' }}</a></li>
+                            @endif
                             <li>
                                 @if(config('auth.method') === 'saml2')
                                     <a href="{{ url('/saml2/logout') }}">@icon('logout'){{ trans('auth.logout') }}</a>
@@ -81,6 +86,7 @@
                             <li>
                                 @include('common.dark-mode-toggle')
                             </li>
+                           
                         </ul>
                     </div>
                 @endif
