@@ -115,7 +115,7 @@
             @if(!$course->students->isEmpty())
                 <strong>Users have enrolled this course.</strong><br>
                     <table>
-                        <tr><th>Name</th><th>Start time</th><th>End time</th><th>% Passed</th><th></th></tr>
+                        <tr><th>User Name</th><th>Start time</th><th>End time</th><th>% Passed</th><th></th></tr>
                         @foreach($course->students as $student)
                            <tr>
                            <td>{{$student->name}}</td>
@@ -132,9 +132,13 @@
                                 @endif
                         </td>
                         <td>                           
-                            {{ $student->pivot->commulativeGrade }}%
+                            {{ number_format($student->pivot->commulativeGrade) }}%
                            </td>
-                           <td><a href="/reset-result/{{ $student->id}}">reset</a></td>
+                           <td><a component="delete-button"
+                                option:delete-button:message="Do you want to reset score of this student?"
+                                option:delete-button:url="/reset-result/{{$course->id}}"
+                            >reset</a> 
+                            </td>
                         </tr>
                         @endforeach
                     </table>

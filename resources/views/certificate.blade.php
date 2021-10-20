@@ -64,7 +64,7 @@
             <p class="header-1">This is a Certificate that</p>
             <p class="student-name header-2">{{ $student->name }}</p>
             <p class="header-2">Has passed {{ $exam->course->subject }} Course Exam with percent:
-                <stong style="color: #009688;">{{ $percent }}%</stong></p>
+                <strong style="color: #009688;">{{ number_format($percent) }}%</strong></p>
         </div>
 
         <div>

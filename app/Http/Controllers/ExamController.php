@@ -178,9 +178,11 @@ class ExamController extends Controller
     public function resetResult($id)
     {
         $course = DB::select('select * from courses_student where student_id = ?', [$id]);
+        if ($course) {
+            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where student_id=?', [$id]);
+        }
 
-        DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where student_id=?', [$id]);
-        return redirect("/courses/" . $course[0]->id);
+        return redirect("/courses/" . $id);
     }
 
     /**

@@ -38,7 +38,6 @@
                         @endif
                         <a href="{{ url('/books') }}">@icon('books'){{ trans('entities.books') }}</a>
                         <a href="{{ url('/homeStudent') }}">@icon('settings'){{ 'Courses' }}</a>
-
                         @if(signedInUser() && userCan('settings-manage'))
                             <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
                         @endif
