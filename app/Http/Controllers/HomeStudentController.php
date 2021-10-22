@@ -4,7 +4,7 @@ namespace BookStack\Http\Controllers;
 
 use BookStack\Courses;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 
 class HomeStudentController extends Controller
 {
@@ -28,19 +28,29 @@ class HomeStudentController extends Controller
         return view('home');
     }
 
-    public function homeStudent()
+    public function homeStudent(Request $request)
     {
-        $courses = Courses::query()->orderBy('created_at', 'desc')->get();
-        return view('homeStudent')->with("courses", $courses);
+        $listDetails = [
+            'search' => $request->get('search', ''),
+        ];
+
+        $courses = Courses::query();
+        if ($request->get('search')) {
+            $slg = str_replace('-', " ", Str::slug($request->get('search')));
+
+            $courses = $courses->where('subject', 'like', "%" . $slg . "%")->orWhere('subject', 'like', "%" . $request->get('search') . "%");
+        }
+        $courses = $courses->orderBy('created_at', 'desc');
+        return view('homeStudent')->with(["courses" => $courses->paginate(15), 'listDetails' => $listDetails]);
     }
     public function homeInstructor()
     {
         return view('homeInstructor');
     }
 
-//    public function addCourses()
-//    {
-//        return view('Courses.create');
-//    }
+    //    public function addCourses()
+    //    {
+    //        return view('Courses.create');
+    //    }
 
 }

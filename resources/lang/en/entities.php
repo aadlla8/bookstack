@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Text used for 'Entities' (Document Structure Elements) such as
  * Books, Shelves, Chapters & Pages
@@ -321,5 +322,13 @@ return [
     'revision_delete_confirm' => 'Are you sure you want to delete this revision?',
     'revision_restore_confirm' => 'Are you sure you want to restore this revision? The current page contents will be replaced.',
     'revision_delete_success' => 'Revision deleted',
-    'revision_cannot_delete_latest' => 'Cannot delete the latest revision.'
+    'revision_cannot_delete_latest' => 'Cannot delete the latest revision.',
+
+    //course
+    'courses' => 'Courses',
+    'course_edit' => 'Edit course',
+    'course_delete' => 'Delete course',
+    'exam_edit' => 'Edit exam',
+    'exam_delete' => 'Delete exam',
+    'exam_add' => 'Add exam',
 ];

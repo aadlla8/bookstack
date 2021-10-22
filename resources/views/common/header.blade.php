@@ -1,6 +1,5 @@
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
-
         <div>
             <a href="{{ url('/') }}" class="logo">
                 @if(setting('app-logo', '') !== 'none')
@@ -37,7 +36,6 @@
                             <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a>
                         @endif
                         <a href="{{ url('/books') }}">@icon('books'){{ trans('entities.books') }}</a>
-                        <a href="{{ url('/homeStudent') }}">@icon('settings'){{ 'Courses' }}</a>
                         @if(signedInUser() && userCan('settings-manage'))
                             <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
                         @endif
@@ -84,20 +82,16 @@
                             <li><hr></li>
                             <li>
                                 @include('common.dark-mode-toggle')
-                            </li>
-                           
+                            </li>                           
                         </ul>
                     </div>
-                @endif
-                
-                
+                @endif              
             </nav>
         </div>
 
     </div>
     <ul id="main-menu" class="sm sm-mint">
-        <li><a href="/shelves">Danh mục</a></li>    
-        <li><a href="/books">Tất cả sách</a></li>    
+         
         @foreach (shelfs() as $shelf)
             <li>
                 <a href="/shelves/{{ $shelf->slug }}">{{ $shelf->name }}</a>
@@ -134,10 +128,8 @@
                        
                     </ul>                
                 @endif
-            </li>        
-                        
+            </li>                        
         @endforeach                  
-        <li><a href="/homeStudent">Đào tạo</a></li>    
-        
+        <li><a href="/homeStudent">Đào tạo</a></li>        
       </ul>
 </header>

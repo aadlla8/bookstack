@@ -5,7 +5,7 @@
     {{--Course Information=====================================================================================--}}
 
     <main class="container small card content-wrap">
-    <h3 style="margin-top: 20px; margin-bottom: 50px;" class="text-center">{{$course->subject." Course"}}</h3>
+    <h3 style="margin-top: 20px; margin-bottom: 50px;" class="text-center">{{$course->subject}}</h3>
         <div class="row">            
             <div class="col-md-8 course-info">                 
                 <p>{{$course->level}} Level</p>
@@ -37,7 +37,7 @@
                 <ul class="">
                     <li>
                         <a href="/Courses/update/{{$course->id}}">
-                        @icon('edit') Edit Course
+                        @icon('edit') {{ trans('entities.course_edit') }}
                         </a>
                     </li>
                     <li>
@@ -46,20 +46,20 @@
                             option:delete-button:message="Do you want to delete?"
                             option:delete-button:url="/deleteCourse/{{$course->id}}"
                             >
-                            @icon('delete')   Delete Course
+                            @icon('delete')   {{ trans('entities.course_delete') }}
                         </a>
                     </li>
                     @if(empty($course->exam))
                     <li><a href="/add-exam"> {{Session::put("courseId", $course->id)}}
                             {{Session::put("subject", $course->subject)}}
-                            @icon('add') </i>  Add Exam
+                            @icon('add') </i>  {{ trans('entities.exam_add') }}
                         </a>
                     </li>
                     @else 
                     <li><a  component="delete-button" option:delete-button:message="Do you want to edit?"
                         option:delete-button:url="/edit-exam/{{$course->id}}"
                        >
-                        @icon('edit')  Edit Exam
+                        @icon('edit')  {{ trans('entities.exam_edit') }}
                         </a>
                     </li>
                     <li><a 
@@ -67,11 +67,18 @@
                         option:delete-button:message="Do you want to delete?"
                         option:delete-button:url="/deleteExam/{{$course->id}}"
                        >
-                        @icon('delete')  Delete Exam
+                        @icon('delete')  {{ trans('entities.exam_delete') }}
                         </a>
                     </li>
                     @endif
-
+                    <li>
+                        <a 
+                        component="delete-button"
+                        option:delete-button:type='export'
+                       >
+                        @icon('export')  export
+                        </a>
+                    </li>
                 </ul>
             </div>
         @endif
@@ -102,20 +109,14 @@
         @elseif($enrolled && $examFinished)
             <span>You have finished this exam.</span>
             <br>
-        @endif        
-       
-        {{--Delete Course=======================================================================================--}}
+        @endif      
 
-        @if(!empty(user()) && Session::get('type')=='lecturer' && user()->id==$course->lec_id)
-            <span class="pull-right confirm"><a href="/deleteCourse/{{$course->id}}"> Delete This Course </a></span>
-            <br>
-        @endif
-        
         @if(!empty(user())&& user()->id==$course->lec_id)
             @if(!$course->students->isEmpty())
-                <strong>Users have enrolled this course.</strong><br>
-                    <table>
-                        <tr><th>User Name</th><th>Start time</th><th>End time</th><th>% Passed</th><th></th></tr>
+                <strong>Danh sách người dùng.</strong>               
+                <br>
+                    <table id='student_results'>
+                        <tr><th>Tên người dùng</th><th>Bắt đầu lúc</th><th>Kết thúc lúc</th><th>Thời gian(phút)</th><th>% Passed</th><th>Hủy kết quả</th></tr>
                         @foreach($course->students as $student)
                            <tr>
                            <td>{{$student->name}}</td>
@@ -123,13 +124,19 @@
                            <td>
                                @if(!empty($student->pivot->created_at))
                                
-                                   {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)->toDateTimeString()}}
+                                   {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)->format('d-m-y H:i:s')}}
                                @endif
                         </td>
                            <td>
                                @if(!empty($student->pivot->updated_at))
-                                    {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at)->toDateTimeString()}}
+                                    {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at)->format('d-m-y H:i:s')}}
                                 @endif
+                        </td>
+                        <td>
+                            {{
+                                number_format(Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)
+                                ->diffInSeconds(Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at))/60,1)
+                            }}                             
                         </td>
                         <td>                           
                             {{ number_format($student->pivot->commulativeGrade) }}%
@@ -145,5 +152,6 @@
                 
                 @endif
         @endif
+        
     </main>
 @endsection

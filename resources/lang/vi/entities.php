@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Text used for 'Entities' (Document Structure Elements) such as
  * Books, Shelves, Chapters & Pages
@@ -321,5 +322,12 @@ return [
     'revision_delete_confirm' => 'Bạn có chắc bạn muốn xóa phiên bản này?',
     'revision_restore_confirm' => 'Bạn có chắc bạn muốn khôi phục phiên bản này? Nội dung trang hiện tại sẽ được thay thế.',
     'revision_delete_success' => 'Phiên bản đã được xóa',
-    'revision_cannot_delete_latest' => 'Không thể xóa phiên bản mới nhất.'
+    'revision_cannot_delete_latest' => 'Không thể xóa phiên bản mới nhất.',
+    //course
+    'courses' => 'Đào tạo',
+    'course_edit' => 'Sửa khóa học',
+    'course_delete' => 'Xóa khóa học',
+    'exam_edit' => 'Sửa bài test',
+    'exam_delete' => 'Xóa bài test',
+    'exam_add' => 'Thêm bài test',
 ];

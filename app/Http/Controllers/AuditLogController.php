@@ -10,6 +10,7 @@ class AuditLogController extends Controller
 {
     public function index(Request $request)
     {
+
         $this->checkPermission('settings-manage');
         $this->checkPermission('users-manage');
 
@@ -46,6 +47,7 @@ class AuditLogController extends Controller
         }
 
         $activities = $query->paginate(100);
+
         $activities->appends($listDetails);
 
         $types = DB::table('activities')->select('type')->distinct()->pluck('type');
