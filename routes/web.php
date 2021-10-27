@@ -299,6 +299,8 @@ Route::get('Courses/update/{id}', 'CoursesController@edit');
 Route::post('Courses/update/{id}', 'CoursesController@update');
 Route::get('/deleteCourse/{id}', 'CoursesController@destroy');
 
+Route::get('DataImport/create', 'ImportDataController@create');
+Route::post('/DataImport/create', 'ImportDataController@store');
 
 Route::post('/storeDescription', 'DescriptionController@store')->name('storedescription');
 Route::get('/editDescription/{id}', 'DescriptionController@edit')->name('editdescription');

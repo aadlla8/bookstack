@@ -163,6 +163,7 @@ class PageRepo
         $draft->draft = false;
         $draft->revision_count = 1;
         $draft->priority = $this->getNewPriority($draft);
+       
         $draft->refreshSlug();
         $draft->save();
 

@@ -83,6 +83,19 @@ class BookshelfRepo
     }
 
     /**
+     * Get a shelf by its name.
+     */
+    public function getByName(string $name): ?Bookshelf
+    {
+        $shelf = Bookshelf::visible()->where('name', '=', $name)->first();
+
+
+        return $shelf;
+    }
+
+
+
+    /**
      * Create a new shelf in the system.
      */
     public function create(array $input, array $bookIds): Bookshelf

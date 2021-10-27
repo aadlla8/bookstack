@@ -83,7 +83,16 @@ class BookRepo
 
         return $book;
     }
+/**
+     * Get a book by its name.
+     */
+    public function getByName(string $name): ?Book
+    {
+        $book = Book::visible()->where('name', '=', $name)->first();
 
+       
+        return $book;
+    }
     /**
      * Create a new book in the system.
      */

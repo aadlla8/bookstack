@@ -39,7 +39,17 @@ class ChapterRepo
 
         return $chapter;
     }
-
+/**
+     * Get a chapter via the name.
+     *
+     * @throws NotFoundException
+     */
+    public function getByName(int $bookId, string $chapterName): ?Chapter
+    {
+        $chapter = Chapter::visible()->where('book_id',$bookId)->where('name',$chapterName)->first();
+ 
+        return $chapter;
+    }
     /**
      * Create a new chapter in the system.
      */
