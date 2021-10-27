@@ -1,6 +1,11 @@
 <div notification="success" style="display: none;" data-autohide class="pos" role="alert" @if(session()->has('success')) data-show @endif>
     @icon('check-circle') <span>{!! nl2br(htmlentities(session()->get('success'))) !!}</span><div class="dismiss">@icon('close')</div>
 </div>
+@if(userCan('settings-manage'))
+    <div notification="success2" style="display: none;" class="pos" role="alert" @if(session()->has('success')) data-show @endif>
+        @icon('info') <span>{!! nl2br(htmlentities(session()->get('success2'))) !!}</span><div class="dismiss">@icon('close')</div>
+    </div>
+@endif
 
 <div notification="warning" style="display: none;" class="warning" role="alert" @if(session()->has('warning')) data-show @endif>
     @icon('info') <span>{!! nl2br(htmlentities(session()->get('warning'))) !!}</span><div class="dismiss">@icon('close')</div>

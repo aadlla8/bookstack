@@ -130,6 +130,9 @@
                 @endif
             </li>                        
         @endforeach                  
-        <li><a href="/homeStudent">Đào tạo</a></li>        
+        <li><a href="/homeStudent">Đào tạo</a></li>      
+        <li component='delete-button'>
+           
+        </li>  
       </ul>
 </header>

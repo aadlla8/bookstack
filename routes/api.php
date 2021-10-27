@@ -7,6 +7,7 @@
  */
 Route::get('docs.json', 'ApiDocsController@json');
 
+Route::get('activities', 'ActivityApiController@list');
 Route::get('books', 'BookApiController@list');
 Route::post('books', 'BookApiController@create');
 Route::get('books/{id}', 'BookApiController@read');
