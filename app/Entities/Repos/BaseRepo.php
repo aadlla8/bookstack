@@ -55,7 +55,7 @@ class BaseRepo
         }
 
         $entity->save();
-
+       
         if (isset($input['tags'])) {
             $this->tagRepo->saveTagsToEntity($entity, $input['tags']);
         }

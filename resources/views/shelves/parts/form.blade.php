@@ -9,7 +9,14 @@
     <label for="description">{{ trans('common.description') }}</label>
     @include('form.textarea', ['name' => 'description'])
 </div>
-
+<div class="form-group no-input">
+    <label for="no">Menu No.</label>
+    @include('form.text', ['name' => 'no'])
+</div>
+<div class="form-group hidden-input">    
+    <label for="showonmenu">Show on menu</label>
+    <input value="1" type="checkbox" name="showonmenu" id="showonmenu" @if($model->showonmenu) checked @endif>
+</div>
 <div shelf-sort class="grid half gap-xl">
     <div class="form-group">
         <label for="books">{{ trans('entities.shelves_books') }}</label>

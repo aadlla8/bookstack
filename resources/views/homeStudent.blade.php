@@ -14,7 +14,7 @@
                             @endforeach
                             <input type="text" name="search" placeholder="search" @if($listDetails['search']) value="{{$listDetails['search']}}" @endif>
                             @if(userCan('settings-manage'))
-                                <a href="/Courses/create/" class="outline button mt-none">Thêm khóa đào tạo</a>
+                                <a href="/Courses/create/" class="outline button mt-none">Thêm bài trắc nghiệm</a>
                             @endif
                         </form>
                     </div>

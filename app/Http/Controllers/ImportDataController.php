@@ -52,18 +52,20 @@ class ImportDataController extends Controller
     public function store(Request $request)
     {
         if ($request->hasFile('coursePic')) {
-            $picNameWithExt = $request->file('coursePic')->getClientOriginalName();
-            $picName = pathinfo($picNameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('coursePic')->getClientOriginalExtension();
-            if ($extension != 'xlsx') {
-                echo 'only support .xlsx file.';
-                exit;
-            }
-            $picNameToStore = $picName . time() . "." . $extension;
-            $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
-
             DB::table('data_import')->truncate();
-            Excel::import(new ImportData, base_path() . '/public/coursePic/' . $picNameToStore);
+            if (DB::table('data_import')->count() == 0) {
+                $picNameWithExt = $request->file('coursePic')->getClientOriginalName();
+                $picName = pathinfo($picNameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('coursePic')->getClientOriginalExtension();
+                if ($extension != 'xlsx') {
+                    echo 'only support .xlsx file.';
+                    exit;
+                }
+                $picNameToStore = $picName . time() . "." . $extension;
+                $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
+
+                Excel::import(new ImportData, base_path() . '/public/coursePic/' . $picNameToStore);
+            }
 
             $pages = DB::table('data_import')->get();
 
@@ -71,84 +73,76 @@ class ImportDataController extends Controller
                 $shelf = null;
                 $book = null;
                 $chapter = null;
-
-                # code...
-                if ($page->shelf && $page->book && $page->chapter) {
-                    if ($page->shelf) {
-                        $shelf = $this->bookshelfRepo->getByName($page->shelf);
-                        if (!$shelf) {
-                            $arr = array();
-                            $arr['name'] = $page->shelf;
-                            $arr['description'] = $page->shelf;
-                            $shelf = $this->bookshelfRepo->create($arr, []);
-                        }
-                    }
-                    if ($page->book) {
-                        $book = $this->bookRepo->getByName($page->book);
-                        if (!$book) {
-                            $arr = array();
-                            $arr['name'] = $page->book;
-                            $arr['description'] = $page->book;
-                            $book = $this->bookRepo->create($arr);
-                            $shelf->appendBook($book);
-                        }
-                    }
-                    if ($page->chapter) {
-                        $chapter = $this->chapterRepo->getByName($book->id, $page->chapter);
-                        if (!$chapter) {
-                            $arr = array();
-                            $arr['name'] = $page->chapter;
-                            $arr['description'] = $page->chapter;
-                            $chapter = $this->chapterRepo->create($arr, $book);
-                        }
-                    }
-                } else if ($page->book && $page->chapter) {
-                    if ($page->book) {
-                        $book = $this->bookRepo->getByName($page->book);
-                        if (!$book) {
-                            $arr = array();
-                            $arr['name'] = $page->book;
-                            $arr['description'] = $page->book;
-                            $book = $this->bookRepo->create($arr);
-                        }
-                    }
-                    if ($page->chapter) {
-                        $chapter = $this->chapterRepo->getByName($book->id, $page->chapter);
-                        if (!$chapter) {
-                            $arr = array();
-                            $arr['name'] = $page->chapter;
-                            $arr['description'] = $page->chapter;
-                            $chapter = $this->chapterRepo->create($arr, $book);
-                        }
+                $shelf_title = '';
+                $book_title = '';
+                $chapter_title = '';
+                if ($page->root) {
+                    $shelf_title = $page->root;
+                    $book_title = $page->shelf;
+                    $chapter_title = $page->chapter;
+                } else if ($page->shelf) {
+                    $shelf_title = $page->shelf;
+                    $book_title = $page->book;
+                    $chapter_title = $page->chapter;
+                } else if ($page->book) {
+                    $shelf_title = $page->book;
+                    $book_title = $page->chapter;
+                    if ($page->page_description != $page->page_title) {
+                        $chapter_title = $page->page_description;
                     }
                 } else if ($page->chapter) {
-                    if ($page->chapter) {
-                        $book = $this->bookRepo->getByName($page->chapter);
-                        if (!$book) {
-                            $arr = array();
-                            $arr['name'] = $page->chapter;
-                            $arr['description'] = $page->chapter;
-                            $book = $this->bookRepo->create($arr);
-                        }
+                    $shelf_title = $page->chapter;
+                    $book_title = $page->page_description;
+                } else if ($page->page_description) {
+                    $shelf_title = $page->page_description;
+                    $book_title = $page->page_title;
+                }
+
+                # code...
+
+                if ($shelf_title) {
+                    $shelf = $this->bookshelfRepo->getByName($shelf_title);
+                    if (!$shelf) {
+                        $arr = array();
+                        $arr['name'] = $shelf_title;
+                        $shelf = $this->bookshelfRepo->create($arr, []);
                     }
                 }
-                $chapterslug = '';
-                if ($chapter)
-                    $chapterslug = $chapter->slug;
+                if ($book_title) {
+                    $book = $this->bookRepo->getByName($book_title);
+                    if (!$book) {
+                        $arr = array();
+                        $arr['name'] = $book_title;
+                        $book = $this->bookRepo->create($arr);
+                        $shelf->appendBook($book);
+                    }
+                }
 
+                if ($chapter_title) {
+                    $chapter = $this->chapterRepo->getByName($book->id, $chapter_title);
+                    if (!$chapter) {
+                        $arr = array();
+                        $arr['name'] = $chapter_title;
+                        $chapter = $this->chapterRepo->create($arr, $book);
+                    }
+                }
 
-                $parent = $this->pageRepo->getParentFromSlugs($book->slug, $chapterslug);
+                $chapter_slug = null;
+                if ($chapter) {
+                    $chapter_slug = $chapter->slug;
+                }
+
+                $parent = $this->pageRepo->getParentFromSlugs($book->slug, $chapter_slug);
 
                 $this->checkOwnablePermission('page-create', $parent);
-               
+
                 if ($this->isSignedIn()) {
                     $draft = $this->pageRepo->getNewDraftPage($parent);
-                   
+
                     $this->pageRepo->publishDraft($draft, [
                         'name' => $page->page_title,
-                        'html' => $page->page_content,
+                        'html' => str_replace("]]>", "", str_replace("<![CDATA[", "", $page->page_content)),
                     ]);
-
                 }
             }
             echo 'import data success.';

@@ -42469,7 +42469,7 @@
             }
           }).catch((err) => {
           });
-        }, 3e3);
+        }, 5e3);
         return;
       }
       if (this.container.tagName === "A" && this.type == "export") {

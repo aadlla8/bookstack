@@ -12,7 +12,7 @@ class Bookshelf extends Entity implements HasCoverImage
 
     public $searchFactor = 3;
 
-    protected $fillable = ['name', 'description', 'image_id'];
+    protected $fillable = ['name', 'description', 'image_id', 'no', 'showonmenu'];
 
     protected $hidden = ['restricted', 'image_id', 'deleted_at'];
 

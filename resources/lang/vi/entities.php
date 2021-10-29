@@ -74,8 +74,8 @@ return [
     'search_update' => 'Cập nhật tìm kiếm',
 
     // Shelves
-    'shelf' => 'Giá',
-    'shelves' => 'Giá',
+    'shelf' => 'Giá sách',
+    'shelves' => 'Giá sách',
     'x_shelves' => ':count Giá |:count Giá',
     'shelves_long' => 'Giá sách',
     'shelves_empty' => 'Không có giá nào được tạo',
@@ -324,7 +324,7 @@ return [
     'revision_delete_success' => 'Phiên bản đã được xóa',
     'revision_cannot_delete_latest' => 'Không thể xóa phiên bản mới nhất.',
     //course
-    'courses' => 'Đào tạo',
+    'courses' => 'Trắc nghiệm Online',
     'course_edit' => 'Sửa khóa học',
     'course_delete' => 'Xóa khóa học',
     'exam_edit' => 'Sửa bài test',

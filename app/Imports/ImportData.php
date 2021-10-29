@@ -17,9 +17,11 @@ class ImportData implements ToModel
         return new DataImport([
             'page_title'     => $row[0],
             'page_content'    => $row[1],
-            'chapter' => $row[2],
-            'book' => $row[3],
-            'shelf' => $row[4],
+            'page_description' => $row[2],
+            'chapter' => $row[3],
+            'book' => $row[4],
+            'shelf' => $row[5],
+            'root' => $row[6]
         ]);
     }
 }

@@ -36,6 +36,7 @@
                             <a href="{{ url('/shelves') }}">@icon('bookshelf'){{ trans('entities.shelves') }}</a>
                         @endif
                         <a href="{{ url('/books') }}">@icon('books'){{ trans('entities.books') }}</a>
+                        <a href="/homeStudent">Trắc nghiệm</a>
                         @if(signedInUser() && userCan('settings-manage'))
                             <a href="{{ url('/settings') }}">@icon('settings'){{ trans('settings.settings') }}</a>
                         @endif
@@ -93,6 +94,7 @@
     <ul id="main-menu" class="sm sm-mint">
          
         @foreach (shelfs() as $shelf)
+            @if($shelf->name=='Tin tức' || signedInUser())
             <li>
                 <a href="/shelves/{{ $shelf->slug }}">{{ $shelf->name }}</a>
                 @if ($shelf->books->count()>0)
@@ -122,17 +124,13 @@
                                         @endif
                                     </ul>
                                 @endif
-                            </li>
-                            
-                        @endforeach
-                       
+                            </li>                            
+                        @endforeach                       
                     </ul>                
                 @endif
-            </li>                        
-        @endforeach                  
-        <li><a href="/homeStudent">Đào tạo</a></li>      
-        <li component='delete-button'>
-           
-        </li>  
+            </li>  
+            @endif                      
+        @endforeach
+        <li component='delete-button'></li>  
       </ul>
 </header>

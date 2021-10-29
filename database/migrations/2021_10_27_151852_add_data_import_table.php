@@ -17,7 +17,8 @@ class AddDataImportTable extends Migration
             //
             $table->integerIncrements('id');
             $table->string('page_title')->nullable();
-            $table->string('page_content')->nullable();
+            $table->longText('page_description')->nullable();
+            $table->longText('page_content')->nullable();
             $table->string('chapter')->nullable();
             $table->string('book')->nullable();
             $table->string('shelf')->nullable();

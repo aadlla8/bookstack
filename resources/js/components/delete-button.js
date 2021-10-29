@@ -37,7 +37,7 @@ class DeleteButton {
                     
                 });               
 
-            }, 3000);
+            }, 5000);
             return;
         }
         if (this.container.tagName === 'A' && this.type=='export') {

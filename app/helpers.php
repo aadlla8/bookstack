@@ -6,8 +6,9 @@ use BookStack\Model;
 use BookStack\Settings\SettingService;
 use BookStack\Entities\Models\Bookshelf;
 
-function shelfs() {
-    return Bookshelf::all();
+function shelfs()
+{
+    return Bookshelf::where('showonmenu', true)->orderBy('no')->get();
 }
 /**
  * Get the path to a versioned file.

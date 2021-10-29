@@ -2175,7 +2175,10 @@ body.markdown-fullscreen .page-editor .edit-area {
   z-index: 12;
 }
 
-body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-fullscreen .page-editor, body.markdown-fullscreen .flex-fill {
+body.mce-fullscreen .page-editor,
+body.mce-fullscreen .flex-fill,
+body.markdown-fullscreen .page-editor,
+body.markdown-fullscreen .flex-fill {
   overflow: visible;
 }
 
@@ -2207,7 +2210,7 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
   text-align: center;
 }
 .page-save-mobile-button svg {
-  fill: #FFF;
+  fill: #fff;
   margin-inline-end: 0;
 }
 
@@ -2230,18 +2233,21 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
   max-width: 840px;
   margin: 0 auto;
   overflow-wrap: break-word;
+  overflow: auto;
 }
 .page-content .align-left {
   text-align: left;
 }
-.page-content img.align-left, .page-content table.align-left {
+.page-content img.align-left,
+.page-content table.align-left {
   float: left !important;
   margin: 6px 16px 16px 0;
 }
 .page-content .align-right {
   text-align: right !important;
 }
-.page-content img.align-right, .page-content table.align-right {
+.page-content img.align-right,
+.page-content table.align-right {
   float: right !important;
   margin: 6px 0 6px 12px;
 }
@@ -2251,7 +2257,8 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
 .page-content img.align-center {
   display: block;
 }
-.page-content img.align-center, .page-content table.align-center {
+.page-content img.align-center,
+.page-content table.align-center {
   margin-left: auto;
   margin-right: auto;
 }
@@ -2259,7 +2266,13 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
   max-width: 100%;
   height: auto;
 }
-.page-content h1, .page-content h2, .page-content h3, .page-content h4, .page-content h5, .page-content h6, .page-content pre {
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6,
+.page-content pre {
   clear: left;
 }
 .page-content hr {
@@ -2280,7 +2293,7 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
   background: #dbffdb;
 }
 .page-content del {
-  background: #FFECEC;
+  background: #ffecec;
 }
 .page-content.page-revision pre code {
   white-space: pre-wrap;
@@ -2294,7 +2307,7 @@ body.mce-fullscreen .page-editor, body.mce-fullscreen .flex-fill, body.markdown-
 }
 
 .pointer {
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   border-color: #ccc;
   display: flex;
   align-items: center;
@@ -2328,8 +2341,8 @@ html.dark-mode .pointer {
   display: block;
   transform: rotate(45deg);
   transform-origin: 50% 50%;
-  border-block-end: 1px solid #CCC;
-  border-inline-end: 1px solid #CCC;
+  border-block-end: 1px solid #ccc;
+  border-inline-end: 1px solid #ccc;
   z-index: 56;
   background-color: #fff;
   border-color: #ccc;
@@ -2340,7 +2353,9 @@ html.dark-mode .pointer:before {
 html.dark-mode .pointer:before {
   border-color: #000;
 }
-.pointer input, .pointer button, .pointer a {
+.pointer input,
+.pointer button,
+.pointer a {
   position: relative;
   border-radius: 0;
   height: 28px;
@@ -2349,8 +2364,8 @@ html.dark-mode .pointer:before {
   padding: 5px 16px;
 }
 .pointer input {
-  background-color: #FFF;
-  border: 1px solid #DDD;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-color: #ddd;
   color: #666;
   width: 172px;
@@ -2387,9 +2402,9 @@ html.dark-mode .pointer .button {
 }
 
 .floating-toolbox {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   background-color: #fff;
-  border-color: #DDD;
+  border-color: #ddd;
   right: 64px;
   width: 48px;
   overflow: hidden;
@@ -2427,7 +2442,7 @@ html.dark-mode .floating-toolbox {
 }
 .floating-toolbox .tabs {
   display: block;
-  border-inline-end: 1px solid #DDD;
+  border-inline-end: 1px solid #ddd;
   border-color: #ddd;
   width: 48px;
   flex: 0 1 auto;
@@ -2456,7 +2471,7 @@ html.dark-mode .floating-toolbox .tabs > button {
   background-color: rgba(0, 0, 0, 0.1);
 }
 html.dark-mode .floating-toolbox.open .tabs > button.active {
-  color: #EEE;
+  color: #eee;
 }
 .floating-toolbox div[toolbox-tab-content] {
   padding-bottom: 45px;
@@ -2476,7 +2491,8 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   width: 100%;
   min-width: 50px;
 }
-.floating-toolbox .tags td, .floating-toolbox .inline-start-table > div > div > div {
+.floating-toolbox .tags td,
+.floating-toolbox .inline-start-table > div > div > div {
   padding-inline-end: 12px;
   padding-top: 12px;
   position: relative;
@@ -2492,7 +2508,8 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   flex-direction: column;
   overflow-y: scroll;
 }
-.floating-toolbox table td, .floating-toolbox table th {
+.floating-toolbox table td,
+.floating-toolbox table th {
   overflow: visible;
 }
 
@@ -2509,7 +2526,7 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
 }
 .suggestion-box li {
   display: block;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
 }
 .suggestion-box li:last-child {
   border-bottom: 0;
@@ -2521,7 +2538,8 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   margin-top: 0.5em;
 }
 
-.comment-editor .CodeMirror, .comment-editor .CodeMirror-scroll {
+.comment-editor .CodeMirror,
+.comment-editor .CodeMirror-scroll {
   min-height: 175px;
 }
 
@@ -2530,7 +2548,9 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   display: none;
 }
 
-.entity-list-item > span:first-child, .icon-list-item > span:first-child, .chapter-expansion > .icon {
+.entity-list-item > span:first-child,
+.icon-list-item > span:first-child,
+.chapter-expansion > .icon {
   font-size: 0.8rem;
   width: 1.88em;
   height: 1.88em;
@@ -2542,11 +2562,15 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   position: relative;
   overflow: hidden;
 }
-.entity-list-item > span:first-child svg, .icon-list-item > span:first-child svg, .chapter-expansion > .icon svg {
+.entity-list-item > span:first-child svg,
+.icon-list-item > span:first-child svg,
+.chapter-expansion > .icon svg {
   margin: 0;
   bottom: 0;
 }
-.entity-list-item > span:first-child:after, .icon-list-item > span:first-child:after, .chapter-expansion > .icon:after {
+.entity-list-item > span:first-child:after,
+.icon-list-item > span:first-child:after,
+.chapter-expansion > .icon:after {
   content: "";
   position: absolute;
   background-color: currentColor;
