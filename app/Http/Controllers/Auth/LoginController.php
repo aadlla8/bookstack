@@ -106,8 +106,10 @@ class LoginController extends Controller
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
 
             Activity::logFailedLogin($username);
@@ -179,7 +181,7 @@ class LoginController extends Controller
         $authMethod = config('auth.method');
 
         if ($authMethod === 'standard') {
-            $rules['email'] = 'required|email';
+            $rules['email'] = 'required';
         }
 
         if ($authMethod === 'ldap') {

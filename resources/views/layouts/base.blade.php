@@ -6,7 +6,7 @@
     <title>{{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ setting('app-name') }}</title>
 
     <!-- Meta -->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="token" content="{{ csrf_token() }}">
     <meta name="base-url" content="{{ url('/') }}">
     <meta charset="utf-8">

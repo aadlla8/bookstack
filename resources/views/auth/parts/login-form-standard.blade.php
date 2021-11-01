@@ -3,7 +3,7 @@
 
     <div class="stretch-inputs">
         <div class="form-group">
-            <label for="email">{{ trans('auth.email') }}</label>
+            <label for="email">{{ trans('auth.email') }} / Username</label>
             @include('form.text', ['name' => 'email', 'autofocus' => true])
         </div>
 

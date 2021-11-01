@@ -2,20 +2,14 @@
 
 namespace BookStack\Http\Controllers;
 
-
 use Illuminate\Support\Facades\DB;
 use BookStack\Imports\ImportData;
-use Bookstack\DataImport;
 use Session;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use BookStack\Entities\Repos\BookshelfRepo;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Uploads\ImageRepo;
-use BookStack\Entities\Models\Bookshelf;
-use BookStack\Entities\Models\Book;
-use BookStack\Entities\Models\Chapter;
-use BookStack\Entities\Models\Page;
 use BookStack\Entities\Tools\ShelfContext;
 use BookStack\Entities\Repos\ChapterRepo;
 use BookStack\Entities\Repos\PageRepo;
@@ -57,14 +51,14 @@ class ImportDataController extends Controller
                 $picNameWithExt = $request->file('coursePic')->getClientOriginalName();
                 $picName = pathinfo($picNameWithExt, PATHINFO_FILENAME);
                 $extension = $request->file('coursePic')->getClientOriginalExtension();
-                if ($extension != 'xlsx') {
-                    echo 'only support .xlsx file.';
+                if ($extension == 'xlsx' || $extension == 'xls') {
+                    $picNameToStore = $picName . time() . "." . $extension;
+                    $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
+                    Excel::import(new ImportData, base_path() . '/public/coursePic/' . $picNameToStore);
+                } else {
+                    echo 'only support .xlsx .xls file.';
                     exit;
                 }
-                $picNameToStore = $picName . time() . "." . $extension;
-                $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
-
-                Excel::import(new ImportData, base_path() . '/public/coursePic/' . $picNameToStore);
             }
 
             $pages = DB::table('data_import')->get();

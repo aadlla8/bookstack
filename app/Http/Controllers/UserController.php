@@ -75,7 +75,7 @@ class UserController extends Controller
         $this->checkPermission('users-manage');
         $validationRules = [
             'name'  => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|unique:users,email',
         ];
 
         $authMethod = config('auth.method');
@@ -156,7 +156,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name'             => 'min:2',
-            'email'            => 'min:2|email|unique:users,email,' . $id,
+            'email'            => 'min:2|unique:users,email,' . $id,
             'password'         => 'min:6|required_with:password_confirm',
             'password-confirm' => 'same:password|required_with:password',
             'setting'          => 'array',
