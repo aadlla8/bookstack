@@ -144,7 +144,7 @@ $btt-size: 40px;
   background-color: #fff;
   z-index: 15;
   border-radius: 0 4px 4px 0;
-  display: block;
+  display: none;
   box-shadow: $bs-dark;
   font-weight: bold;
   &:focus {
@@ -336,7 +336,7 @@ table.table .table-entity-item {
 body {
   margin: 0px;
   padding: 0px;
-  background-image: url("../images/computer-board.jpg");
+
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 16px;
@@ -553,6 +553,7 @@ h1 {
 body {
   background-color: #f4f4f4;
   font-size: 16px;
+  zoom: 0.9;
 }
 
 h1 {

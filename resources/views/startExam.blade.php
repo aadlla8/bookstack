@@ -6,14 +6,14 @@
     </style>
     <main class="container small card content-wrap">
         <div class="start-exam-course">
-            <div class="subject-header"><strong>Subject</strong></div>
+            <div class="subject-header"><strong>Tiêu đề bài thi</strong></div>
             <div class="subject-body container">
-                {{ $exam->course->subject }}
-            </div>
+                {{ $exam->course->subject }} <br>
+                 {{ $exam->title }} Exam  
+            </div>           
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading"> {{ $exam->title }} Exam </div>
-             
+        <hr>
+        <div class="panel panel-primary"> 
             <div class="panel-body start-exam-div">
                 <form id="myForm" action="{{ url('check-result/'.$exam->id) }}" method="post">
                     @csrf
@@ -27,25 +27,41 @@
                                     <div class="form-check">
                                         <input type="radio" class="form-check" name="{{ $question->id }}"
                                                value="{{ $option->id }}" id="{{ $option->id }}">
-                                        <label class="form-check-label" for="{{ $option->id }}">
+                                        <label class="form-check-label" for="{{ $option->id }}" style="display:inline">
                                             {{ $option->value }}
                                         </label>
                                     </div>
+                                    
                                 @endforeach
                             </div>                            
                         </div>
+                        <hr>
                     @endforeach
                     <div class="submit-questions">
-                        <input type="submit" id="btn-add" class="btn btn-danger" value="Finished">
+                        <input type="submit" id="btn-add" class="btn btn-danger" value="Nộp bài thi">
                     </div>
                 </form>
             </div>
         </div>
     </main>
-
-    <script src="{{ asset('js/jQuery 4.3.1.js') }}"></script>
-    <script>
+ 
+@endsection
+@section('scripts')
+    <script nonce="{{ $cspNonce }}">
         $(document).ready(function () {
+            $('#myForm').on('submit',function(){
+
+                let totalQ=({{$exam->questions->count()}});
+                let totalChecked=0;
+                let arr = $('.form-check[type=radio]');
+                for(let i=0;i<arr.length;i++) {
+                    if(arr[i].checked) totalChecked++;
+                }
+                
+                if(totalChecked < totalQ) {                        
+                    return confirm(`Bạn chưa hoàn thành bài thi (${totalChecked}/${totalQ}), nhưng vẫn muốn nộp bài bấm Ok.\nTiếp tục làm bài bấm Cancel?`);                        
+                }                    
+            });
             var duration = "{{ $exam->duration }}";
             duration = duration.split(":");
             var hours = duration[0];
@@ -75,9 +91,7 @@
                 $('.exam-title strong').text(hours + ":" + mins + ":" + sec);
             }, 1000);
 
-            $(window).bind('beforeunload', function() {
-                return true;
-            });
+                
         });
-    </script>
+    </script>   
 @endsection

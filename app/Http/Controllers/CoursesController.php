@@ -159,7 +159,7 @@ class CoursesController extends Controller
             $picNameToStore = $picName . time() . "." . $extension;
             $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
 
-            DB::table('question_import')->truncate();
+            DB::table('question_import')->where('is_persistent','0')->delete();
             Excel::import(new ImportQuestionOption, base_path() . '/public/coursePic/' . $picNameToStore);
             $exam = Exam::all()->where("course_id", $courses->id)->first();
 
@@ -180,7 +180,7 @@ class CoursesController extends Controller
                 $exam->save();
             }
 
-            $questions = DB::table('question_import')->get();
+            $questions = DB::table('question_import')->where('is_persistent',0)->get();
             foreach ($questions as $question) {
                 # code...
                 if ($question->title == "Title") continue;
@@ -200,8 +200,6 @@ class CoursesController extends Controller
                         $option->value = $question->$ptyn;
                         $option->quest_id = $q->id;
                         $option->save();
-
-
 
                         if (strtolower($options[$i - 1]) == strtolower($question->correct_ans)) {
                             $q->correct_ans = $option->id;

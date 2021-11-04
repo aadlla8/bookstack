@@ -80,10 +80,7 @@
                                     <a href="{{ url('/logout') }}">@icon('logout'){{ trans('auth.logout') }}</a>
                                 @endif
                             </li>
-                            <li><hr></li>
-                            <li>
-                                @include('common.dark-mode-toggle')
-                            </li>                           
+                                                     
                         </ul>
                     </div>
                 @endif              
@@ -91,8 +88,7 @@
         </div>
 
     </div>
-    <ul id="main-menu" class="sm sm-mint">
-         
+    <ul id="main-menu" class="sm sm-mint">         
         @foreach (shelfs() as $shelf)
             @if($shelf->name=='Tin tức' || signedInUser())
             <li>

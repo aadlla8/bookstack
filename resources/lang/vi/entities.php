@@ -325,9 +325,9 @@ return [
     'revision_cannot_delete_latest' => 'Không thể xóa phiên bản mới nhất.',
     //course
     'courses' => 'Trắc nghiệm Online',
-    'course_edit' => 'Sửa khóa học',
-    'course_delete' => 'Xóa khóa học',
-    'exam_edit' => 'Sửa bài test',
-    'exam_delete' => 'Xóa bài test',
-    'exam_add' => 'Thêm bài test',
+    'course_edit' => 'Sửa bài trắc nghiệm',
+    'course_delete' => 'Xóa bài trắc nghiệm',
+    'exam_edit' => 'Sửa câu hỏi',
+    'exam_delete' => 'Xóa tất cả câu hỏi',
+    'exam_add' => 'Thêm câu hỏi',
 ];

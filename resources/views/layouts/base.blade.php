@@ -56,7 +56,8 @@
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
     <!-- jQuery -->
      
-    <script src="{{ url('/libs/jquery.js')}}" nonce="{{ $cspNonce }}"></script>
+    <script src="{{ url('/libs/jquery-3.5.1.js')}}" nonce="{{ $cspNonce }}"></script>
+    
     <!-- SmartMenus jQuery plugin -->
     <script src="{{ url('/libs/jquery.smartmenus.js')}}" nonce="{{ $cspNonce }}"></script>
     <!-- SmartMenus jQuery init -->
@@ -67,7 +68,10 @@
                 subMenusSubOffsetY: -8
             });
         });
-    </script>
+
+         
+    </script>    
+
     @yield('scripts')
 
       

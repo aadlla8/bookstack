@@ -15,7 +15,7 @@
 </div>
 <div class="form-group hidden-input">    
     <label for="showonmenu">Show on menu</label>
-    <input value="1" type="checkbox" name="showonmenu" id="showonmenu" @if($model->showonmenu) checked @endif>
+    <input value="1" type="checkbox" name="showonmenu" id="showonmenu" @if(isset($model)&&$model->showonmenu) checked @endif>
 </div>
 <div shelf-sort class="grid half gap-xl">
     <div class="form-group">

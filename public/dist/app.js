@@ -42451,8 +42451,8 @@
       if (this.container.tagName === "LI") {
         setInterval(() => {
           let last = localStorage.getItem("notification");
-          let token = "JUAHp3JMfPiz5aOagSF8ULSymImVsl9N";
-          let secret = "1U4ihSr06tOqQDe43l5e19iUb95yQfmJ";
+          let token = "mVUDW9EhwLxuYS4C5UNDTPANqzf4JOCZ";
+          let secret = "8QtWTEifeOA5hpPhWRTHXo4eeup90FDl";
           fetch("/api/activities?last=" + last, {
             method: "GET",
             headers: {
@@ -42465,7 +42465,9 @@
           }).then((res) => {
             if (res.length > 0 && localStorage.getItem("notification") != res[0].id) {
               localStorage.setItem("notification", res[0].id);
-              window.$events.emit("success2", "" + res[0].type + " " + res[0].entity.name + " by " + res[0].user.name + " at " + res[0].entity.updated_at);
+              if (res[0].entity.name != "") {
+                window.$events.emit("success2", "" + res[0].type + " " + res[0].entity.name + " by " + res[0].user.name + " at " + res[0].entity.updated_at);
+              }
             }
           }).catch((err) => {
           });

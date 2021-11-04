@@ -38,7 +38,7 @@ return [
     'app_homepage_desc' => 'Chọn hiển thị để hiện tại trang chủ thay cho hiển thị mặc định. Quyền cho trang được bỏ qua cho các trang được chọn.',
     'app_homepage_select' => 'Chọn một trang',
     'app_footer_links' => 'Footer Links',
-    'app_footer_links_desc' => 'Add links to show within the site footer. These will be displayed at the bottom of most pages, including those that do not require login. You can use a label of "trans::<key>" to use system-defined translations. For example: Using "trans::common.privacy_policy" will provide the translated text "Privacy Policy" and "trans::common.terms_of_service" will provide the translated text "Terms of Service".',
+    'app_footer_links_desc' => 'Thêm links để hiển thị dưới phần chân trang ở hầu hết các trang, không bao gồm trang login. Bạn có thể sử dụng nhãn "trans::<key>" để sử dụng từ dịch bởi hệ thống. Ví dụ: Sử dụng "trans::common.privacy_policy" sẽ dịch thành "Privacy Policy" và "trans::common.terms_of_service" sẽ cho kết quả "Terms of Service".',
     'app_footer_links_label' => 'Link Label',
     'app_footer_links_url' => 'Link URL',
     'app_footer_links_add' => 'Add Footer Link',

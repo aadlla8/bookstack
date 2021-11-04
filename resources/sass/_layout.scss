@@ -255,8 +255,7 @@ body.flexbox {
  */
 .tri-layout-container {
   display: grid;
-  margin-inline-start: $-xl;
-  margin-inline-end: $-xl;
+   
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "a b c";
   grid-column-gap: $-xxl;

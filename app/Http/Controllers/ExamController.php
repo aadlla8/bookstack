@@ -175,11 +175,12 @@ class ExamController extends Controller
         DB::update('update courses_student set updated_at = now() where student_id = ?', [user()->id]);
         return view('examResult')->with(compact('exam', 'student', 'percent'));
     }
-    public function resetResult($id)
+    public function resetResult($id, $stdid)
     {
-        $course = DB::select('select * from courses_student where student_id = ?', [$id]);
+        $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
         if ($course) {
-            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where student_id=?', [$id]);
+        $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
+            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where course_id=? and student_id = ?', [$id,$stdid]);
         }
 
         return redirect("/courses/" . $id);
@@ -194,10 +195,13 @@ class ExamController extends Controller
     public function destroy($id)
     {
         $course = Courses::find($id);
-        if (user()->id == $course->lec_id) {
+        if (userCan('settings-manage')) {
 
-            $exam = Exam::query()->where('course_id', $id);
-            $exam->delete();
+            $exam = Exam::query()->where('course_id', $id)->first();
+            //$exam->delete();
+            foreach ($exam->questions as $q) {
+                $q->delete();
+            }
         }
         return redirect("/courses/" . $id);
     }

@@ -145,63 +145,63 @@ table {
 }
 
 .m-s {
-  margin: 12px !important;
+  margin: 8px !important;
 }
 
 .mx-s {
-  margin-inline-start: 12px !important;
-  margin-inline-end: 12px !important;
+  margin-inline-start: 8px !important;
+  margin-inline-end: 8px !important;
 }
 
 .my-s {
-  margin-top: 12px !important;
-  margin-bottom: 12px !important;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
 }
 
 .mt-s {
-  margin-top: 12px !important;
+  margin-top: 8px !important;
 }
 
 .mr-s {
-  margin-inline-end: 12px !important;
+  margin-inline-end: 8px !important;
 }
 
 .mb-s {
-  margin-bottom: 12px !important;
+  margin-bottom: 8px !important;
 }
 
 .ml-s {
-  margin-inline-start: 12px !important;
+  margin-inline-start: 8px !important;
 }
 
 .m-m {
-  margin: 16px !important;
+  margin: 10px !important;
 }
 
 .mx-m {
-  margin-inline-start: 16px !important;
-  margin-inline-end: 16px !important;
+  margin-inline-start: 10px !important;
+  margin-inline-end: 10px !important;
 }
 
 .my-m {
-  margin-top: 16px !important;
-  margin-bottom: 16px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .mt-m {
-  margin-top: 16px !important;
+  margin-top: 10px !important;
 }
 
 .mr-m {
-  margin-inline-end: 16px !important;
+  margin-inline-end: 10px !important;
 }
 
 .mb-m {
-  margin-bottom: 16px !important;
+  margin-bottom: 10px !important;
 }
 
 .ml-m {
-  margin-inline-start: 16px !important;
+  margin-inline-start: 10px !important;
 }
 
 .m-l {
@@ -265,33 +265,33 @@ table {
 }
 
 .m-xxl {
-  margin: 48px !important;
+  margin: 10px !important;
 }
 
 .mx-xxl {
-  margin-inline-start: 48px !important;
-  margin-inline-end: 48px !important;
+  margin-inline-start: 10px !important;
+  margin-inline-end: 10px !important;
 }
 
 .my-xxl {
-  margin-top: 48px !important;
-  margin-bottom: 48px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .mt-xxl {
-  margin-top: 48px !important;
+  margin-top: 10px !important;
 }
 
 .mr-xxl {
-  margin-inline-end: 48px !important;
+  margin-inline-end: 10px !important;
 }
 
 .mb-xxl {
-  margin-bottom: 48px !important;
+  margin-bottom: 10px !important;
 }
 
 .ml-xxl {
-  margin-inline-start: 48px !important;
+  margin-inline-start: 10px !important;
 }
 
 .m-auto {
@@ -415,63 +415,63 @@ table {
 }
 
 .p-s {
-  padding: 12px !important;
+  padding: 8px !important;
 }
 
 .px-s {
-  padding-inline-start: 12px !important;
-  padding-inline-end: 12px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 8px !important;
 }
 
 .py-s {
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 .pt-s {
-  padding-top: 12px !important;
+  padding-top: 8px !important;
 }
 
 .pr-s {
-  padding-inline-end: 12px !important;
+  padding-inline-end: 8px !important;
 }
 
 .pb-s {
-  padding-bottom: 12px !important;
+  padding-bottom: 8px !important;
 }
 
 .pl-s {
-  padding-inline-start: 12px !important;
+  padding-inline-start: 8px !important;
 }
 
 .p-m {
-  padding: 16px !important;
+  padding: 10px !important;
 }
 
 .px-m {
-  padding-inline-start: 16px !important;
-  padding-inline-end: 16px !important;
+  padding-inline-start: 10px !important;
+  padding-inline-end: 10px !important;
 }
 
 .py-m {
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .pt-m {
-  padding-top: 16px !important;
+  padding-top: 10px !important;
 }
 
 .pr-m {
-  padding-inline-end: 16px !important;
+  padding-inline-end: 10px !important;
 }
 
 .pb-m {
-  padding-bottom: 16px !important;
+  padding-bottom: 10px !important;
 }
 
 .pl-m {
-  padding-inline-start: 16px !important;
+  padding-inline-start: 10px !important;
 }
 
 .p-l {
@@ -535,33 +535,33 @@ table {
 }
 
 .p-xxl {
-  padding: 48px !important;
+  padding: 10px !important;
 }
 
 .px-xxl {
-  padding-inline-start: 48px !important;
-  padding-inline-end: 48px !important;
+  padding-inline-start: 10px !important;
+  padding-inline-end: 10px !important;
 }
 
 .py-xxl {
-  padding-top: 48px !important;
-  padding-bottom: 48px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .pt-xxl {
-  padding-top: 48px !important;
+  padding-top: 10px !important;
 }
 
 .pr-xxl {
-  padding-inline-end: 48px !important;
+  padding-inline-end: 10px !important;
 }
 
 .pb-xxl {
-  padding-bottom: 48px !important;
+  padding-bottom: 10px !important;
 }
 
 .pl-xxl {
-  padding-inline-start: 48px !important;
+  padding-inline-start: 10px !important;
 }
 
 .p-auto {
@@ -607,7 +607,7 @@ table {
 html {
   height: 100%;
   overflow-y: scroll;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 html.flexbox {
   overflow-y: hidden;
@@ -626,7 +626,7 @@ body {
   flex-direction: column;
 }
 html.dark-mode body {
-  color: #AAA;
+  color: #aaa;
 }
 
 /**
@@ -872,7 +872,7 @@ blockquote {
   position: relative;
   border-left: 4px solid var(--color-primary);
   background-color: #f8f8f8;
-  padding: 12px 16px 12px 32px;
+  padding: 8px 10px 8px 32px;
   overflow: auto;
 }
 html.dark-mode blockquote {
@@ -883,8 +883,8 @@ blockquote:before {
   font-size: 2em;
   font-weight: bold;
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 8px;
+  left: 8px;
   color: #777777;
 }
 
@@ -960,8 +960,8 @@ ol {
 }
 
 ol, ul {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 li > ol, li > ul {
@@ -971,13 +971,13 @@ li > ol, li > ul {
   margin-block-start: 0;
   padding-block-end: 0;
   padding-block-start: 0;
-  padding-left: 19.2px;
-  padding-right: 19.2px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 li.checkbox-item, li.task-list-item {
   list-style: none;
-  margin-left: -19.2px;
+  margin-left: -12px;
 }
 li.checkbox-item input[type=checkbox], li.task-list-item input[type=checkbox] {
   margin-right: 6px;
@@ -1117,7 +1117,7 @@ li.checkbox-item li.checkbox-item, li.checkbox-item li.task-list-item, li.task-l
  * Grouping
  */
 .header-group {
-  margin: 16px 0;
+  margin: 10px 0;
 }
 .header-group h1, .header-group h2, .header-group h3, .header-group h4, .header-group h5, .header-group h6 {
   margin: 0;
@@ -1264,8 +1264,8 @@ html.dark-mode .text-dark {
   max-width: 1400px;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  padding-inline-start: 16px;
-  padding-inline-end: 16px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
 }
 .container.small {
   max-width: 840px;
@@ -1302,8 +1302,8 @@ html.dark-mode .text-dark {
   grid-row-gap: 32px;
 }
 .grid.gap-xxl {
-  grid-column-gap: 48px;
-  grid-row-gap: 48px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 .grid.v-center {
   align-items: center;
@@ -1335,8 +1335,8 @@ html.dark-mode .text-dark {
   }
 
   .grid.gap-xl {
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 
   .grid.right-focus.reverse-collapse > *:nth-child(2) {
@@ -1566,11 +1566,9 @@ body.flexbox #content {
  */
 .tri-layout-container {
   display: grid;
-  margin-inline-start: 32px;
-  margin-inline-end: 32px;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "a b c";
-  grid-column-gap: 48px;
+  grid-column-gap: 10px;
 }
 .tri-layout-container .tri-layout-right {
   grid-area: c;
@@ -1582,7 +1580,7 @@ body.flexbox #content {
 }
 .tri-layout-container .tri-layout-middle {
   grid-area: b;
-  padding-top: 16px;
+  padding-top: 10px;
   min-width: 0;
 }
 
@@ -1596,15 +1594,15 @@ body.flexbox #content {
 @media screen and (min-width: 1000px) and (max-width: 1400px) {
   .tri-layout-left {
     position: sticky;
-    top: 16px;
+    top: 10px;
   }
 }
 @media screen and (min-width: 1400px) {
   .tri-layout-left-contents,
 .tri-layout-right-contents {
-    padding: 16px;
+    padding: 10px;
     position: sticky;
-    top: 16px;
+    top: 10px;
     max-height: 100vh;
     min-height: 50vh;
     overflow-y: scroll;
@@ -1633,8 +1631,8 @@ body.flexbox #content {
   }
   .tri-layout-container .tri-layout-left-contents,
 .tri-layout-container .tri-layout-right-contents {
-    padding-inline-start: 16px;
-    padding-inline-end: 16px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
   }
   .tri-layout-container .tri-layout-left > *,
 .tri-layout-container .tri-layout-right > * {
@@ -1702,7 +1700,7 @@ body.flexbox #content {
 .callout {
   border-inline-start: 3px solid #BBB;
   background-color: #EEE;
-  padding: 12px 12px 12px 32px;
+  padding: 8px 8px 8px 32px;
   display: block;
   position: relative;
   overflow: auto;
@@ -1792,7 +1790,7 @@ html.dark-mode .card {
   background-color: #222;
 }
 .card .body, .card p.empty-text {
-  padding: 16px;
+  padding: 10px;
 }
 .card a, .card p {
   word-wrap: break-word;
@@ -1800,7 +1798,7 @@ html.dark-mode .card {
 }
 
 .card-title {
-  padding: 16px 16px 6px;
+  padding: 10px 10px 6px;
   margin: 0;
   font-size: 14px;
   color: #222;
@@ -1822,8 +1820,8 @@ html.dark-mode .card {
   background-color: #fff;
   border-radius: 4px;
   display: flex;
-  padding: 0 0 0 40px;
-  margin: 12px 0;
+  padding: 0 0 0 36px;
+  margin: 8px 0;
   position: relative;
 }
 html.dark-mode .card.drag-card {
@@ -1851,7 +1849,7 @@ html.dark-mode .card.drag-card {
   margin-inline-end: 0px;
 }
 .card.drag-card .outline input {
-  margin: 12px 0;
+  margin: 8px 0;
   width: 100%;
 }
 .card.drag-card .outline {
@@ -1868,7 +1866,7 @@ html.dark-mode .card.drag-card .handle {
   background-color: #2d2d2d;
 }
 .card.drag-card > div {
-  padding: 0 12px;
+  padding: 0 8px;
   max-width: 80%;
   flex: 1;
 }
@@ -1924,7 +1922,7 @@ html.dark-mode .grid-card:hover {
 }
 
 .content-wrap.card {
-  padding: 16px 48px;
+  padding: 10px 10px;
   margin-inline-start: auto;
   margin-inline-end: auto;
   margin-bottom: 24px;
@@ -1940,17 +1938,17 @@ html.dark-mode .grid-card:hover {
 
 @media screen and (max-width: 1400px) {
   .content-wrap.card {
-    padding: 16px 32px;
+    padding: 10px 32px;
   }
 }
 @media screen and (max-width: 880px) {
   .content-wrap.card {
-    padding: 16px 24px;
+    padding: 10px 24px;
   }
 }
 @media screen and (max-width: 600px) {
   .content-wrap.card {
-    padding: 16px 16px;
+    padding: 10px 10px;
   }
 }
 .outline-hover {
@@ -2053,8 +2051,8 @@ html.dark-mode .tag-item .tag-value {
 
 .sticky-sidebar {
   position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 16px);
+  top: 10px;
+  max-height: calc(100vh - 10px);
   overflow-y: auto;
 }
 
@@ -2068,7 +2066,7 @@ button {
   text-decoration: none;
   font-size: 0.85rem;
   line-height: 1.4em;
-  padding: 7.8px 16px;
+  padding: 7.8px 10px;
   margin-top: 6px;
   margin-bottom: 6px;
   display: inline-block;
@@ -2137,12 +2135,12 @@ html.dark-mode .button.outline:hover, html.dark-mode .button.outline:focus, html
 }
 
 .button + .button {
-  margin-inline-start: 12px;
+  margin-inline-start: 8px;
 }
 
 .button.small {
   font-size: 0.75rem;
-  padding: 7.2px 12px;
+  padding: 7.2px 8px;
 }
 
 .text-button {
@@ -2183,8 +2181,8 @@ html.dark-mode .text-button {
 .button.svg {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  padding-bottom: 10px;
+  padding: 8px 10px;
+  padding-bottom: 6px;
   width: 100%;
 }
 .button.svg svg {
@@ -2192,7 +2190,7 @@ html.dark-mode .text-button {
   width: 24px;
   height: 24px;
   bottom: auto;
-  margin-inline-end: 16px;
+  margin-inline-end: 10px;
 }
 
 .button[disabled] {
@@ -2238,7 +2236,7 @@ table.table tr td, table.table tr th {
 table.table th, table.table td {
   text-align: start;
   border: none;
-  padding: 12px 12px;
+  padding: 8px 8px;
   vertical-align: middle;
   margin: 0;
   overflow: visible;
@@ -2348,7 +2346,7 @@ input[type=color]:focus, input[type=password]:focus, select:focus, textarea:focu
 #markdown-editor #markdown-editor-input {
   font-style: normal;
   font-weight: 400;
-  padding: 6px 16px;
+  padding: 6px 10px;
   color: #444;
   border-radius: 0;
   max-height: 100%;
@@ -2398,7 +2396,7 @@ html.dark-mode #markdown-editor .markdown-editor-wrap {
   }
 
   #markdown-editor .editor-toolbar > * {
-    padding: 6px 12px;
+    padding: 6px 8px;
   }
 
   .editor-toolbar-label {
@@ -2445,7 +2443,7 @@ html.markdown-editor-display.dark-mode body {
 
 .editor-toolbar {
   width: 100%;
-  padding: 6px 16px;
+  padding: 6px 10px;
   font-size: 11px;
   line-height: 1.6;
   border-bottom: 1px solid #DDD;
@@ -2494,7 +2492,7 @@ label.radio input[type=radio], label.radio input[type=checkbox], label.checkbox 
 }
 
 label.inline.checkbox {
-  margin-inline-end: 16px;
+  margin-inline-end: 10px;
 }
 
 label + p.small {
@@ -2535,9 +2533,9 @@ input[type=color].small {
 .toggle-switch {
   user-select: none;
   display: inline-grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 24px 1fr;
   align-items: center;
-  margin: 16px 0;
+  margin: 10px 0;
 }
 .toggle-switch .custom-checkbox {
   width: 16px;
@@ -2579,7 +2577,7 @@ input[type=color].small {
 }
 
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .setting-list > div {
@@ -2600,7 +2598,7 @@ input[type=color].small {
 }
 
 .setting-list-label + .grid {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .setting-list .grid input[type=text], .setting-list .grid input[type=email], .setting-list .grid input[type=password], .setting-list .grid select, .stretch-inputs input[type=text], .stretch-inputs input[type=email], .stretch-inputs input[type=password], .stretch-inputs select {
@@ -2621,14 +2619,14 @@ input[type=color].small {
 }
 
 .form-group[collapsible] {
-  padding: 0 16px;
+  padding: 0 10px;
   border: 1px solid #DDD;
   border-radius: 4px;
 }
 .form-group[collapsible] .collapse-title {
-  margin-inline-start: -16px;
-  margin-inline-end: -16px;
-  padding: 12px 16px;
+  margin-inline-start: -10px;
+  margin-inline-end: -10px;
+  padding: 8px 10px;
   display: block;
   width: calc(100% + 32px);
   text-align: start;
@@ -2644,13 +2642,13 @@ input[type=color].small {
 .form-group[collapsible] .collapse-title label:before {
   display: inline-block;
   content: "▸";
-  margin-inline-end: 16px;
+  margin-inline-end: 10px;
   transition: all ease-in-out 400ms;
   transform: rotate(0);
 }
 .form-group[collapsible] .collapse-content {
   display: none;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 .form-group[collapsible].open .collapse-title label:before {
   transform: rotate(90deg);
@@ -2659,7 +2657,7 @@ input[type=color].small {
 .inline-input-style, .description-input textarea, .title-input input[type=text] {
   display: block;
   width: 100%;
-  padding: 12px;
+  padding: 8px;
 }
 
 .title-input input[type=text] {
@@ -3692,7 +3690,7 @@ html.dark-mode .CodeMirror-copy {
   top: 0;
   right: 0;
   margin: 32px;
-  padding: 16px 24px;
+  padding: 10px 24px;
   background-color: #FFF;
   background-color: #fff;
   border-radius: 4px;
@@ -3719,7 +3717,7 @@ html.dark-mode [notification] {
 [notification] svg {
   width: 2.8rem;
   height: 2.8rem;
-  padding-inline-end: 12px;
+  padding-inline-end: 8px;
   fill: currentColor;
 }
 [notification] .dismiss {
@@ -3850,7 +3848,7 @@ html.dark-mode .popup-body {
   border: 0;
   color: #FFF;
   font-size: 16px;
-  padding: 0 16px;
+  padding: 0 10px;
 }
 
 .popup-header, .popup-footer {
@@ -3861,7 +3859,7 @@ html.dark-mode .popup-body {
 }
 .popup-header .popup-title, .popup-footer .popup-title {
   color: #FFF;
-  padding: 8px 16px;
+  padding: 8px 10px;
 }
 
 body.flexbox-support #entity-selector-wrap .popup-body .form-group {
@@ -3944,7 +3942,7 @@ html.dark-mode .image-manager-list .image {
   display: block;
   text-align: center;
   background-color: #EEE;
-  padding: 12px 16px;
+  padding: 8px 10px;
   color: #AAA;
   clear: both;
   font-size: 20px;
@@ -3971,13 +3969,13 @@ html.dark-mode .image-manager-sidebar {
 }
 .image-manager-sidebar .inner {
   min-height: auto;
-  padding: 16px;
+  padding: 10px;
 }
 .image-manager-sidebar img {
   max-width: 100%;
   max-height: 180px;
   display: block;
-  margin: 0 auto 16px auto;
+  margin: 0 auto 10px auto;
   box-shadow: 0 1px 21px 1px rgba(76, 76, 76, 0.3);
 }
 .image-manager-sidebar .image-manager-viewer {
@@ -4017,7 +4015,7 @@ html.dark-mode .image-manager-sidebar .dropzone-container {
 .image-manager .corner-button {
   margin: 0;
   border-radius: 0;
-  padding: 16px;
+  padding: 10px;
 }
 
 /*
@@ -4031,7 +4029,7 @@ html.dark-mode .image-manager-sidebar .dropzone-container {
   color: #888;
   text-align: center;
   cursor: pointer;
-  padding: 24px 16px;
+  padding: 24px 10px;
   transition: all ease-in-out 120ms;
 }
 
@@ -4304,13 +4302,13 @@ html.dark-mode .image-manager-sidebar .dropzone-container {
   text-align: start;
   border-bottom: 1px solid #DDD;
   border-color: #ddd;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 html.dark-mode .tab-container .nav-tabs {
   border-color: #444;
 }
 .tab-container .nav-tabs .tab-item {
-  padding: 12px;
+  padding: 8px;
   color: #666;
 }
 html.dark-mode .tab-container .nav-tabs .tab-item {
@@ -4324,7 +4322,7 @@ html.dark-mode .tab-container .nav-tabs .tab-item {
   text-align: center;
 }
 .nav-tabs a, .nav-tabs .tab-item {
-  padding: 16px;
+  padding: 10px;
   display: inline-block;
   color: #666;
   cursor: pointer;
@@ -4351,7 +4349,7 @@ html.dark-mode .nav-tabs a, html.dark-mode .nav-tabs .tab-item {
 
 .code-editor .lang-options {
   max-width: 540px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .code-editor .lang-options a {
   margin-inline-end: 6px;
@@ -4460,21 +4458,21 @@ html.dark-mode .comment-box {
   display: none;
   position: absolute;
   z-index: 80;
-  right: -16px;
+  right: -10px;
 }
 html[dir=rtl] .dropdown-search-dropdown {
   right: auto;
-  left: -16px;
+  left: -10px;
 }
 .dropdown-search-dropdown .dropdown-search-search .svg-icon {
   position: absolute;
-  left: 12px;
+  left: 8px;
   top: 11px;
   fill: #888;
   pointer-events: none;
 }
 html[dir=rtl] .dropdown-search-dropdown .dropdown-search-search .svg-icon {
-  right: 12px;
+  right: 8px;
   left: auto;
 }
 .dropdown-search-dropdown .dropdown-search-list {
@@ -4483,7 +4481,7 @@ html[dir=rtl] .dropdown-search-dropdown .dropdown-search-search .svg-icon {
   text-align: start;
 }
 .dropdown-search-dropdown .dropdown-search-item {
-  padding: 12px 16px;
+  padding: 8px 10px;
 }
 .dropdown-search-dropdown .dropdown-search-item:hover, .dropdown-search-dropdown .dropdown-search-item:focus {
   background-color: #F2F2F2;
@@ -4500,7 +4498,7 @@ html[dir=rtl] .dropdown-search-dropdown .dropdown-search-search .svg-icon {
   .dropdown-search-dropdown {
     position: fixed;
     right: auto;
-    left: 16px;
+    left: 10px;
   }
 
   .dropdown-search-dropdown .dropdown-search-list {
@@ -4549,11 +4547,11 @@ header .links {
 }
 header .links a {
   display: inline-block;
-  padding: 16px;
+  padding: 10px;
   color: #fff;
 }
 header .dropdown-container {
-  padding-inline-start: 16px;
+  padding-inline-start: 10px;
   padding-inline-end: 0;
 }
 header .avatar,
@@ -4666,7 +4664,7 @@ header .search-box ::-moz-placeholder {
   margin-block-start: 6px;
   margin-block-end: 6px;
   margin-inline-start: 0;
-  margin-inline-end: 12px;
+  margin-inline-end: 8px;
   vertical-align: top;
   height: 43px;
 }
@@ -4679,7 +4677,7 @@ header .search-box ::-moz-placeholder {
   border-radius: 4px;
   padding: 0 6px;
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 13px;
   line-height: 1;
   cursor: pointer;
@@ -4690,7 +4688,7 @@ header .search-box ::-moz-placeholder {
   bottom: -2px;
 }
 html[dir=rtl] .mobile-menu-toggle {
-  left: 16px;
+  left: 10px;
   right: auto;
 }
 
@@ -4699,7 +4697,7 @@ html[dir=rtl] .mobile-menu-toggle {
     background-color: #fff;
     display: none;
     z-index: 10;
-    right: 16px;
+    right: 10px;
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
@@ -4718,7 +4716,7 @@ header .dropdown-container ul li a,
 header .dropdown-container ul li button {
     text-align: start;
     display: block;
-    padding: 12px 16px;
+    padding: 8px 10px;
     color: #444;
     color: #444;
   }
@@ -4730,7 +4728,7 @@ html.dark-mode header .dropdown-container ul li button {
   header .links a svg,
 header .dropdown-container ul li a svg,
 header .dropdown-container ul li button svg {
-    margin-inline-end: 12px;
+    margin-inline-end: 8px;
   }
   header .links a:hover,
 header .dropdown-container ul li a:hover,
@@ -4895,12 +4893,12 @@ html.dark-mode .tri-layout-mobile-tab:first-child {
 
 .faded span.faded-text {
   display: inline-block;
-  padding: 12px;
+  padding: 8px;
 }
 
 .action-buttons .text-button {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 6px 8px;
 }
 .action-buttons .text-button:last-child {
   padding-inline-end: 0;
@@ -4911,7 +4909,7 @@ html.dark-mode .tri-layout-mobile-tab:first-child {
 
 .action-buttons .dropdown-container:last-child a {
   padding-inline-end: 0;
-  padding-inline-start: 12px;
+  padding-inline-start: 8px;
 }
 
 .action-buttons {
@@ -4921,7 +4919,7 @@ html.dark-mode .tri-layout-mobile-tab:first-child {
   text-align: start;
 }
 .action-buttons.text-left .text-button {
-  padding-inline-end: 16px;
+  padding-inline-end: 10px;
   padding-inline-start: 0;
 }
 .action-buttons.text-center {
@@ -4978,7 +4976,7 @@ body.flexbox footer {
 
 .entity-list-item + .chapter-expansion {
   display: flex;
-  padding: 0 16px 16px 16px;
+  padding: 0 10px 10px 10px;
   align-items: center;
   border: 0;
   width: 100%;
@@ -5012,7 +5010,7 @@ body.flexbox footer {
 }
 .entity-list-item + .chapter-expansion .chapter-expansion-toggle {
   border-radius: 0 4px 4px 0;
-  padding: 6px 16px;
+  padding: 6px 10px;
   width: 100%;
   text-align: start;
 }
@@ -5040,8 +5038,8 @@ body.flexbox footer {
 
 .sidebar-page-nav {
   list-style: none;
-  margin-block-start: 12px;
-  margin-block-end: 16px;
+  margin-block-start: 8px;
+  margin-block-end: 10px;
   margin-inline-start: 6px;
   margin-inline-end: 0;
   position: relative;
@@ -5070,22 +5068,22 @@ html.dark-mode .sidebar-page-nav:after {
   position: relative;
 }
 .sidebar-page-nav .h1 {
-  padding-inline-start: 16px;
+  padding-inline-start: 10px;
 }
 .sidebar-page-nav .h2 {
-  padding-inline-start: 24px;
+  padding-inline-start: 15px;
 }
 .sidebar-page-nav .h3 {
-  padding-inline-start: 32px;
+  padding-inline-start: 20px;
 }
 .sidebar-page-nav .h4 {
-  padding-inline-start: 40px;
+  padding-inline-start: 25px;
 }
 .sidebar-page-nav .h5 {
-  padding-inline-start: 48px;
+  padding-inline-start: 30px;
 }
 .sidebar-page-nav .h6 {
-  padding-inline-start: 56px;
+  padding-inline-start: 35px;
 }
 .sidebar-page-nav .current-heading {
   font-weight: bold;
@@ -5119,8 +5117,8 @@ html[dir=rtl] .sidebar-page-nav .sidebar-page-nav-bullet {
   list-style: none;
   margin-block-start: 6px;
   margin-block-end: 0;
-  margin-inline-start: -12px;
-  margin-inline-end: -12px;
+  margin-inline-start: -8px;
+  margin-inline-end: -8px;
   padding-inline-start: 0;
   padding-inline-end: 0;
   position: relative;
@@ -5129,7 +5127,7 @@ html[dir=rtl] .sidebar-page-nav .sidebar-page-nav-bullet {
   content: "";
   display: block;
   position: absolute;
-  left: 16px;
+  left: 10px;
   top: 1rem;
   bottom: 1rem;
   border-inline-start: 4px solid rgba(0, 0, 0, 0.1);
@@ -5137,7 +5135,7 @@ html[dir=rtl] .sidebar-page-nav .sidebar-page-nav-bullet {
 }
 html[dir=rtl] .book-tree .sidebar-page-list:after, html[dir=rtl] .book-tree .sidebar-page-list .sub-menu:after {
   left: auto;
-  right: 16px;
+  right: 10px;
 }
 .book-tree .sidebar-page-list ul {
   list-style: none;
@@ -5205,8 +5203,8 @@ html[dir=rtl] .book-tree .sidebar-page-list:after, html[dir=rtl] .book-tree .sid
 }
 
 .sort-box {
-  margin-bottom: 16px;
-  padding: 16px 32px;
+  margin-bottom: 10px;
+  padding: 10px 32px;
   position: relative;
 }
 .sort-box::before {
@@ -5252,9 +5250,9 @@ html[dir=rtl] .book-tree .sidebar-page-list:after, html[dir=rtl] .book-tree .sid
   margin-inline-start: 0;
 }
 .sortable-page-list ul {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   margin-top: 0;
-  padding-inline-start: 16px;
+  padding-inline-start: 10px;
 }
 .sortable-page-list li {
   border: 1px solid #DDD;
@@ -5277,22 +5275,22 @@ html[dir=rtl] .book-tree .sidebar-page-list:after, html[dir=rtl] .book-tree .sid
 }
 
 .activity-list-item {
-  padding: 12px 0;
+  padding: 8px 0;
   display: grid;
   grid-template-columns: min-content 1fr;
-  grid-column-gap: 16px;
+  grid-column-gap: 10px;
   font-size: 0.9em;
 }
 
 .card .activity-list-item {
-  padding: 12px 16px;
+  padding: 8px 10px;
 }
 
 .user-list-item {
   display: inline-grid;
-  padding: 12px;
+  padding: 8px;
   grid-template-columns: min-content 1fr;
-  grid-column-gap: 16px;
+  grid-column-gap: 10px;
   font-size: 0.9em;
   align-items: center;
 }
@@ -5303,7 +5301,7 @@ html[dir=rtl] .book-tree .sidebar-page-list:after, html[dir=rtl] .book-tree .sid
 ul.pagination {
   display: inline-block;
   list-style: none;
-  margin: 16px 0;
+  margin: 10px 0;
   padding-inline-start: 1px;
 }
 ul.pagination li {
@@ -5317,7 +5315,7 @@ ul.pagination li:last-child a, ul.pagination li:last-child span {
 }
 ul.pagination a, ul.pagination span {
   display: block;
-  padding: 3px 12px;
+  padding: 3px 8px;
   border: 1px solid #CCC;
   margin-inline-start: -1px;
   user-select: none;
@@ -5349,7 +5347,7 @@ html.dark-mode ul.pagination li.active span {
 }
 
 .entity-list, .icon-list {
-  margin: 0 -16px;
+  margin: 0 -10px;
 }
 .entity-list h4, .icon-list h4 {
   margin: 0;
@@ -5374,7 +5372,7 @@ html.dark-mode ul.pagination li.active span {
 }
 
 .icon-list hr {
-  margin: 12px 16px;
+  margin: 8px 10px;
   max-width: 140px;
   opacity: 0.25;
   height: 1.1px;
@@ -5385,7 +5383,7 @@ html.dark-mode ul.pagination li.active span {
 }
 
 .entity-list-item, .icon-list-item {
-  padding: 12px 16px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -5398,7 +5396,7 @@ html.dark-mode ul.pagination li.active span {
   color: #666;
 }
 .entity-list-item > span:first-child, .icon-list-item > span:first-child {
-  margin-inline-end: 16px;
+  margin-inline-end: 10px;
   flex-basis: 1.88em;
   flex: none;
 }
@@ -5451,7 +5449,7 @@ html.dark-mode .card .entity-list-item:not(.no-hover):hover {
 }
 
 .entity-list-item-children {
-  padding: 16px;
+  padding: 10px;
 }
 .entity-list-item-children > div {
   overflow: hidden;
@@ -5554,7 +5552,7 @@ html.dark-mode .entity-list-item-image .svg-icon {
   top: 0;
   list-style: none;
   right: 0;
-  margin: 16px 0;
+  margin: 10px 0;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
   border-radius: 1px;
@@ -5584,7 +5582,7 @@ html.dark-mode .dropdown-menu {
 }
 .dropdown-menu a, .dropdown-menu button {
   display: block;
-  padding: 6px 16px;
+  padding: 6px 10px;
   color: #555;
   fill: currentColor;
   white-space: nowrap;
@@ -5604,7 +5602,7 @@ html.dark-mode .dropdown-menu a, html.dark-mode .dropdown-menu button {
   outline-offset: -2px;
 }
 .dropdown-menu a svg, .dropdown-menu button svg {
-  margin-inline-end: 12px;
+  margin-inline-end: 8px;
   display: inline-block;
   width: 16px;
 }
@@ -5660,12 +5658,12 @@ html.dark-mode .featured-image-container-wrap .svg-icon {
   background: transparent;
   border: none;
   color: currentColor;
-  padding: 16px 0;
+  padding: 10px 0;
 }
 
 .active-link-list a {
   display: inline-block;
-  padding: 12px;
+  padding: 8px;
 }
 .active-link-list a:not(.active) {
   color: #444;
@@ -5733,8 +5731,8 @@ body.markdown-fullscreen .flex-fill {
   width: 56px;
   height: 56px;
   font-size: 24px;
-  right: 16px;
-  bottom: 12px;
+  right: 10px;
+  bottom: 8px;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.13);
   background-color: currentColor;
   text-align: center;
@@ -5760,7 +5758,6 @@ body.markdown-fullscreen .flex-fill {
 
 .page-content {
   width: 100%;
-  max-width: 840px;
   margin: 0 auto;
   overflow-wrap: break-word;
   overflow: auto;
@@ -5771,7 +5768,7 @@ body.markdown-fullscreen .flex-fill {
 .page-content img.align-left,
 .page-content table.align-left {
   float: left !important;
-  margin: 6px 16px 16px 0;
+  margin: 6px 10px 10px 0;
 }
 .page-content .align-right {
   text-align: right !important;
@@ -5779,7 +5776,7 @@ body.markdown-fullscreen .flex-fill {
 .page-content img.align-right,
 .page-content table.align-right {
   float: right !important;
-  margin: 6px 0 6px 12px;
+  margin: 6px 0 6px 8px;
 }
 .page-content .align-center {
   text-align: center;
@@ -5807,7 +5804,7 @@ body.markdown-fullscreen .flex-fill {
 }
 .page-content hr {
   clear: both;
-  margin: 16px 0;
+  margin: 10px 0;
 }
 .page-content table {
   hyphens: auto;
@@ -5842,7 +5839,7 @@ body.markdown-fullscreen .flex-fill {
   display: flex;
   align-items: center;
   justify-items: center;
-  padding: 12px 12px;
+  padding: 8px 8px;
   border-radius: 4px;
   box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -5988,7 +5985,7 @@ html.dark-mode .floating-toolbox .tabs {
   color: rgba(0, 0, 0, 0.5);
   display: block;
   cursor: pointer;
-  padding: 12px 16px;
+  padding: 8px 10px;
   font-size: 16px;
   line-height: 1.6;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -6013,8 +6010,8 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
 }
 .floating-toolbox h4 {
   font-size: 24px;
-  margin: 16px 0 0 0;
-  padding: 0 24px 12px 24px;
+  margin: 10px 0 0 0;
+  padding: 0 24px 8px 24px;
 }
 .floating-toolbox .tags input {
   max-width: 100%;
@@ -6023,8 +6020,8 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
 }
 .floating-toolbox .tags td,
 .floating-toolbox .inline-start-table > div > div > div {
-  padding-inline-end: 12px;
-  padding-top: 12px;
+  padding-inline-end: 8px;
+  padding-top: 8px;
   position: relative;
 }
 .floating-toolbox .handle {
@@ -6120,7 +6117,7 @@ html.dark-mode .floating-toolbox.open .tabs > button.active {
   border-radius: 3px;
   position: relative;
   overflow: hidden;
-  padding: 6px 12px;
+  padding: 6px 8px;
   fill: currentColor;
   opacity: 0.85;
   transition: opacity ease-in-out 120ms;
@@ -6211,7 +6208,7 @@ html.dark-mode .avatar[src$="user_avatar.png"] {
   animation-delay: 0.6s;
 }
 .loading-container > span {
-  margin-inline-start: 12px;
+  margin-inline-start: 8px;
   font-style: italic;
   color: #888;
   vertical-align: top;
@@ -6220,7 +6217,7 @@ html.dark-mode .avatar[src$="user_avatar.png"] {
 [back-to-top] {
   background-color: var(--color-primary);
   position: fixed;
-  bottom: 16px;
+  bottom: 10px;
   right: 24px;
   padding: 5px 7px;
   cursor: pointer;
@@ -6254,12 +6251,12 @@ html.dark-mode .avatar[src$="user_avatar.png"] {
 
 .skip-to-content-link {
   position: fixed;
-  top: -48px;
+  top: -10px;
   left: 0;
   background-color: #fff;
   z-index: 15;
   border-radius: 0 4px 4px 0;
-  display: block;
+  display: none;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
@@ -6286,7 +6283,7 @@ html.dark-mode .contained-search-box button {
 }
 .contained-search-box input {
   flex: 5;
-  padding: 6px 12px;
+  padding: 6px 8px;
 }
 .contained-search-box input:focus, .contained-search-box input:active {
   outline: 0;
@@ -6322,7 +6319,7 @@ html.dark-mode .entity-selector {
   border: 0;
   border-bottom: 1px solid #ddd;
   font-size: 16px;
-  padding: 12px 16px;
+  padding: 8px 10px;
 }
 .entity-selector .entity-list {
   overflow-y: scroll;
@@ -6378,7 +6375,7 @@ html.dark-mode .entity-selector .entity-list-item.selected {
   border-radius: 3px;
 }
 .scroll-box .scroll-box-item {
-  padding: 6px 16px;
+  padding: 6px 10px;
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd;
   margin-top: -1px;
@@ -6389,7 +6386,7 @@ html.dark-mode .entity-selector .entity-list-item.selected {
 
 .scroll-box[data-instruction]:before {
   content: attr(data-instruction);
-  padding: 6px 16px;
+  padding: 6px 10px;
   border-bottom: 1px solid #ddd;
   display: block;
   font-size: 0.75rem;
@@ -6416,7 +6413,7 @@ html.dark-mode .entity-selector .entity-list-item.selected {
 }
 .list-sort-container .list-sort {
   display: inline-grid;
-  margin-inline-start: 12px;
+  margin-inline-start: 8px;
   grid-template-columns: minmax(120px, max-content) 40px;
   font-size: 0.9rem;
   border: 2px solid #ddd;
@@ -6439,7 +6436,7 @@ html.dark-mode .list-sort-container .list-sort-label {
 }
 .list-sort-container .list-sort-type,
 .list-sort-container .list-sort-dir {
-  padding: 6px 12px;
+  padding: 6px 8px;
   cursor: pointer;
 }
 .list-sort-container .list-sort-dir {
@@ -6472,7 +6469,6 @@ table.table .table-entity-item {
 body {
   margin: 0px;
   padding: 0px;
-  background-image: url("../images/computer-board.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 16px;
@@ -6688,6 +6684,7 @@ h1 {
 body {
   background-color: #f4f4f4;
   font-size: 16px;
+  zoom: 0.9;
 }
 
 h1 {

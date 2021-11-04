@@ -11,7 +11,5 @@ class QuestionImport extends Model
 {
     protected $table = 'question_import';
     protected $primaryKey = 'id';
-    protected $fillable = ['stt', 'topic', 'title', 'question', 'correct_ans', 'option1', 'option2', 'option3', 'option4'];
-
-    
+    protected $fillable = ['stt', 'topic', 'title', 'question', 'correct_ans', 'option1', 'option2', 'option3', 'option4', 'is_persistent'];
 }

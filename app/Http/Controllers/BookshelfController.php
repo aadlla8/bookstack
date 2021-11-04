@@ -88,8 +88,7 @@ class BookshelfController extends Controller
             'description' => 'string|max:1000',
             'image'       => 'nullable|' . $this->getImageValidationRules(),
         ]);
-        echo (var_dump($request->all()));
-        exit;
+
         $bookIds = explode(',', $request->get('books', ''));
         $shelf = $this->bookshelfRepo->create($request->all(), $bookIds);
         $this->bookshelfRepo->updateCoverImage($shelf, $request->file('image', null));

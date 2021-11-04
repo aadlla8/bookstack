@@ -291,7 +291,7 @@ Route::get('/add-questions', 'ExamController@store')->name('storeExam-addQuestio
 Route::get('/delete-question/{id}', 'ExamController@deleteQuestion')->name('deleteQuestion');
 Route::post('/check-result/{id}', 'ExamController@showResult')->name('display-result');
 Route::get('/download-certificate/{id}', 'ExamController@certificate')->name('download-certificate');
-Route::get('/reset-result/{id}', 'ExamController@resetResult')->name('reset-result');
+Route::get('/reset-result/{id}/{stdid}', 'ExamController@resetResult')->name('reset-result');
 
 Route::get('Courses/create', 'CoursesController@create');
 Route::post('/Courses/create', 'CoursesController@store');
@@ -302,18 +302,7 @@ Route::get('/deleteCourse/{id}', 'CoursesController@destroy');
 Route::get('DataImport/create', 'ImportDataController@create');
 Route::post('/DataImport/create', 'ImportDataController@store');
 
-Route::post('/storeDescription', 'DescriptionController@store')->name('storedescription');
-Route::get('/editDescription/{id}', 'DescriptionController@edit')->name('editdescription');
-Route::post('/updateDescription/{id}', 'DescriptionController@update')->name('updatedescription');
-Route::get('/deleteDescription/{id}', 'DescriptionController@destroy')->name('deletedescription');
-
 Route::get('/enrollCourse/{id}', 'CoursesController@enroll')->name('enroll');
-
-Route::post('/storeVideo', 'VideoController@storeVideo')->name('storevideo');
-Route::get('/playVideo/{id}', 'VideoController@playVideo')->name('playvideo');
-Route::get('/playPreviousVideo/{id}', 'VideoController@playPreviousVideo')->name('playpreviousvideo');
-Route::get('/playNextVideo/{id}', 'VideoController@playNextVideo')->name('playnextvideo');
-Route::get('/deleteVideo/{id}', 'VideoController@destroyVideo');
 
 Route::post('/storeComment', 'CourseCommentController@store')->name('storecomment');
 Route::get('/deleteComment/{id}', 'CourseCommentController@destroy')->name('destroycomment');
@@ -323,11 +312,7 @@ Route::get('/createExam', 'ExamController@create')->name('createexam');
 Route::get('/deleteExam/{id}', 'ExamController@destroy')->name('deleteexam');
 Route::get('/startExam/{course_id}', 'ExamController@show')->name('startexam');
 
-
-// ----------------- Payment ----------------------
-Route::get('stripe/{id}', 'StripePaymentController@stripe');
-Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
-// ------------------------------------------------
-
+Route::get('/review','ReviewController@index')->name('reviewHome');
+Route::post('/review','ReviewController@store')->name('reviewUpload');
 // Route::get('/deleteCourse/{id}' , 'CoursesController@destroy');
 Route::fallback('HomeController@notFound')->name('fallback');

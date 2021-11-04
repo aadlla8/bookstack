@@ -9,13 +9,13 @@
 @section('body')
 <main class="container small card content-wrap">
         <div class="add-exam-course">
-            <div class="subject-header"><strong>Subject</strong></div>
+            <div class="subject-header"><strong>Tên bài thi</strong></div>
             <div class="subject-body container">
                 {{ Session::get('subject') }}
             </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading"><strong> Add Exam Questions</strong> </div>
+            <div class="panel-heading"><strong> Thêm các câu hỏi cho bài</strong> </div>
             <div class="exam-title">
                 {{ Session::get("exam_title") }} Exam
             </div>
@@ -50,9 +50,9 @@
                            
                         </div>
                         <div class="submit-group">
-                            <input type="submit" id="btn-add" class="btn btn-primary" value="Add Question">
+                            <input type="submit" id="btn-add" class="btn btn-primary" value="Thêm câu hỏi">
                             <a id="btn-submit" class="btn btn-outline-primary" href="{{ url('/') }}">
-                                Finished
+                                Hoàn thành bài thi
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading"><strong>Added Questions</strong></div>
+            <div class="panel-heading"><strong>Các câu hỏi đã thêm</strong></div>
             <div class="panel-body add-exam-div">
                 <div class='row'>
                 @if(!empty($questions) && !$questions->isEmpty())

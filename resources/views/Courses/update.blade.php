@@ -14,7 +14,7 @@
 
     }
 </style>
-<h1 class="text-center" style="margin-top: -30px;">Update Course</h1>
+<h1 class="text-center" style="margin-top: -30px;">Cập nhật bài thi trắc nghiệm</h1>
 
 <div class="content">
 
@@ -22,7 +22,7 @@
         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
         <div class="from-group" style="margin-top: 10px">
-            <label for="Subject"> Subject </label>
+            <label for="Subject"> Tiêu đề bài thi </label>
             <input type="text" name="Subject" required id="Subject" class="form-control" value="{{$course->subject}}" />
         </div>
         @foreach ($errors->get('Subject') as $error)
@@ -32,7 +32,7 @@
         @endforeach
         <br>
         <div class="from-group">
-            <label for="level"> Level </label>
+            <label for="level"> Cấp độ khó </label>
 
             <select name="level" id="level" required class="form-control">
 
@@ -83,10 +83,10 @@
             {{$error}}
         </label>
         @endforeach
-        <br>
+        
 
         <div class="from-group">
-            <label for="coursePic"> Course Exam Questions </label>
+            <label for="coursePic"> File excel *.xls chứa các câu hỏi  </label>
             <input type="file" name="coursePic" id="coursePic" class="form-control" value="{{$course->coursePic}}" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
         </div>
         @foreach ($errors->get('coursePic') as $error)
@@ -97,8 +97,7 @@
         @endforeach
         <br>
 
-        <input type="submit" value="Save Changes" class="btn btn-primary">
-        <input type="reset" value="Cancel" class="btn btn-danger">
+        <input type="submit" value="Lưu " class="btn btn-primary">
 
     </form>
 

@@ -5,7 +5,7 @@ namespace BookStack\Imports;
 use BookStack\QuestionImport;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class ImportQuestionOption implements ToModel
+class ImportQuestionOptionPersistent implements ToModel
 {
     /**
      * @param array $row
@@ -24,7 +24,7 @@ class ImportQuestionOption implements ToModel
             'option2' => $row[6],
             'option3' => $row[7],
             'option4' => $row[8],
-            'is_persistent'=> 0,
+            'is_persistent'=> 1,
         ]);
     }
 }
