@@ -10,7 +10,7 @@ Route::get('docs.json', 'ApiDocsController@json');
 Route::get('questions', 'ReviewApiController@list');
 Route::delete('questions/{id}', 'ReviewApiController@delete');
 Route::post('questions', 'ReviewApiController@create');
-Route::put('questions', 'ReviewApiController@update');
+Route::put('questions/{id}', 'ReviewApiController@update');
 
 Route::get('activities', 'ActivityApiController@list');
 Route::get('books', 'BookApiController@list');

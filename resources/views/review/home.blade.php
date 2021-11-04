@@ -11,17 +11,7 @@
         <main class="card content-wrap">
         <h1 class="list-heading">Câu hỏi ôn tập</h1>                 
             
-        <div class="row ">
-            <fieldset>
-                <legend></legend>
-                <form action="{{route('reviewUpload')}}" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="file" name="file">
-                    <input type="submit" value="Upload câu hỏi" class="btn btn-primary">
-                </form>     
-            </fieldset>                          
-        </div>  
-        <br>      
+           
         <div class="row">
             <table id="example" class="table table-striped responsive" style="width:100%">
                 <thead>
@@ -41,7 +31,19 @@
             </table>         
         </div>            
         </main>
+        <div class="row ">
+            <fieldset>
+                <legend></legend>
+                <form action="{{route('reviewUpload')}}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="file" name="file">
+                    <input type="submit" value="Upload câu hỏi" class="btn btn-primary">
+                </form>     
+            </fieldset>                          
+        </div>  
+         
     </div>
+    
     <div class="modal" tabindex="-1" id='exampleModalToggle'>
         <div class="modal-dialog">
           <div class="modal-content">
