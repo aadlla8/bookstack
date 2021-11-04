@@ -8,7 +8,8 @@
     <main class="card content-wrap">
         <h1>Ôn tập</h1>
         <div class="col-6">
-            <form action="/review/choosequestion/" id='chooseQuestionForm'>                
+            <form action="/review/choose-question/" id='chooseQuestionForm' method="POST"> 
+                {{ csrf_field() }}               
                 <div class="mb-3">
                     <label class="form-label">Chủ đề</label>
                     <select class="form-control" name='topic' id='topic'>
