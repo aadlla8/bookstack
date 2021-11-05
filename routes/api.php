@@ -11,6 +11,7 @@ Route::get('questions', 'ReviewApiController@list');
 Route::delete('questions/{id}', 'ReviewApiController@delete');
 Route::post('questions', 'ReviewApiController@create');
 Route::put('questions/{id}', 'ReviewApiController@update');
+Route::get('questions/count', 'ReviewApiController@count');
 
 Route::get('activities', 'ActivityApiController@list');
 Route::get('books', 'BookApiController@list');

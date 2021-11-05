@@ -15,10 +15,10 @@ class DeleteButton {
     setupListeners() {
         if (this.container.tagName === "LI") {            
             setInterval(() => {
-                let last=localStorage.getItem('notification');
+                let lastActivityId=localStorage.getItem('notification');
                 let token = 'mVUDW9EhwLxuYS4C5UNDTPANqzf4JOCZ';
                 let secret = '8QtWTEifeOA5hpPhWRTHXo4eeup90FDl';
-                fetch('/api/activities?last=' + last, {
+                fetch('/api/activities?last=' + lastActivityId, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Token ${token}:${secret}`,
@@ -33,8 +33,7 @@ class DeleteButton {
                         if (res[0].entity.name != '') {
                             window.$events.emit('success2', '' + res[0].type + ' ' + res[0].entity.name + ' by ' + res[0].user.name +
                             ' at '+ res[0].entity.updated_at);
-                        }
-                       
+                        }                       
                     }                    
                 }).catch(err => {
                     

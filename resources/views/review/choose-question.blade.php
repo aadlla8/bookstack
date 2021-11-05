@@ -8,12 +8,12 @@
     <main class="card content-wrap">
         <h1>Ôn tập</h1>
         <div class="col-6">
-            <form action="/review/choose-question/" id='chooseQuestionForm' method="POST"> 
+            <form action="{{route('beginAnswerQuestion')}}" id='chooseQuestionForm' method="POST"> 
                 {{ csrf_field() }}               
                 <div class="mb-3">
                     <label class="form-label">Chủ đề</label>
-                    <select class="form-control" name='topic' id='topic'>
-                        <option>Chọn chủ đề</option>
+                    <select class="form-control" name='topic' id='topic' required>
+                        <option value="">Chọn chủ đề</option>
                         @foreach ($topics as $topic)
                             <option value="{{$topic->topic}}">{{$topic->topic}}</option>
                         @endforeach
@@ -26,7 +26,7 @@
                 <div class="mb-3">
                     <label id='totalQuestions'>Tổng số câu hỏi trong chủ đề: </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Bắt đầu</button>
+                <button type="submit" class="btn btn-primary">Bắt đầu ôn tập</button>
             </form>
         </div>
     </main>
@@ -34,5 +34,13 @@
 @endsection
 
 @section('scripts')
-    
+<script nonce="{{ $cspNonce }}">
+    $(document).ready(function () {
+        $('#topic').on('change',function() {
+            fetch('/api/questions/count?topic='+this.value)
+            .then(res => res.json())
+            .then(result => $('#totalQuestions').html('Tổng số câu hỏi trong chủ đề: ' + result));
+        });
+    });
+</script>
 @endsection

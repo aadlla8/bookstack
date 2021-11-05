@@ -14,6 +14,7 @@ use Session;
 use Maatwebsite\Excel\Facades\Excel;
 use BookStack\Imports\ImportQuestionOption;
 use BookStack\Imports\ImportQuestionOptionPersistent;
+use Illuminate\Support\Carbon;
 
 class ReviewController extends Controller
 {
@@ -33,9 +34,7 @@ class ReviewController extends Controller
     }
     public function chooseQuestion()
     {
-
         $topics = QuestionImport::where('is_persistent', 1)->select('topic')->distinct()->get();
-
 
         return view('review.choose-question', ['topics' => $topics]);
     }
@@ -57,13 +56,12 @@ class ReviewController extends Controller
     }
     public function beginAnswerQuestion(Request $request)
     {
-
+        session()->put('beginAnswerQuestion', Carbon::now());
         $courses = new Courses();
-
-        $courses->subject = "Bài ôn tập tạo bởi: " . user()->name . "- chủ đề: " . $request->input('topic');
+        $courses->subject = "Bài ôn tập tạo bởi: " . user()->name . " - chủ đề lựa chọn: " . $request->input('topic');
         $courses->level = "Beginer";
         $courses->cost = 0;
-        $courses->numOfHours = 2;
+        $courses->numOfHours = 4;
         $courses->lec_id = user()->id;
         $courses->coursePic = "default.jpg";
         $courses->description = "";
@@ -73,8 +71,8 @@ class ReviewController extends Controller
         $courses->students()->attach(user()->id);
 
         $exam = new Exam();
-        $exam->title = "Bài thi của $courses->subject";
-        $duration = 2 . ":" . 0;
+        $exam->title = "Trả lời câu hỏi ôn tập dưới đây.";
+        $duration = 10 . ":" . 0;
         $exam->duration = $duration;
         $exam->course_id = $courses->id;
         $exam->save();
@@ -87,7 +85,6 @@ class ReviewController extends Controller
 
         foreach ($questions as $question) {
             # code...
-
             $q = new Question();
             $q->title = $question->question;
             $q->mark = 1;

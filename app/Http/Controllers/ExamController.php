@@ -160,11 +160,23 @@ class ExamController extends Controller
 
         $pivoteTable->pivot->commulativeGrade = 0.0;
         $totalGrade = 0;
+        $checkresults = array();
+        $correctCount = 0;
+        
         foreach ($exam->questions as $question) {
             $totalGrade += $question->mark;
-            if ($request->get("$question->id") == $question->correctAnswer->id) {
-                $pivoteTable->pivot->commulativeGrade += $question->mark;
+            $question->userchoose = $request->get("$question->id");   
+            if(empty($question->correctAnswer)) {
+                if(!$request->get("$question->id")){
+                    $pivoteTable->pivot->commulativeGrade += $question->mark;  
+                    $correctCount++;  
+                }                
             }
+            else  if ($request->get("$question->id") == $question->correctAnswer->id) {
+                $pivoteTable->pivot->commulativeGrade += $question->mark;  
+                $correctCount++;              
+            }
+            $checkresults[] = $question;
         }
 
         $pivoteTable->pivot->commulativeGrade = $pivoteTable->pivot->commulativeGrade / $totalGrade * 100;
@@ -172,15 +184,17 @@ class ExamController extends Controller
         $student = User::find(user()->id);
         $percent = $pivoteTable->pivot->commulativeGrade;
 
+        $type= $exam->course->type;
+
         DB::update('update courses_student set updated_at = now() where student_id = ?', [user()->id]);
-        return view('examResult')->with(compact('exam', 'student', 'percent'));
+        return view('examResult')->with(compact('exam', 'student', 'percent', 'checkresults','type','correctCount'));
     }
     public function resetResult($id, $stdid)
     {
         $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
         if ($course) {
-        $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
-            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where course_id=? and student_id = ?', [$id,$stdid]);
+            $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
+            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where course_id=? and student_id = ?', [$id, $stdid]);
         }
 
         return redirect("/courses/" . $id);

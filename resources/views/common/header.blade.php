@@ -90,43 +90,62 @@
     </div>
     <ul id="main-menu" class="sm sm-mint">         
         @foreach (shelfs() as $shelf)
-            @if($shelf->name=='Tin tức' || signedInUser())
+            @if(signedInUser() && userCan('bookshelf-view', $shelf))
             <li>
                 <a href="/shelves/{{ $shelf->slug }}">{{ $shelf->name }}</a>
                 @if ($shelf->books->count()>0)
                     <ul>
                         @foreach ($shelf->books as $book)
-                            <li>
-                                <a href="/books/{{$book->slug}}">{{$book->name}}</a>
-                                @if ($book->chapters->count()>0 || $book->directPages->count()>0)  
-                                    <ul>
-                                        @if ($book->chapters->count()>0)                                                        
-                                            @foreach ($book->chapters as $chapter)
-                                                <li><a href="/books/{{$book->slug}}/chapter/{{$chapter->slug}}">{{$chapter->name}}</a>
-                                                    @if ($chapter->pages->count()>0)
-                                                        <ul>
-                                                            @foreach ($chapter->pages as $cpage)
-                                                                <li><a href="/books/{{$book->slug}}/page/{{$cpage->slug}}">{{$cpage->name}}</a></li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endif   
-                                                </li>
-                                            @endforeach                                                        
-                                        @endif
-                                        @if ($book->directPages->count()>0)                                                    
-                                            @foreach ($book->directPages as $page)
-                                                <li><a href="/books/{{$book->slug}}/page/{{$page->slug}}">{{$page->name}}</a></li>
-                                            @endforeach                                                    
-                                        @endif
-                                    </ul>
-                                @endif
-                            </li>                            
+                            @if(usercan('book-view',$book))
+                                <li>
+                                    <a href="/books/{{$book->slug}}">{{$book->name}}</a>
+                                    @if ($book->chapters->count()>0 || $book->directPages->count()>0)  
+                                        <ul>
+                                            @if ($book->chapters->count()>0)                                                        
+                                                @foreach ($book->chapters as $chapter)
+                                                    @if(usercan('chapter-view',$chapter))
+                                                    <li><a href="/books/{{$book->slug}}/chapter/{{$chapter->slug}}">{{$chapter->name}}</a>
+                                                        @if ($chapter->pages->count()>0)
+                                                            <ul>
+                                                                @foreach ($chapter->pages as $cpage)
+                                                                   @if(usercan('page-view', $cpage))
+                                                                        <li><a href="/books/{{$book->slug}}/page/{{$cpage->slug}}">{{$cpage->name}}</a></li>
+                                                                   @endif
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif   
+                                                    </li>
+                                                    @endif
+                                                @endforeach                                                        
+                                            @endif
+                                            @if ($book->directPages->count()>0)                                                    
+                                                @foreach ($book->directPages as $page)
+                                                    @if(usercan('page-view', $page))
+                                                        <li><a href="/books/{{$book->slug}}/page/{{$page->slug}}">{{$page->name}}</a></li>
+                                                    @endif
+                                                @endforeach                                                    
+                                            @endif
+                                        </ul>
+                                    @endif
+                                </li>     
+                            @endif                       
                         @endforeach                       
                     </ul>                
                 @endif
             </li>  
             @endif                      
         @endforeach
+        @if (signedInUser())
+            <li>
+                <a href="/review/choose-question">Ôn tập</a>
+                @if (userCan('settings-manage'))
+                    <ul><li>
+                        <a href="/review">Câu hỏi ôn tập</a>
+                    </li></ul>
+                @endif
+            </li>
+        @endif
+        
         <li component='delete-button'></li>  
       </ul>
 </header>

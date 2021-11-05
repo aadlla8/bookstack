@@ -6,10 +6,10 @@
     </style>
     <main class="container small card content-wrap">
         <div class="start-exam-course">
-            <div class="subject-header"><strong>Tiêu đề bài thi</strong></div>
+            <div class="subject-header"><strong>Thông tin đề bài thi</strong></div>
             <div class="subject-body container">
                 {{ $exam->course->subject }} <br>
-                 {{ $exam->title }} Exam  
+                 {{ $exam->title }}  
             </div>           
         </div>
         <hr>
@@ -30,8 +30,7 @@
                                         <label class="form-check-label" for="{{ $option->id }}" style="display:inline">
                                             {{ $option->value }}
                                         </label>
-                                    </div>
-                                    
+                                    </div>                                    
                                 @endforeach
                             </div>                            
                         </div>

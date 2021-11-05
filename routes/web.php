@@ -312,10 +312,10 @@ Route::get('/createExam', 'ExamController@create')->name('createexam');
 Route::get('/deleteExam/{id}', 'ExamController@destroy')->name('deleteexam');
 Route::get('/startExam/{course_id}', 'ExamController@show')->name('startexam');
 
-Route::get('/review','ReviewController@index')->name('reviewHome');
-Route::post('/review','ReviewController@store')->name('reviewUpload');
-Route::get('/review/choose-question','ReviewController@chooseQuestion')->name('chooseQuestion');
-Route::post('/review/choose-question','ReviewController@beginAnswerQuestion')->name('beginAnswerQuestion');
+Route::get('/review', 'ReviewController@index')->name('reviewHome');
+Route::post('/review', 'ReviewController@store')->name('reviewUpload');
+Route::get('/review/choose-question', 'ReviewController@chooseQuestion')->name('chooseQuestion');
+Route::post('/review/choose-question', 'ReviewController@beginAnswerQuestion')->name('beginAnswerQuestion');
 
 // Route::get('/deleteCourse/{id}' , 'CoursesController@destroy');
 Route::fallback('HomeController@notFound')->name('fallback');

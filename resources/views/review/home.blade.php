@@ -15,13 +15,13 @@
         <div class="row">
             <table id="example" class="table table-striped responsive" style="width:100%">
                 <thead>
-                    <tr class="nowrap">
-                        <th>id</th>   
-                        <th>stt</th>                      
-                        <th>Chủ đề</th>
-                        <th>Tiêu đề</th>
+                    <tr >
+                        <th style="white-space: nowrap;">id</th>   
+                        <th style="white-space: nowrap;">stt</th>                      
+                        <th style="white-space: nowrap;">Chủ đề</th>
+                        <th style="white-space: nowrap;">Tiêu đề</th>
                         <th>Câu hỏi</th>
-                        <th>Đáp án</th>
+                        <th style="white-space: nowrap;">Đáp án</th>
                         <th>opt1</th>
                         <th>opt2</th>
                         <th>opt3</th>
@@ -31,19 +31,36 @@
             </table>         
         </div>            
         </main>
-        <div class="row ">
-            <fieldset>
-                <legend></legend>
-                <form action="{{route('reviewUpload')}}" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="file" name="file">
-                    <input type="submit" value="Upload câu hỏi" class="btn btn-primary">
-                </form>     
-            </fieldset>                          
-        </div>  
-         
+              
     </div>
-    
+    <div class="modal" tabindex="-1" id='uploadModalToggle'>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Upload file câu hỏi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body add-exam-div">
+                <fieldset>
+                    <legend></legend>
+                    <form action="{{route('reviewUpload')}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <div class="form-group">
+                            <input type="file" name="file" class="form-control"></div>
+                        <div class="form-group">
+                        <input type="submit" value="Upload câu hỏi" class="btn btn-primary"></div>
+                    </form> 
+                    <a href="/Testonline.xls" download="/Testonline.xls">upload template</a>    
+                </fieldset>                          
+            </div>
+            </div> 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                 
+              </div>
+            </div>
+            </div>
+        </div>  
     <div class="modal" tabindex="-1" id='exampleModalToggle'>
         <div class="modal-dialog">
           <div class="modal-content">
@@ -77,17 +94,15 @@
                                 <div class="form-group">
                                     <input type="text" id='d' class="form-control " placeholder="D." name="D" style="width:100%;height:60px" /></div>  
     
-                            <div class="form-group">
-                                <select class="form-control" id="correctAns" name="correctAns" required>
-                                    <option value="-1">- Select The Correct Answer -</option>
-                                    <option value="a">A</option>
-                                    <option value="b">B</option>
-                                    <option value="c">C</option>
-                                    <option value="d">D</option>
-                                </select>
-                               
-                            </div> 
-                             
+                                <div class="form-group">
+                                    <select class="form-control" id="correctAns" name="correctAns" required>
+                                        <option value="-1">- Select The Correct Answer -</option>
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                    </select>                               
+                                </div>                              
                         </div>
                     </form>
                 </div>
@@ -119,6 +134,10 @@
                             keyboard: true,
                             backdrop: false,
                         });
+        var myuploadModal = new bootstrap.Modal(document.getElementById('uploadModalToggle'), {
+            keyboard: true,
+            backdrop: false,
+        });
       $('#btn-save').on('click',function(){
           let data = {
               id: (questionForm.id.value),
@@ -171,6 +190,13 @@
                     action: function () {
                        
                         myModal.show();
+                    }
+                },  
+                {
+                    text: 'Upload',
+                    action: function () {
+                       
+                        myuploadModal.show();
                     }
                 },               
                 {
@@ -248,6 +274,13 @@
             "deferRender": true,
             
         } );
+    
+        table.on( 'xhr', function ( e, settings, json ) {
+            console.log( 'Ajax event occurred. Returned data: ', json, e, settings );
+            if(settings.jqXHR.status==403)
+                location.href='/login'
+        } );
+    
     });
 
 </script>

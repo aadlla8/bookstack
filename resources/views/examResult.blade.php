@@ -22,7 +22,7 @@
                     <a class="btn btn-primary" href="{{ url('/download-certificate/'.$exam->id) }}">
                         Download Certification PDF
                     </a>
-                </div>
+                </div>                
             </div>
         </div>
     </div>

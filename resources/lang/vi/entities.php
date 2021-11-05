@@ -287,7 +287,7 @@ return [
     'attachments_link_attached' => 'Liên kết được đính kèm đến trang thành công',
     'templates' => 'Các Mẫu',
     'templates_set_as_template' => 'Trang là một mẫu',
-    'templates_explain_set_as_template' => 'Bạn có thể đặt trang này làm mẫu, nội dung của nó sẽ được sử dụng lại khi tạo các trang mới. Người dùng khác có thể sử dụng mẫu này nếu học có quyền hạn xem trang này.',
+    'templates_explain_set_as_template' => 'Bạn có thể đặt trang này làm mẫu, nội dung của nó sẽ được sử dụng lại khi tạo các trang mới. Người dùng khác có thể sử dụng mẫu này nếu họ có quyền hạn xem trang này.',
     'templates_replace_content' => 'Thay thế nội dung trang',
     'templates_append_content' => 'Viết vào nội dung trang',
     'templates_prepend_content' => 'Thêm vào đầu nội dung trang',

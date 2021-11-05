@@ -39470,6 +39470,8 @@
       this.$emit("success", { file, data });
       if (this.successMessage) {
         window.$events.emit("success", this.successMessage);
+        let link = `<a href="/attachments/${data.id}">${data.name}</a>`;
+        window.$events.emit("editor-html-update", link);
       }
       fadeOut(file.previewElement, 800, () => {
         this.dz.removeFile(file);
@@ -42450,10 +42452,10 @@
     setupListeners() {
       if (this.container.tagName === "LI") {
         setInterval(() => {
-          let last = localStorage.getItem("notification");
+          let lastActivityId = localStorage.getItem("notification");
           let token = "mVUDW9EhwLxuYS4C5UNDTPANqzf4JOCZ";
           let secret = "8QtWTEifeOA5hpPhWRTHXo4eeup90FDl";
-          fetch("/api/activities?last=" + last, {
+          fetch("/api/activities?last=" + lastActivityId, {
             method: "GET",
             headers: {
               "Authorization": `Token ${token}:${secret}`

@@ -32,6 +32,12 @@ class ReviewApiController extends ApiController
             'option4'      => 'string',
         ],
     ];
+
+    public function count(Request $request)
+    {
+        return response()->json(QuestionImport::where('is_persistent', 1)->where('topic', '=', $request->get('topic'))->count());
+    }
+
     public function list()
     {
         $books = QuestionImport::where('is_persistent', 1);

@@ -29,7 +29,7 @@
 
     .certificate-frame {
         width: 700px;
-        height: 450px;
+        
         border: 1px solid black;
         box-shadow: 5px 10px 8px #888888;
         margin: auto auto;
@@ -61,23 +61,45 @@
 <div class="certificate-frame">
     <div class="certificate-panel">
         <div>
-            <p class="header-1">This is a Certificate that</p>
-            <p class="student-name header-2">{{ $student->name }}</p>
-            <p class="header-2">Has passed {{ $exam->course->subject }} Course Exam with percent:
+            <p class="header-1">Bạn đã hoàn thành bài test <br>{{ $exam->course->subject }} với kết quả</p>
+            <p class="student-name header-2">{{ $student->name }}
                 <strong style="color: #009688;">{{ number_format($percent) }}%</strong></p>
         </div>
 
         <div>
             <div>
-                Provided by: KMS System
+                Cung cấp bởi: KMS System
             </div>
-            <div style="float: left;">
-                Lecturer
-                <p class="lecturer-name">
-                    <strong>{{ $exam->course->lecturer->name }}</strong>
-                </p>
-            </div>
+             
         </div>
+       
     </div>
+    @if($type==2)
+        <div>
+            <u>Chi tiết kết quả làm bài trả lời đúng:</u> {{$correctCount}} / {{count($checkresults)}}  
+             thời gian làm bài: 
+             {{ 
+                Carbon\Carbon::now()->diffInMinutes(session()->get('beginAnswerQuestion'))==0?
+                "dưới 1": 
+                Carbon\Carbon::now()->diffInMinutes(session()->get('beginAnswerQuestion'))             
+             
+             }} phút
+             <br><br>
+            @foreach ($checkresults as $i=> $question)            
+                <strong>{{ ($i+1).".".$question->title }}</strong>
+                @foreach($question->options as $option)
+                    <div class="form-check">                            
+                        <input type="radio" class="form-check" name="{{ $question->id }}" disabled
+                            value="{{ $option->id }}" id="{{ $option->id }}" {{ $question->userchoose == $option->id? "checked":"" }}>
+                        <label class="form-check-label" for="{{ $option->id }}" style="display:inline">
+                            <span {{ $option->id == $question->correct_ans?"style=color:green;font-weight:bold;":"" }}>{{ $option->value }} </span>
+                        </label>
+                    </div>                        
+                @endforeach
+                <br>
+            @endforeach
+        </div>
+    @endif
 </div>
+
 @endsection
