@@ -34,7 +34,7 @@ class HomeStudentController extends Controller
             'search' => $request->get('search', ''),
         ];
 
-        $courses = Courses::query();
+        $courses = Courses::query()->where('type',1);
         if ($request->get('search')) {
             $slg = str_replace('-', " ", Str::slug($request->get('search')));
 
