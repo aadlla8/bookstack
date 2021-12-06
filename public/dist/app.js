@@ -39470,8 +39470,7 @@
       this.$emit("success", { file, data });
       if (this.successMessage) {
         window.$events.emit("success", this.successMessage);
-        let link = `<a href="/attachments/${data.id}">${data.name}</a>`;
-        window.$events.emit("editor-html-update", link);
+        window.$events.emit("editor-html-add-link", data);
       }
       fadeOut(file.previewElement, 800, () => {
         this.dz.removeFile(file);
@@ -42354,6 +42353,19 @@
             editor.selection.select(editor.getBody(), true);
             editor.selection.collapse(false);
             editorChange(html);
+          });
+          window.$events.listen("editor-html-add-link", (data) => {
+            let arr = data.name.split(".");
+            let filename = "";
+            for (let i = 0; i < arr.length - 1; i++) {
+              filename += arr[i];
+            }
+            let html = `<a href="/attachments/${data.id}">${filename}</a>`;
+            let selectedText = editor.selection.getContent({ format: "text" });
+            if (selectedText != "") {
+              html = `<a href="/attachments/${data.id}">${selectedText}</a>`;
+            }
+            window.$events.emit("editor::insert", { html });
           });
           registerEditorShortcuts(editor);
           let wrap;

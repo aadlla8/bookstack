@@ -870,7 +870,7 @@ body.flexbox #content {
  */
 .tri-layout-container {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 5fr 0.6fr;
   grid-template-areas: "a b c";
   grid-column-gap: 10px;
 }
@@ -890,7 +890,7 @@ body.flexbox #content {
 
 @media screen and (max-width: 1400px) {
   .tri-layout-container {
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr 0.6fr;
     grid-template-rows: min-content min-content 1fr;
     padding-inline-end: 24px;
   }
@@ -921,7 +921,6 @@ body.flexbox #content {
   }
 
   .tri-layout-middle-contents {
-    max-width: 940px;
     margin: 0 auto;
   }
 }
@@ -930,8 +929,6 @@ body.flexbox #content {
     grid-template-areas: none;
     grid-template-columns: 1fr;
     grid-column-gap: 0;
-    padding-inline-end: 6px;
-    padding-inline-start: 6px;
   }
   .tri-layout-container .tri-layout-left-contents,
 .tri-layout-container .tri-layout-right-contents {
@@ -1002,8 +999,8 @@ body.flexbox #content {
  * Callouts
  */
 .callout {
-  border-inline-start: 3px solid #BBB;
-  background-color: #EEE;
+  border-inline-start: 3px solid #bbb;
+  background-color: #eee;
   padding: 8px 8px 8px 32px;
   display: block;
   position: relative;
@@ -1085,7 +1082,7 @@ html.dark-mode .callout.warning {
  * Card-style blocks
  */
 .card {
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   border: 1px solid transparent;
@@ -1093,10 +1090,12 @@ html.dark-mode .callout.warning {
 html.dark-mode .card {
   background-color: #222;
 }
-.card .body, .card p.empty-text {
+.card .body,
+.card p.empty-text {
   padding: 10px;
 }
-.card a, .card p {
+.card a,
+.card p {
   word-wrap: break-word;
   word-break: break-word;
 }
@@ -1115,11 +1114,11 @@ html.dark-mode .card {
 }
 
 .card.border-card {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
 }
 
 .card.drag-card {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   border-color: #ddd;
   background-color: #fff;
   border-radius: 4px;
@@ -1137,7 +1136,8 @@ html.dark-mode .card.drag-card {
 .card.drag-card .drag-card-action {
   cursor: pointer;
 }
-.card.drag-card .handle, .card.drag-card .drag-card-action {
+.card.drag-card .handle,
+.card.drag-card .drag-card-action {
   display: flex;
   align-items: center;
   text-align: center;
@@ -1146,10 +1146,12 @@ html.dark-mode .card.drag-card {
   flex-grow: 0;
   padding: 0 6px;
 }
-.card.drag-card .handle:hover, .card.drag-card .drag-card-action:hover {
-  background-color: #EEE;
+.card.drag-card .handle:hover,
+.card.drag-card .drag-card-action:hover {
+  background-color: #eee;
 }
-.card.drag-card .handle .svg-icon, .card.drag-card .drag-card-action .svg-icon {
+.card.drag-card .handle .svg-icon,
+.card.drag-card .drag-card-action .svg-icon {
   margin-inline-end: 0px;
 }
 .card.drag-card .outline input {
@@ -1213,7 +1215,8 @@ html.dark-mode .grid-card:hover {
   border-top: 0;
   border-bottom-width: 2px;
 }
-.grid-card .grid-card-content, .grid-card .grid-card-footer {
+.grid-card .grid-card-content,
+.grid-card .grid-card-footer {
   padding: 24px;
 }
 .grid-card .grid-card-content + .grid-card-footer {
@@ -1226,7 +1229,7 @@ html.dark-mode .grid-card:hover {
 }
 
 .content-wrap.card {
-  padding: 10px 10px;
+  padding: 4px;
   margin-inline-start: auto;
   margin-inline-end: auto;
   margin-bottom: 24px;
@@ -1281,18 +1284,24 @@ html.dark-mode .grid-card:hover {
   border: 1px solid;
   overflow: hidden;
   font-size: 0.85em;
-  border-color: #CCC;
+  border-color: #ccc;
 }
 html.dark-mode .tag-item {
   border-color: #666;
 }
-.tag-item a, .tag-item span, .tag-item a:hover, .tag-item a:active {
+.tag-item a,
+.tag-item span,
+.tag-item a:hover,
+.tag-item a:active {
   padding: 4px 8px;
   color: rgba(0, 0, 0, 0.6);
   transition: background-color ease-in-out 80ms;
   text-decoration: none;
 }
-html.dark-mode .tag-item a, html.dark-mode .tag-item span, html.dark-mode .tag-item a:hover, html.dark-mode .tag-item a:active {
+html.dark-mode .tag-item a,
+html.dark-mode .tag-item span,
+html.dark-mode .tag-item a:hover,
+html.dark-mode .tag-item a:active {
   color: rgba(255, 255, 255, 0.8);
 }
 .tag-item a:hover {
@@ -1309,7 +1318,7 @@ html.dark-mode .tag-item svg {
 }
 .tag-item .tag-value {
   border-inline-start: 1px solid;
-  border-color: #DDD;
+  border-color: #ddd;
   background-color: rgba(255, 255, 255, 0.5);
 }
 html.dark-mode .tag-item .tag-value {
@@ -1334,7 +1343,7 @@ html.dark-mode .tag-item .tag-value {
   opacity: 0.7;
   vertical-align: top;
   border-radius: 3px;
-  color: #FFF;
+  color: #fff;
   display: inline-block;
   min-width: 60px;
   text-align: center;
@@ -1347,7 +1356,7 @@ html.dark-mode .tag-item .tag-value {
   background-color: #cf4d03;
 }
 .api-method[data-method=PUT] {
-  background-color: #0288D1;
+  background-color: #0288d1;
 }
 .api-method[data-method=DELETE] {
   background-color: #ab0f0e;

@@ -30,7 +30,7 @@ class LoginController extends Controller
     /**
      * Redirection paths.
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/books/thong-tin-moi-can-luu-y';
     protected $redirectPath = '/';
     protected $redirectAfterLogout = '/login';
 
@@ -163,6 +163,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+
         return redirect()->intended($this->redirectPath());
     }
 

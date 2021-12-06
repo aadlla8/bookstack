@@ -154,8 +154,12 @@ class PageController extends Controller
 
         View::incrementFor($page);
         $this->setPageTitle($page->getShortName());
-
+        $layout = "tri";
+        if (user()->hasRole(5)) {
+            $layout = "simple";
+        }
         return view('pages.show', [
+            'layout'          => $layout,
             'page'            => $page,
             'book'            => $page->book,
             'current'         => $page,

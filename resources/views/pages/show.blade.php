@@ -1,4 +1,4 @@
-@extends('layouts.tri')
+@extends('layouts.'.$layout)
 
 @push('social-meta')
     <meta property="og:description" content="{{ Str::limit($page->text, 100, '...') }}">
@@ -163,8 +163,9 @@
             <hr class="primary-background"/>
 
             @if(signedInUser())
-                @include('entities.favourite-action', ['entity' => $page])
+                @include('entities.favourite-action', ['entity' => $page])                
             @endif
+            
             @if(userCan('content-export'))
                 @include('entities.export-menu', ['entity' => $page])
             @endif

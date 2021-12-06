@@ -1,18 +1,17 @@
-
 /**
  * Callouts
  */
 .callout {
-  border-inline-start: 3px solid #BBB;
-  background-color: #EEE;
+  border-inline-start: 3px solid #bbb;
+  background-color: #eee;
   padding: $-s $-s $-s $-xl;
   display: block;
   position: relative;
   overflow: auto;
   &:before {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMwMTUzODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTZoMnY2em0wLThoLTJWN2gydjJ6Ii8+PC9zdmc+');
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMwMTUzODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTZoMnY2em0wLThoLTJWN2gydjJ6Ii8+PC9zdmc+");
     background-repeat: no-repeat;
-    content: '';
+    content: "";
     width: 1.2em;
     height: 1.2em;
     left: $-xs + 2px;
@@ -25,7 +24,11 @@
   }
   &.success {
     border-left-color: $positive;
-    @include lightDark(background-color, lighten($positive, 68%), darken($positive, 22%));
+    @include lightDark(
+      background-color,
+      lighten($positive, 68%),
+      darken($positive, 22%)
+    );
     @include lightDark(color, darken($positive, 16%), lighten($positive, 5%));
   }
   &.success:before {
@@ -33,7 +36,11 @@
   }
   &.danger {
     border-left-color: $negative;
-    @include lightDark(background-color, lighten($negative, 56%), darken($negative, 30%));
+    @include lightDark(
+      background-color,
+      lighten($negative, 56%),
+      darken($negative, 30%)
+    );
     @include lightDark(color, darken($negative, 20%), lighten($negative, 5%));
   }
   &.danger:before {
@@ -42,11 +49,19 @@
   &.info {
     border-left-color: $info;
     @include lightDark(color, darken($info, 20%), lighten($info, 10%));
-    @include lightDark(background-color, lighten($info, 50%), darken($info, 35%));
+    @include lightDark(
+      background-color,
+      lighten($info, 50%),
+      darken($info, 35%)
+    );
   }
   &.warning {
     border-left-color: $warning;
-    @include lightDark(background-color, lighten($warning, 50%), darken($warning, 36%));
+    @include lightDark(
+      background-color,
+      lighten($warning, 50%),
+      darken($warning, 36%)
+    );
     @include lightDark(color, darken($warning, 20%), $warning);
   }
   &.warning:before {
@@ -63,14 +78,16 @@
  */
 
 .card {
-  @include lightDark(background-color, #FFF, #222);
+  @include lightDark(background-color, #fff, #222);
   box-shadow: $bs-card;
   border-radius: 3px;
   border: 1px solid transparent;
-  .body, p.empty-text {
+  .body,
+  p.empty-text {
     padding: $-m;
   }
-  a, p {
+  a,
+  p {
     word-wrap: break-word;
     word-break: break-word;
   }
@@ -89,11 +106,11 @@
 }
 
 .card.border-card {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
 }
 
 .card.drag-card {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   @include lightDark(border-color, #ddd, #000);
   @include lightDark(background-color, #fff, #333);
   border-radius: 4px;
@@ -104,7 +121,8 @@
   .drag-card-action {
     cursor: pointer;
   }
-  .handle, .drag-card-action {
+  .handle,
+  .drag-card-action {
     display: flex;
     align-items: center;
     text-align: center;
@@ -113,7 +131,7 @@
     flex-grow: 0;
     padding: 0 $-xs;
     &:hover {
-      background-color: #EEE;
+      background-color: #eee;
     }
     .svg-icon {
       margin-inline-end: 0px;
@@ -162,7 +180,7 @@
     margin: 0 0 10px;
   }
   p {
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin: 0;
     line-height: 1.6em;
   }
@@ -171,7 +189,8 @@
     border-top: 0;
     border-bottom-width: 2px;
   }
-  .grid-card-content, .grid-card-footer {
+  .grid-card-content,
+  .grid-card-footer {
     padding: $-l;
   }
   .grid-card-content + .grid-card-footer {
@@ -181,13 +200,13 @@
 
 .book-grid-item .grid-card-footer {
   p.small {
-    font-size: .8em;
+    font-size: 0.8em;
     margin: 0;
   }
 }
 
 .content-wrap.card {
-  padding: $-m $-xxl;
+  padding: 4px;
   margin-inline-start: auto;
   margin-inline-end: auto;
   margin-bottom: $-l;
@@ -226,7 +245,8 @@
 .fade-in-when-active {
   opacity: 0.6;
   transition: opacity ease-in-out 120ms;
-  &:hover, &:focus-within {
+  &:hover,
+  &:focus-within {
     opacity: 1;
   }
 }
@@ -242,23 +262,34 @@
   border: 1px solid;
   overflow: hidden;
   font-size: 0.85em;
-  @include lightDark(border-color, #CCC, #666);
-  a, span, a:hover, a:active {
+  @include lightDark(border-color, #ccc, #666);
+  a,
+  span,
+  a:hover,
+  a:active {
     padding: 4px 8px;
     @include lightDark(color, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.8));
     transition: background-color ease-in-out 80ms;
     text-decoration: none;
   }
   a:hover {
-    @include lightDark(background-color, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    @include lightDark(
+      background-color,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
   }
   svg {
     @include lightDark(fill, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));
   }
   .tag-value {
     border-inline-start: 1px solid;
-    @include lightDark(border-color, #DDD, #666);
-    @include lightDark(background-color, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2))
+    @include lightDark(border-color, #ddd, #666);
+    @include lightDark(
+      background-color,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.2)
+    );
   }
 }
 
@@ -277,15 +308,23 @@
   opacity: 0.7;
   vertical-align: top;
   border-radius: 3px;
-  color: #FFF;
+  color: #fff;
   display: inline-block;
   min-width: 60px;
   text-align: center;
   font-weight: bold;
-  &[data-method="GET"] { background-color: #077b70 }
-  &[data-method="POST"] { background-color: #cf4d03 }
-  &[data-method="PUT"] { background-color: #0288D1 }
-  &[data-method="DELETE"] { background-color: #ab0f0e }
+  &[data-method="GET"] {
+    background-color: #077b70;
+  }
+  &[data-method="POST"] {
+    background-color: #cf4d03;
+  }
+  &[data-method="PUT"] {
+    background-color: #0288d1;
+  }
+  &[data-method="DELETE"] {
+    background-color: #ab0f0e;
+  }
 }
 
 .sticky-sidebar {

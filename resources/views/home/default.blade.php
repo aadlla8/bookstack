@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 @endif
-
+                
                 <div id="recent-pages" class="card mb-xl">
                     <h3 class="card-title"><a class="no-color" href="{{ url("/pages/recently-updated") }}">{{ trans('entities.recently_updated_pages') }}</a></h3>
                     <div id="recently-updated-pages" class="px-m">
@@ -66,17 +66,18 @@
                         ])
                     </div>
                 </div>
+                
             </div>
-
-            <div>
-                <div id="recent-activity">
-                    <div class="card mb-xl">
-                        <h3 class="card-title">{{ trans('entities.recent_activity') }}</h3>
-                        @include('common.activity-list', ['activity' => $activity])
+            @if(userCan('settings-manage'))
+                <div>
+                    <div id="recent-activity">
+                        <div class="card mb-xl">
+                            <h3 class="card-title">{{ trans('entities.recent_activity') }}</h3>
+                            @include('common.activity-list', ['activity' => $activity])
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            @endif  
         </div>
     </div>
 

@@ -58,7 +58,7 @@
                         <span class="user-name py-s hide-under-l" refs="dropdown@toggle"
                               aria-haspopup="true" aria-expanded="false" aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
                             <img class="avatar" src="{{$currentUser->getAvatar(30)}}" alt="{{ $currentUser->name }}">
-                            <span class="name">{{ $currentUser->getShortName(9) }}</span> @icon('caret-down')
+                            <span class="name">{{ $currentUser->getShortName(30) }}</span> @icon('caret-down')
                         </span>
                         <ul refs="dropdown@menu" class="dropdown-menu" role="menu">
                             <li>
@@ -70,9 +70,7 @@
                             <li>
                                 <a href="{{ $currentUser->getEditUrl() }}">@icon('edit'){{ trans('common.edit_profile') }}</a>
                             </li>
-                            @if(signedInUser() && userCan('settings-manage'))
-                             <li><a href="{{ url('/Courses/create') }}">@icon('settings'){{ 'AddCourse' }}</a></li>
-                            @endif
+                            
                             <li>
                                 @if(config('auth.method') === 'saml2')
                                     <a href="{{ url('/saml2/logout') }}">@icon('logout'){{ trans('auth.logout') }}</a>

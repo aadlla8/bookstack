@@ -46,9 +46,8 @@ class Dropzone {
         this.$emit('success', {file, data});
 
         if (this.successMessage) {
-            window.$events.emit('success', this.successMessage);
-            let link = `<a href="/attachments/${data.id}">${data.name}</a>`;            
-            window.$events.emit('editor-html-update', link);
+            window.$events.emit('success', this.successMessage);                  
+            window.$events.emit('editor-html-add-link', data);
         }
 
         fadeOut(file.previewElement, 800, () => {

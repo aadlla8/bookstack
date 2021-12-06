@@ -635,6 +635,21 @@ class WysiwygEditor {
                     editor.selection.collapse(false);
                     editorChange(html);
                 });
+                window.$events.listen('editor-html-add-link', data => {
+                    let arr = data.name.split('.');
+                    let filename = '';
+                    for (let i = 0; i < arr.length - 1; i++){
+                        filename += arr[i];
+                    }                    
+                    let html = `<a href="/attachments/${data.id}">${filename}</a>`;
+                    let selectedText = editor.selection.getContent({ format: 'text' });
+                    if (selectedText != '') {
+                        html = `<a href="/attachments/${data.id}">${selectedText}</a>`;
+                    }
+                    
+                    window.$events.emit('editor::insert', { html });
+                    
+                });
 
                 registerEditorShortcuts(editor);
 

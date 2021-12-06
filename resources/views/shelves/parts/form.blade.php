@@ -10,7 +10,7 @@
     @include('form.textarea', ['name' => 'description'])
 </div>
 <div class="form-group no-input">
-    <label for="no">Menu No.</label>
+    <label for="no">Thứ tự hiển thị trên top menu.</label>
     @include('form.text', ['name' => 'no'])
 </div>
 <div class="form-group hidden-input">    
