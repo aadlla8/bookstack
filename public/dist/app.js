@@ -42465,8 +42465,8 @@
       if (this.container.tagName === "LI") {
         setInterval(() => {
           let lastActivityId = localStorage.getItem("notification");
-          let token = "mVUDW9EhwLxuYS4C5UNDTPANqzf4JOCZ";
-          let secret = "8QtWTEifeOA5hpPhWRTHXo4eeup90FDl";
+          let token = "bRkuQlKaKnvmXxcw6e5NFyiGTlDtxgxp";
+          let secret = "6QxpsCdERVsqUyFjpsQH99NTuVJ9ZV2h";
           fetch("/api/activities?last=" + lastActivityId, {
             method: "GET",
             headers: {

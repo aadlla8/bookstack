@@ -90,7 +90,7 @@
                         @endif
                     </td>
                     <td>{{ $activity->ip }}</td>
-                    <td>{{ $activity->created_at }}</td>
+                    <td>{{ Carbon\Carbon::create($activity->created_at) }}</td>
                 </tr>
             @endforeach
             </tbody>

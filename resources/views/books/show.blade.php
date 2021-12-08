@@ -65,99 +65,101 @@
 @stop
 
 @section('right')
-    <div class="mb-xl">
-        <h5>{{ trans('common.details') }}</h5>
-        <div class="text-small text-muted blended-links">
-            @include('entities.meta', ['entity' => $book])
-            @if($book->restricted)
-                <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $book))
-                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
-                    @else
-                        @icon('lock'){{ trans('entities.books_permissions_active') }}
-                    @endif
-                </div>
-            @endif
+    @if(userCan('settings-manage'))
+        <div class="mb-xl">
+            <h5>{{ trans('common.details') }}</h5>
+            <div class="text-small text-muted blended-links">
+                @include('entities.meta', ['entity' => $book])
+                @if($book->restricted)
+                    <div class="active-restriction">
+                        @if(userCan('restrictions-manage', $book))
+                            <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
+                        @else
+                            @icon('lock'){{ trans('entities.books_permissions_active') }}
+                        @endif
+                    </div>
+                @endif
+            </div>
         </div>
-    </div>
 
-    <div class="actions mb-xl">
-        <h5>{{ trans('common.actions') }}</h5>
-        <div class="icon-list text-primary">
+        <div class="actions mb-xl">
+            <h5>{{ trans('common.actions') }}</h5>
+            <div class="icon-list text-primary">
 
-            @if(userCan('page-create', $book))
-                <a href="{{ $book->getUrl('/create-page') }}" class="icon-list-item">
-                    <span>@icon('add')</span>
-                    <span>{{ trans('entities.pages_new') }}</span>
-                </a>
-            @endif
-            @if(userCan('chapter-create', $book))
-                <a href="{{ $book->getUrl('/create-chapter') }}" class="icon-list-item">
-                    <span>@icon('add')</span>
-                    <span>{{ trans('entities.chapters_new') }}</span>
-                </a>
-            @endif
+                @if(userCan('page-create', $book))
+                    <a href="{{ $book->getUrl('/create-page') }}" class="icon-list-item">
+                        <span>@icon('add')</span>
+                        <span>{{ trans('entities.pages_new') }}</span>
+                    </a>
+                @endif
+                @if(userCan('chapter-create', $book))
+                    <a href="{{ $book->getUrl('/create-chapter') }}" class="icon-list-item">
+                        <span>@icon('add')</span>
+                        <span>{{ trans('entities.chapters_new') }}</span>
+                    </a>
+                @endif
 
-            <hr class="primary-background">
+                <hr class="primary-background">
 
-            @if(userCan('book-update', $book))
-                <a href="{{ $book->getUrl('/edit') }}" class="icon-list-item">
-                    <span>@icon('edit')</span>
-                    <span>{{ trans('common.edit') }}</span>
-                </a>
-                <a href="{{ $book->getUrl('/sort') }}" class="icon-list-item">
-                    <span>@icon('sort')</span>
-                    <span>{{ trans('common.sort') }}</span>
-                </a>
-            @endif
-            @if(userCan('restrictions-manage', $book))
-                <a href="{{ $book->getUrl('/permissions') }}" class="icon-list-item">
-                    <span>@icon('lock')</span>
-                    <span>{{ trans('entities.permissions') }}</span>
-                </a>
-            @endif
-            @if(userCan('book-delete', $book))
-                <a href="{{ $book->getUrl('/delete') }}" class="icon-list-item">
-                    <span>@icon('delete')</span>
-                    <span>{{ trans('common.delete') }}</span>
-                </a>
-            @endif
+                @if(userCan('book-update', $book))
+                    <a href="{{ $book->getUrl('/edit') }}" class="icon-list-item">
+                        <span>@icon('edit')</span>
+                        <span>{{ trans('common.edit') }}</span>
+                    </a>
+                    <a href="{{ $book->getUrl('/sort') }}" class="icon-list-item">
+                        <span>@icon('sort')</span>
+                        <span>{{ trans('common.sort') }}</span>
+                    </a>
+                @endif
+                @if(userCan('restrictions-manage', $book))
+                    <a href="{{ $book->getUrl('/permissions') }}" class="icon-list-item">
+                        <span>@icon('lock')</span>
+                        <span>{{ trans('entities.permissions') }}</span>
+                    </a>
+                @endif
+                @if(userCan('book-delete', $book))
+                    <a href="{{ $book->getUrl('/delete') }}" class="icon-list-item">
+                        <span>@icon('delete')</span>
+                        <span>{{ trans('common.delete') }}</span>
+                    </a>
+                @endif
 
-            <hr class="primary-background">
+                <hr class="primary-background">
 
-            @if(signedInUser())
-                @include('entities.favourite-action', ['entity' => $book])
-            @endif
-            @if(userCan('content-export'))
-                @include('entities.export-menu', ['entity' => $book])
-            @endif
+                @if(signedInUser())
+                    @include('entities.favourite-action', ['entity' => $book])
+                @endif
+                @if(userCan('content-export'))
+                    @include('entities.export-menu', ['entity' => $book])
+                @endif
+            </div>
         </div>
-    </div>
-
+    @endif
 @stop
 
 @section('left')
+    @if(userCan('settings-manage'))
+        @include('entities.search-form', ['label' => trans('entities.books_search_this')])
 
-    @include('entities.search-form', ['label' => trans('entities.books_search_this')])
+        @if($book->tags->count() > 0)
+            <div class="mb-xl">
+                @include('entities.tag-list', ['entity' => $book])
+            </div>
+        @endif
 
-    @if($book->tags->count() > 0)
-        <div class="mb-xl">
-            @include('entities.tag-list', ['entity' => $book])
-        </div>
-    @endif
+        @if(count($bookParentShelves) > 0)
+            <div class="actions mb-xl">
+                <h5>{{ trans('entities.shelves_long') }}</h5>
+                @include('entities.list', ['entities' => $bookParentShelves, 'style' => 'compact'])
+            </div>
+        @endif
 
-    @if(count($bookParentShelves) > 0)
-        <div class="actions mb-xl">
-            <h5>{{ trans('entities.shelves_long') }}</h5>
-            @include('entities.list', ['entities' => $bookParentShelves, 'style' => 'compact'])
-        </div>
-    @endif
-
-    @if(userCan('settings-manage')&&count($activity) > 0)
-        <div class="mb-xl">
-            <h5>{{ trans('entities.recent_activity') }}</h5>
-            @include('common.activity-list', ['activity' => $activity])
-        </div>
+        @if(count($activity) > 0)
+            <div class="mb-xl">
+                <h5>{{ trans('entities.recent_activity') }}</h5>
+                @include('common.activity-list', ['activity' => $activity])
+            </div>
+        @endif
     @endif
 @stop
 

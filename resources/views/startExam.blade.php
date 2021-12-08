@@ -8,8 +8,9 @@
         <div class="start-exam-course">
             <div class="subject-header"><strong>Thông tin đề bài thi</strong></div>
             <div class="subject-body container">
-                {{ $exam->course->subject }} <br>
-                 {{ $exam->title }}  
+                {{ $exam->course->subject }} -
+                 {{ $exam->title }}  <br>
+                 Thời gian làm bài còn lại: <span class="exam-title"><strong></strong></span>
             </div>           
         </div>
         <hr>
@@ -47,8 +48,9 @@
 @endsection
 @section('scripts')
     <script nonce="{{ $cspNonce }}">
+        var timeout=false;
         $(document).ready(function () {
-            $('#myForm').on('submit',function(){
+            $('#myForm').on('submit',function() {
 
                 let totalQ=({{$exam->questions->count()}});
                 let totalChecked=0;
@@ -56,7 +58,8 @@
                 for(let i=0;i<arr.length;i++) {
                     if(arr[i].checked) totalChecked++;
                 }
-                
+                if(timeout) 
+                    return true;
                 if(totalChecked < totalQ) {                        
                     return confirm(`Bạn chưa hoàn thành bài thi (${totalChecked}/${totalQ}), nhưng vẫn muốn nộp bài bấm Ok.\nTiếp tục làm bài bấm Cancel?`);                        
                 }                    
@@ -75,6 +78,7 @@
                         if(hours - 1 < 0) {
                             clearInterval(countDown);
                             $(window).unbind('beforeunload');
+                            timeout=true;   
                             $("#myForm").submit();
                             return;
                         } else {

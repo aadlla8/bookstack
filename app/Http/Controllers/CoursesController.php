@@ -84,6 +84,7 @@ class CoursesController extends Controller
     public function show($id)
     {
         $course = Courses::find($id);
+
         $videos = Videos::all()->where('course_id', $id);
         $enrolled = false;
         $examFinished = false;
@@ -96,6 +97,7 @@ class CoursesController extends Controller
                 break;
             }
         }
+
         //dd($course->students[0]->pivot->commulativeGrade);
         return view("courseProfile")->with(compact('course', 'videos', 'enrolled', 'examFinished'));
     }
@@ -105,6 +107,12 @@ class CoursesController extends Controller
         $course = Courses::find($id);
         $videos = Videos::all()->where('course_id', $id);
         $enrolled = false;
+
+
+        if ($course->students->firstWhere("id", user()->id)) {
+            $enrolled = true;
+            return redirect('/courses/' . $id);
+        }
 
         $course->students()->attach(user()->id);
 
@@ -120,7 +128,7 @@ class CoursesController extends Controller
         }
         return redirect('/courses/' . $id);
         // we should make the enrollment here
-        //return view("courseProfile")->with(compact('course', 'videos','enrolled','examFinished'));
+        //return view("courseProfile")->with(compact('course','videos','enrolled','examFinished'));
         //return view("enrollCourse")->with("course", $course);
     }
 
@@ -152,14 +160,14 @@ class CoursesController extends Controller
         $courses->numOfHours = $request->input('NumberOfHours');
         //------------------------------------
         if ($request->hasFile('coursePic')) {
-            
+
             $picNameWithExt = $request->file('coursePic')->getClientOriginalName();
             $picName = pathinfo($picNameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('coursePic')->getClientOriginalExtension();
             $picNameToStore = $picName . time() . "." . $extension;
             $request->file('coursePic')->move(base_path() . '/public/coursePic/', $picNameToStore);
 
-            DB::table('question_import')->where('is_persistent','0')->delete();
+            DB::table('question_import')->where('is_persistent', '0')->delete();
             Excel::import(new ImportQuestionOption, base_path() . '/public/coursePic/' . $picNameToStore);
             $exam = Exam::all()->where("course_id", $courses->id)->first();
 
@@ -180,7 +188,7 @@ class CoursesController extends Controller
                 $exam->save();
             }
 
-            $questions = DB::table('question_import')->where('is_persistent',0)->get();
+            $questions = DB::table('question_import')->where('is_persistent', 0)->get();
             foreach ($questions as $question) {
                 # code...
                 if ($question->title == "Title") continue;

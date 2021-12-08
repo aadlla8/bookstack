@@ -160,41 +160,48 @@ class ExamController extends Controller
 
         $pivoteTable->pivot->commulativeGrade = 0.0;
         $totalGrade = 0;
+        $totalMark = 0;
         $checkresults = array();
         $correctCount = 0;
-        
+        $fail_questions = "";
+        $total_question = $exam->questions->count();
         foreach ($exam->questions as $question) {
             $totalGrade += $question->mark;
-            $question->userchoose = $request->get("$question->id");   
-            if(empty($question->correctAnswer)) {
-                if(!$request->get("$question->id")){
-                    $pivoteTable->pivot->commulativeGrade += $question->mark;  
-                    $correctCount++;  
-                }                
-            }
-            else  if ($request->get("$question->id") == $question->correctAnswer->id) {
-                $pivoteTable->pivot->commulativeGrade += $question->mark;  
-                $correctCount++;              
+            $question->userchoose = $request->get("$question->id");
+            if (empty($question->correctAnswer)) {
+                if (!$request->get("$question->id")) {
+                    $pivoteTable->pivot->commulativeGrade += $question->mark;
+                    $correctCount++;
+                    $totalMark += $question->mark;
+                } else {
+                    $fail_questions .= $question->id . ",";
+                }
+            } else  if ($request->get("$question->id") == $question->correctAnswer->id) {
+                $pivoteTable->pivot->commulativeGrade += $question->mark;
+                $correctCount++;
+                $totalMark += $question->mark;
+            } else {
+                $fail_questions .= $question->id . ",";
             }
             $checkresults[] = $question;
         }
-
+        $pivoteTable->pivot->fail_questions = $fail_questions;
+        $pivoteTable->pivot->total_mark = $totalMark;
         $pivoteTable->pivot->commulativeGrade = $pivoteTable->pivot->commulativeGrade / $totalGrade * 100;
         $pivoteTable->pivot->save();
         $student = User::find(user()->id);
         $percent = $pivoteTable->pivot->commulativeGrade;
 
-        $type= $exam->course->type;
-
+        $type = $exam->course->type; //1 trac nghiem, 2 on tap
         DB::update('update courses_student set updated_at = now() where student_id = ?', [user()->id]);
-        return view('examResult')->with(compact('exam', 'student', 'percent', 'checkresults','type','correctCount'));
+        return view('examResult')->with(compact('exam', 'student', 'percent', 'checkresults', 'correctCount', 'type', 'totalMark', 'totalGrade', 'fail_questions', 'total_question'));
     }
     public function resetResult($id, $stdid)
     {
         $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
         if ($course) {
             $course = DB::select('select * from courses_student where course_id=? and student_id = ?', [$id, $stdid]);
-            DB::update('update courses_student set updated_at=null, created_at=null, commulativeGrade=null where course_id=? and student_id = ?', [$id, $stdid]);
+            DB::update('update courses_student set updated_at=null, fail_questions=null, total_mark=0, created_at=null, commulativeGrade=null where course_id=? and student_id = ?', [$id, $stdid]);
         }
 
         return redirect("/courses/" . $id);

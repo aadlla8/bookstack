@@ -86,16 +86,16 @@
 
         {{--Check Enrollment==================================================================================--}}
         
-        @if( !empty(user()) && !$enrolled && user()->id!=$course->lec_id && user()->id !=2)
+        @if( !empty(user()) && !$enrolled && user()->id != $course->lec_id && user()->id !=2)
             <!-- <a class="btn btn-success btn-lg enroll" href="">Watch Videos</a> -->
             @if($course->cost == 0)
-            <a class="btn btn-success btn-lg enroll" href="/enrollCourse/{{$course->id}}">
-                Vào làm bài trắc nghiệm                 
-            </a>
+                <a class="btn btn-success btn-lg enroll" href="/enrollCourse/{{$course->id}}">
+                    Vào làm bài trắc nghiệm                 
+                </a>
             @else
-            <a class="btn btn-success btn-lg enroll" href="/stripe/{{$course->id}}">
-                Vào làm bài trắc nghiệm             
-            </a>
+                <a class="btn btn-success btn-lg enroll" href="/stripe/{{$course->id}}">
+                    Vào làm bài trắc nghiệm             
+                </a>
             @endif
             <br>
         @endif
@@ -103,6 +103,9 @@
         {{--Start Exam===========================================================================================--}}
         @if( !empty(user()) && $enrolled && !$examFinished && !empty($course->exam))
             <a href="/startExam/{{$course->id}}" class="start-exam">Bắt đầu {{$course->subject}} Exam!</a>
+            <br>
+        @elseif(empty($course->exam))
+            <span>Chưa có câu hỏi nào. Hãy thêm câu hỏi.</span>
             <br>
         @elseif($enrolled && $examFinished)
             <span>Bạn đã hoàn thành bài thi này rồi.</span>
@@ -114,42 +117,59 @@
                 <strong>Danh sách người dùng.</strong>               
                 <br>
                     <table id='student_results'>
-                        <tr style="background-color: gold"><th>Tên người dùng</th><th>Bắt đầu lúc</th><th>Kết thúc lúc</th><th>Thời gian(phút)</th><th>% Passed</th><th>Hủy kết quả</th></tr>
-                        @foreach($course->students as $student)
+                        <tr style="background-color: gold">
+                            <th>Stt</th>
+                            <th>Tên người dùng</th>
+                            <th>Tài khoản</th>
+                            <th>Kỳ thi</th>
+                            <th>Làm bài</th>   
+                            <th>% đúng</th>
+                            <th>% sai</th>
+                            <th>Điểm</th>
+                            <th>TG thực hiện</th>
+                            <th>Câu hỏi sai</th>
+                            <th>Hủy kết quả</th>
+                        </tr>                         
+                        @foreach($course->students->sortBy('name') as $key=>$student)
                            <tr>
+                               <td> {{ $key + 1 }}</td>
                                 <td>{{$student->name}}</td>
-                                
+                                <td>{{$student->email}}</td>  
+                                <td>{{$course->subject}}</td>                              
                                 <td>
-                                    @if(!empty($student->pivot->created_at))
-                                    
+                                    @if(!empty($student->pivot->created_at))                                    
                                         {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)->format('d-m-y H:i:s')}}
                                     @endif
-                                    </td>
-                                    <td>
-                                        @if(!empty($student->pivot->updated_at))
-                                                {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at)->format('d-m-y H:i:s')}}
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if(!empty($student->pivot->created_at))
-                                            {{
-                                                number_format(Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)
-                                                ->diffInSeconds(Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at))/60,1)
-                                            }}  
-                                        @endif                           
-                                    </td>
-                                    <td> 
-                                        @if(!@empty($student->pivot->commulativeGrade))
-                                              {{ number_format($student->pivot->commulativeGrade) }}%
-                                        @endempty                     
-                                      
-                                    </td>
-                                    <td>
-                                        <a component="delete-button"
-                                            option:delete-button:message="Bạn muốn xóa kết quả thi của người dùng này?"
-                                            option:delete-button:url="/reset-result/{{$course->id}}/{{$student->id}}"
-                                        >reset</a> 
-                                    </td>
+                                </td> 
+                                <td> 
+                                    @if(!@empty($student->pivot->commulativeGrade))
+                                        {{ number_format($student->pivot->commulativeGrade) }}
+                                    @endif
+                                </td>
+                                <td> 
+                                    @if(!@empty($student->pivot->commulativeGrade))
+                                        {{ number_format( 100-$student->pivot->commulativeGrade) }}
+                                    @endif
+                                </td>
+                                <td>
+                                    {{$student->pivot->total_mark}}
+                                </td>
+                                <td>
+                                    @if(!empty($student->pivot->created_at) && !empty($student->pivot->updated_at))
+                                        {{
+                                            number_format(
+                                                Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->created_at)
+                                                    ->diffInSeconds(Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$student->pivot->updated_at))/60,1)
+                                        }}  
+                                    @endif                           
+                                </td>
+                                <td>{{ $student->pivot->fail_questions }}</td>
+                                <td>
+                                    <a component="delete-button"
+                                        option:delete-button:message="Bạn muốn xóa kết quả thi của người dùng này?"
+                                        option:delete-button:url="/reset-result/{{$course->id}}/{{$student->id}}"
+                                    >reset</a> 
+                                </td>
                             </tr>
                         @endforeach
                     </table>

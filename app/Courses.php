@@ -20,7 +20,7 @@ class Courses extends EloquentModel
     public function students()
     {
         //return $this->belongsToMany(Student::class, 'courses_student' ,'course_id')->withPivot('commulativeGrade');
-        return $this->belongsToMany(User::class, 'courses_student', 'course_id', 'student_id')->withPivot('commulativeGrade', 'created_at', 'updated_at');
+        return $this->belongsToMany(User::class, 'courses_student', 'course_id', 'student_id')->withPivot('commulativeGrade', 'total_mark', 'fail_questions', 'created_at', 'updated_at');
     }
     public function descriptions()
     {

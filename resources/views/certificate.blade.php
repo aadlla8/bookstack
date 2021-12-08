@@ -61,39 +61,40 @@
 <div class="certificate-frame">
     <div class="certificate-panel">
         <div>
-            <p class="header-1">Bạn đã hoàn thành bài test <br>{{ $exam->course->subject }} với kết quả</p>
-            <p class="student-name header-2">{{ $student->name }}
-                <strong style="color: #009688;">{{ number_format($percent) }}%</strong></p>
+            <p class="header-2">Yêu cầu của bạn đã thực hiện thành công <br>{{ $exam->course->subject }} với kết quả</p>
+                  
+            <p style="text-align: left; padding-left: 100px;"> 
+                <b>% đúng:</b> {{ number_format($percent) }}%<br>
+                    <b>% sai:</b> {{ 100 - number_format($percent) }}%<br>
+                        <b>Số câu đúng:</b> {{ $correctCount}} / {{$total_question}} <br>
+                            <b>Số điểm:</b> {{ $totalMark}} / {{ $totalGrade}}<br>
+                                <b>Họ và Tên:</b> {{ $student->name }}          
+            </p>
         </div>
-
         <div>
             <div>
                 Cung cấp bởi: KMS System
-            </div>
-             
-        </div>
-       
+            </div>             
+        </div>       
     </div>
-    @if($type==2)
+    @if($type==2 || $type==1)
         <div>
             <u>Chi tiết kết quả làm bài trả lời đúng:</u> {{$correctCount}} / {{count($checkresults)}}  
              thời gian làm bài: 
              {{ 
                 Carbon\Carbon::now()->diffInMinutes(session()->get('beginAnswerQuestion'))==0?
-                "dưới 1": 
-                Carbon\Carbon::now()->diffInMinutes(session()->get('beginAnswerQuestion'))             
-             
+                "dưới 1": Carbon\Carbon::now()->diffInMinutes(session()->get('beginAnswerQuestion'))
              }} phút
              <br><br>
-            @foreach ($checkresults as $i=> $question)            
-                <strong>{{ ($i+1).".".$question->title }}</strong>
+            @foreach ($checkresults as $i => $question)            
+                <strong>{{ ($i+1).".".$question->title }}</strong>  
                 @foreach($question->options as $option)
                     <div class="form-check">                            
                         <input type="radio" class="form-check" name="{{ $question->id }}" disabled
                             value="{{ $option->id }}" id="{{ $option->id }}" {{ $question->userchoose == $option->id? "checked":"" }}>
                         <label class="form-check-label" for="{{ $option->id }}" style="display:inline">
                             <span {{ $option->id == $question->correct_ans?"style=color:green;font-weight:bold;":"" }}>{{ $option->value }} </span>
-                        </label>
+                        </label>                         
                     </div>                        
                 @endforeach
                 <br>

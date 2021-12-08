@@ -40,6 +40,7 @@ class BookshelfController extends Controller
             'name'       => trans('common.sort_name'),
             'created_at' => trans('common.sort_created_at'),
             'updated_at' => trans('common.sort_updated_at'),
+            'no'        => 'Thứ tự hiển thị menu',
         ];
 
         $shelves = $this->bookshelfRepo->getAllPaginated(18, $sort, $order);

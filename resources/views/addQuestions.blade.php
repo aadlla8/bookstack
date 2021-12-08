@@ -92,6 +92,9 @@
                                         <div class="question-mark">
                                            Mark: {{ $question->mark }} 
                                         </div>
+                                        <div class="question-mark">
+                                            ID: {{ $question->id }} 
+                                         </div>
                                     </div>
                                     <div> 
                                         <a component="delete-button"

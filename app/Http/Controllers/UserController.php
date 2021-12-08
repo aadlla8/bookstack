@@ -361,7 +361,7 @@ class UserController extends Controller
         $this->checkPermissionOrCurrentUser('users-manage', $userId);
 
         $sort = $request->get('sort');
-        if (!in_array($sort, ['name', 'created_at', 'updated_at', 'default'])) {
+        if (!in_array($sort, ['no', 'name', 'created_at', 'updated_at', 'default'])) {
             $sort = 'name';
         }
 
