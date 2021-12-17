@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Authentication Language Lines
  * The following language lines are used during authentication for various
@@ -16,8 +17,8 @@ return [
     'sign_up_with' => 'Đăng kí với :socialDriver',
     'logout' => 'Đăng xuất',
 
-    'name' => 'Tên',
-    'username' => 'Tên đăng nhập',
+    'name' => 'Họ và Tên',
+    'username' => 'Tên tài khoản đăng nhập',
     'email' => 'Email',
     'password' => 'Mật khẩu',
     'password_confirm' => 'Xác nhận mật khẩu',

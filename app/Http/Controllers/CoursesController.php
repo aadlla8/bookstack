@@ -69,6 +69,12 @@ class CoursesController extends Controller
         $courses->lec_id = user()->id;
         $courses->coursePic = "default.jpg";
         $courses->description = "";
+        if ($request->input('start_date'))
+            $courses->start_date = $request->input('start_date');
+        if ($request->input('end_date'))
+            $courses->end_date = $request->input('end_date');
+
+
         $courses->save();
         return redirect('/homeStudent');
 
@@ -97,9 +103,13 @@ class CoursesController extends Controller
                 break;
             }
         }
+        $totalQuestion = 0;
+        if ($course->exam)
+            $totalQuestion = $course->exam->questions->count();
+
 
         //dd($course->students[0]->pivot->commulativeGrade);
-        return view("courseProfile")->with(compact('course', 'videos', 'enrolled', 'examFinished'));
+        return view("courseProfile")->with(compact('course', 'videos', 'enrolled', 'examFinished', 'totalQuestion'));
     }
 
     public function enroll($id)
@@ -158,6 +168,10 @@ class CoursesController extends Controller
         $courses->level = $request->input('level');
         $courses->cost = $request->input('cost');
         $courses->numOfHours = $request->input('NumberOfHours');
+        if ($request->input('start_date'))
+            $courses->start_date = $request->input('start_date');
+        if ($request->input('end_date'))
+            $courses->end_date = $request->input('end_date');
         //------------------------------------
         if ($request->hasFile('coursePic')) {
 

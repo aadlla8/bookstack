@@ -187,7 +187,8 @@ class ExamController extends Controller
         }
         $pivoteTable->pivot->fail_questions = $fail_questions;
         $pivoteTable->pivot->total_mark = $totalMark;
-        $pivoteTable->pivot->commulativeGrade = $pivoteTable->pivot->commulativeGrade / $totalGrade * 100;
+        if ($totalGrade > 0)
+            $pivoteTable->pivot->commulativeGrade = $pivoteTable->pivot->commulativeGrade / $totalGrade * 100;
         $pivoteTable->pivot->save();
         $student = User::find(user()->id);
         $percent = $pivoteTable->pivot->commulativeGrade;

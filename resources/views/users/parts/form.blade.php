@@ -1,14 +1,13 @@
-
-@if($authMethod === 'system' && $user->system_name == 'public')
+@if ($authMethod === 'system' && $user->system_name == 'public')
     <p class="mb-none text-warn">{{ trans('settings.users_system_public') }}</p>
 @endif
 
 <div class="pt-m">
     <label class="setting-list-label">{{ trans('settings.users_details') }}</label>
-    @if($authMethod === 'standard')
+    @if ($authMethod === 'standard')
         <p class="small">{{ trans('settings.users_details_desc') }}</p>
     @endif
-    @if($authMethod === 'ldap' || $authMethod === 'system')
+    @if ($authMethod === 'ldap' || $authMethod === 'system')
         <p class="small">{{ trans('settings.users_details_desc_no_email') }}</p>
     @endif
     <div class="grid half mt-m gap-xl">
@@ -17,15 +16,15 @@
             @include('form.text', ['name' => 'name'])
         </div>
         <div>
-            @if($authMethod !== 'ldap' || userCan('users-manage'))
-                <label for="email">{{ trans('auth.email') }}</label>
+            @if ($authMethod !== 'ldap' || userCan('users-manage'))
+                <label for="email">{{ trans('auth.username') }}</label>
                 @include('form.text', ['name' => 'email', 'disabled' => !userCan('users-manage')])
             @endif
         </div>
     </div>
 </div>
 
-@if(($authMethod === 'ldap' || $authMethod === 'saml2') && userCan('users-manage'))
+@if (($authMethod === 'ldap' || $authMethod === 'saml2') && userCan('users-manage'))
     <div class="grid half gap-xl v-center">
         <div>
             <label class="setting-list-label">{{ trans('settings.users_external_auth_id') }}</label>
@@ -37,7 +36,7 @@
     </div>
 @endif
 
-@if(userCan('users-manage'))
+@if (userCan('users-manage'))
     <div>
         <label for="role" class="setting-list-label">{{ trans('settings.users_role') }}</label>
         <p class="small">{{ trans('settings.users_role_desc') }}</p>
@@ -47,26 +46,26 @@
     </div>
 @endif
 
-@if($authMethod === 'standard')
+@if ($authMethod === 'standard')
     <div new-user-password>
         <label class="setting-list-label">{{ trans('settings.users_password') }}</label>
 
-        @if(!isset($model))
+        @if (!isset($model))
             <p class="small">
                 {{ trans('settings.users_send_invite_text') }}
             </p>
 
             @include('form.toggle-switch', [
-                'name' => 'send_invite',
-                'value' => old('send_invite', 'true') === 'true',
-                'label' => trans('settings.users_send_invite_option')
+            'name' => 'send_invite',
+            'value' => old('send_invite', 'false') === 'true',
+            'label' => trans('settings.users_send_invite_option')
             ])
 
         @endif
 
-        <div id="password-input-container" @if(!isset($model)) style="display: none;" @endif>
+        <div id="password-input-container" @if (!isset($model)) style="display: none;" @endif>
             <p class="small">{{ trans('settings.users_password_desc') }}</p>
-            @if(isset($model))
+            @if (isset($model))
                 <p class="small">
                     {{ trans('settings.users_password_warning') }}
                 </p>

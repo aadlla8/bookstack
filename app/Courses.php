@@ -8,7 +8,7 @@ class Courses extends EloquentModel
 {
     protected $table = 'course';
     protected $primaryKey = 'id';
-    protected $fillable = ['subject', 'description', 'level', 'cost', 'numOfHours', 'lec_id', 'coursePic'];
+    protected $fillable = ['subject', 'description', 'level', 'cost', 'numOfHours', 'lec_id', 'coursePic', 'start_date', 'end_date'];
     public function lecturer()
     {
         return $this->belongsTo('BookStack\User', 'lec_id');
