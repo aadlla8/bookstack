@@ -8,9 +8,9 @@
 
     <div class="mb-m print-hidden">
         @include('entities.breadcrumbs', ['crumbs' => [
-            $page->book,
-            $page->hasChapter() ? $page->chapter : null,
-            $page,
+        $page->book,
+        $page->hasChapter() ? $page->chapter : null,
+        $page,
         ]])
     </div>
 
@@ -24,7 +24,7 @@
     @include('entities.sibling-navigation', ['next' => $next, 'previous' => $previous])
 
     @if ($commentsEnabled)
-        @if(($previous || $next))
+        @if ($previous || $next)
             <div class="px-xl">
                 <hr class="darker">
             </div>
@@ -39,7 +39,7 @@
 
 @section('left')
 
-    @if($page->tags->count() > 0)
+    @if ($page->tags->count() > 0)
         <section>
             @include('entities.tag-list', ['entity' => $page])
         </section>
@@ -59,7 +59,7 @@
             <h5>{{ trans('entities.pages_navigation') }}</h5>
             <div class="body">
                 <div class="sidebar-page-nav menu">
-                    @foreach($pageNav as $navItem)
+                    @foreach ($pageNav as $navItem)
                         <li class="page-nav-item h{{ $navItem['level'] }}">
                             <a href="{{ $navItem['link'] }}" class="text-limit-lines-1 block">{{ $navItem['text'] }}</a>
                             <div class="primary-background sidebar-page-nav-bullet"></div>
@@ -79,37 +79,40 @@
         <div class="body text-small blended-links">
             @include('entities.meta', ['entity' => $page])
 
-            @if($book->restricted)
+            @if ($book->restricted)
                 <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $book))
-                        <a href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
+                    @if (userCan('restrictions-manage', $book))
+                        <a
+                            href="{{ $book->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.books_permissions_active') }}</a>
                     @else
                         @icon('lock'){{ trans('entities.books_permissions_active') }}
                     @endif
                 </div>
             @endif
 
-            @if($page->chapter && $page->chapter->restricted)
+            @if ($page->chapter && $page->chapter->restricted)
                 <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $page->chapter))
-                        <a href="{{ $page->chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
+                    @if (userCan('restrictions-manage', $page->chapter))
+                        <a
+                            href="{{ $page->chapter->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.chapters_permissions_active') }}</a>
                     @else
                         @icon('lock'){{ trans('entities.chapters_permissions_active') }}
                     @endif
                 </div>
             @endif
 
-            @if($page->restricted)
+            @if ($page->restricted)
                 <div class="active-restriction">
-                    @if(userCan('restrictions-manage', $page))
-                        <a href="{{ $page->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.pages_permissions_active') }}</a>
+                    @if (userCan('restrictions-manage', $page))
+                        <a
+                            href="{{ $page->getUrl('/permissions') }}">@icon('lock'){{ trans('entities.pages_permissions_active') }}</a>
                     @else
                         @icon('lock'){{ trans('entities.pages_permissions_active') }}
                     @endif
                 </div>
             @endif
 
-            @if($page->template)
+            @if ($page->template)
                 <div>
                     @icon('template'){{ trans('entities.pages_is_template') }}
                 </div>
@@ -122,53 +125,58 @@
 
         <div class="icon-list text-primary">
 
-            {{--User Actions--}}
-            @if(userCan('page-update', $page))
+            {{-- User Actions --}}
+            @if (userCan('page-update', $page))
                 <a href="{{ $page->getUrl('/edit') }}" class="icon-list-item">
                     <span>@icon('edit')</span>
                     <span>{{ trans('common.edit') }}</span>
                 </a>
             @endif
-            @if(userCanOnAny('page-create'))
+            @if (userCanOnAny('page-create'))
                 <a href="{{ $page->getUrl('/copy') }}" class="icon-list-item">
                     <span>@icon('copy')</span>
                     <span>{{ trans('common.copy') }}</span>
                 </a>
             @endif
-            @if(userCan('page-update', $page))
-                @if(userCan('page-delete', $page))
-	                <a href="{{ $page->getUrl('/move') }}" class="icon-list-item">
-	                    <span>@icon('folder')</span>
-	                    <span>{{ trans('common.move') }}</span>
-	                </a>
+            @if (userCan('page-update', $page))
+                @if (userCan('page-delete', $page))
+                    <a href="{{ $page->getUrl('/move') }}" class="icon-list-item">
+                        <span>@icon('folder')</span>
+                        <span>{{ trans('common.move') }}</span>
+                    </a>
                 @endif
                 <a href="{{ $page->getUrl('/revisions') }}" class="icon-list-item">
                     <span>@icon('history')</span>
                     <span>{{ trans('entities.revisions') }}</span>
                 </a>
             @endif
-            @if(userCan('restrictions-manage', $page))
+            @if (userCan('restrictions-manage', $page))
                 <a href="{{ $page->getUrl('/permissions') }}" class="icon-list-item">
                     <span>@icon('lock')</span>
                     <span>{{ trans('entities.permissions') }}</span>
                 </a>
             @endif
-            @if(userCan('page-delete', $page))
+            @if (userCan('page-delete', $page))
                 <a href="{{ $page->getUrl('/delete') }}" class="icon-list-item">
                     <span>@icon('delete')</span>
                     <span>{{ trans('common.delete') }}</span>
                 </a>
             @endif
 
-            <hr class="primary-background"/>
+            <hr class="primary-background" />
 
-            @if(signedInUser())
-                @include('entities.favourite-action', ['entity' => $page])                
+            @if (signedInUser())
+                @include('entities.favourite-action', ['entity' => $page])
             @endif
-            
-            @if(userCan('content-export'))
+
+            @if (userCan('content-export'))
                 @include('entities.export-menu', ['entity' => $page])
             @endif
+
+            <a href="{{ $page->getUrl() . '?full=true' }}" class="icon-list-item">
+                <span>@icon('fullscreen')</span>
+                <span>Fullscreen</span>
+            </a>
         </div>
 
     </div>

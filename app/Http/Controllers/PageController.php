@@ -123,7 +123,7 @@ class PageController extends Controller
      *
      * @throws NotFoundException
      */
-    public function show(string $bookSlug, string $pageSlug)
+    public function show(Request $request, string $bookSlug, string $pageSlug)
     {
         try {
             $page = $this->pageRepo->getBySlug($bookSlug, $pageSlug);
@@ -155,7 +155,7 @@ class PageController extends Controller
         View::incrementFor($page);
         $this->setPageTitle($page->getShortName());
         $layout = "tri";
-        if (user()->hasRole(5)) {
+        if (user()->hasRole(5) || $request->full) {
             $layout = "simple";
         }
         return view('pages.show', [
