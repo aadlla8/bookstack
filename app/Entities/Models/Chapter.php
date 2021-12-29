@@ -36,7 +36,7 @@ class Chapter extends BookChild
     {
         $parts = [
             'books',
-            urlencode($this->book_slug ?? $this->book->slug),
+            urlencode($this->book_slug ?? $this->book ? $this->book->slug : ""),
             'chapter',
             urlencode($this->slug),
             trim($path, '/'),
@@ -51,8 +51,8 @@ class Chapter extends BookChild
     public function getVisiblePages(): Collection
     {
         return $this->pages()->visible()
-        ->orderBy('draft', 'desc')
-        ->orderBy('priority', 'asc')
-        ->get();
+            ->orderBy('draft', 'desc')
+            ->orderBy('priority', 'asc')
+            ->get();
     }
 }
