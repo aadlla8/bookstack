@@ -1,7 +1,7 @@
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
         <div>
-            <a href="{{ url('/') }}" class="logo">
+            <a href="{{ url('/shelves/tin-nong') }}" class="logo">
                 @if (setting('app-logo', '') !== 'none')
                     <img class="logo-image"
                         src="{{ setting('app-logo', '') === '' ? url('/logo.png') : url(setting('app-logo', '')) }}"
