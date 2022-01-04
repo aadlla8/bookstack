@@ -20,8 +20,8 @@ class ImportData implements ToModel
             'page_description' => $row[2],
             'chapter' => $row[3],
             'book' => $row[4],
-            'shelf' => $row[5],
-            'root' => $row[6]
+            'shelf' =>  "",
+            'root' =>  ""
         ]);
     }
 }
