@@ -175,7 +175,7 @@
 
             <a href="{{ $page->getUrl() . '?full=true' }}" class="icon-list-item">
                 <span>@icon('fullscreen')</span>
-                <span>Fullscreen</span>
+                <span>Full screen</span>
             </a>
         </div>
 
