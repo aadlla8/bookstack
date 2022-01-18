@@ -100,7 +100,7 @@
                     <a href="/shelves/{{ $shelf->slug }}">{{ $shelf->name }}</a>
                     @if ($shelf->books->count() > 0)
                         <ul>
-                            @foreach ($shelf->books->sortByDesc('created_at') as $book)
+                            @foreach ($shelf->books as $book)
                                 @if (usercan('book-view', $book))
                                     <li>
                                         <a href="/books/{{ $book->slug }}">{{ $book->name }}</a>
@@ -113,7 +113,7 @@
                                                                     href="/books/{{ $book->slug }}/chapter/{{ $chapter->slug }}">{{ $chapter->name }}</a>
                                                                 @if ($chapter->pages->count() > 0)
                                                                     <ul>
-                                                                        @foreach ($chapter->pages->sortByDesc('created_at') as $cpage)
+                                                                        @foreach ($chapter->pages as $cpage)
                                                                             @if (usercan('page-view', $cpage))
                                                                                 <li><a
                                                                                         href="/books/{{ $book->slug }}/page/{{ $cpage->slug }}">{{ $cpage->name }}</a>
@@ -127,7 +127,7 @@
                                                     @endforeach
                                                 @endif
                                                 @if ($book->directPages->count() > 0)
-                                                    @foreach ($book->directPages->sortByDesc('created_at') as $page)
+                                                    @foreach ($book->directPages as $page)
                                                         @if (usercan('page-view', $page))
                                                             <li><a
                                                                     href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
