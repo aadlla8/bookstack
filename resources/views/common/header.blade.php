@@ -127,13 +127,23 @@
                                                     @endforeach
                                                 @endif
                                                 @if ($book->directPages->count() > 0)
-                                                    @foreach ($book->directPages as $page)
-                                                        @if (usercan('page-view', $page))
-                                                            <li><a
-                                                                    href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
-                                                            </li>
-                                                        @endif
-                                                    @endforeach
+                                                    @if ($book->slug == 'thong-tin-moi-can-luu-y' || $book->slug == 'tin-trong-ngay')
+                                                        @foreach ($book->directPages->sortByDesc('created_at') as $page)
+                                                            @if (usercan('page-view', $page))
+                                                                <li><a
+                                                                        href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
+                                                    @else
+                                                        @foreach ($book->directPages as $page)
+                                                            @if (usercan('page-view', $page))
+                                                                <li><a
+                                                                        href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
                                                 @endif
                                             </ul>
                                         @endif
