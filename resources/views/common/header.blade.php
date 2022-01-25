@@ -98,7 +98,7 @@
             @if (signedInUser() && userCan('bookshelf-view', $shelf))
                 <li>
                     <a href="/shelves/{{ $shelf->slug }}">{{ $shelf->name }}</a>
-                    @if ($shelf->books->count() > 0)
+                    @if ($shelf->visibleBooks()->count() > 0)
                         <ul>
                             @foreach ($shelf->books->sortByDesc('created_at') as $book)
                                 @if (usercan('book-view', $book))

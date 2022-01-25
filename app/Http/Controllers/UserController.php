@@ -14,6 +14,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -63,7 +64,41 @@ class UserController extends Controller
 
         return view('users.create', ['authMethod' => $authMethod, 'roles' => $roles]);
     }
+    public function import()
+    {
 
+        $this->checkPermission('users-manage');
+        return view('users.import');
+    }
+    public function importstore(Request $request)
+    {
+        $this->checkPermission('users-manage');
+        # code...
+        //userimportfiles/bU523iKRjxn1HxXhieOq8df2Z2redb1c2m8FDPhT.jpg
+        $path = $request->file('userfile')->store('userimportfiles');
+        $content = Storage::get($path);
+
+        foreach (explode("\n", $content) as $key => $line) {
+            $array[$key] = explode(',', $line);
+            if (count($array[$key]) > 0) {
+                $olduser = $this->userRepo->getByEmail(trim($array[$key][0], '/"'));
+                if ($olduser) {
+                    $this->userRepo->destroy($olduser);
+                }
+                $userImport = new User();
+                $userImport->name = trim($array[$key][1], '/"');
+                $userImport->email =  trim($array[$key][0], '/"');
+                $userImport->password = bcrypt("p123@Abcd");
+                $userImport->refreshSlug();
+                $userImport->save();
+                //5-csr
+                $this->userRepo->setUserRoles($userImport, [5]);
+            }
+        }
+
+
+        return $array;
+    }
     /**
      * Store a newly created user in storage.
      *
