@@ -114,6 +114,9 @@ class BookController extends Controller
     {
         $book = $this->bookRepo->getBySlug($slug);
         $bookChildren = (new BookContents($book))->getTree(true);
+        if ($slug == "thong-tin-moi-can-luu-y") {
+            $bookChildren = $bookChildren->sortByDesc("created_at");
+        }
         $bookParentShelves = $book->shelves()->visible()->get();
 
         View::incrementFor($book);
@@ -139,7 +142,7 @@ class BookController extends Controller
     {
         $book = $this->bookRepo->getBySlug($slug);
         $this->checkOwnablePermission('book-update', $book);
-        $this->setPageTitle(trans('entities.books_edit_named', ['bookName'=>$book->getShortName()]));
+        $this->setPageTitle(trans('entities.books_edit_named', ['bookName' => $book->getShortName()]));
 
         return view('books.edit', ['book' => $book, 'current' => $book]);
     }
