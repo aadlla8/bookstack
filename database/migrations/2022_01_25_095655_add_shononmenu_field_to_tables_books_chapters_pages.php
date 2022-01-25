@@ -14,13 +14,13 @@ class AddShononmenuFieldToTablesBooksChaptersPages extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->boolean('showonmenu')->nullable();
+            $table->boolean('showonmenu')->nullable()->default(true);
         });
         Schema::table('chapters', function (Blueprint $table) {
-            $table->boolean('showonmenu')->nullable();
+            $table->boolean('showonmenu')->nullable()->default(true);
         });
         Schema::table('pages', function (Blueprint $table) {
-            $table->boolean('showonmenu')->nullable();
+            $table->boolean('showonmenu')->nullable()->default(true);
         });
     }
 
