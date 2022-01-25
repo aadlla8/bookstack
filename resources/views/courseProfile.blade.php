@@ -35,15 +35,17 @@
 
         {{-- Course Control========================================================================== --}}
 
-        @if (!empty(user()) && userCan('settings-manage'))
 
-            {{-- sitting --}}
-            <div class="btn-group my-info pull-right">
-                <span class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-cog"></i>
-                    <span class="caret"></span>
-                </span>
-                <ul class="">
+
+        {{-- sitting --}}
+        <div class="btn-group my-info pull-right">
+            <span class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-cog"></i>
+                <span class="caret"></span>
+            </span>
+
+            <ul class="">
+                @if (!empty(user()) && userCan('settings-manage'))
                     <li>
                         <a href="/Courses/update/{{ $course->id }}">
                             @icon('edit') {{ trans('entities.course_edit') }}
@@ -73,14 +75,17 @@
                             </a>
                         </li>
                     @endif
+                @endif
+                @if (userCan('content-export'))
                     <li>
                         <a component="delete-button" option:delete-button:type='export'>
                             @icon('export') Xuất báo cáo kết quả thi
                         </a>
                     </li>
-                </ul>
-            </div>
-        @endif
+                @endif
+            </ul>
+        </div>
+
 
 
         {{-- Check Enrollment================================================================================== --}}
@@ -122,7 +127,7 @@
             <br>
         @endif
         <br>
-        @if (!empty(user()) && userCan('settings-manage'))
+        @if (!empty(user()) && userCan('content-export'))
             @if (!$course->students->isEmpty())
                 <strong>Danh sách người dùng.</strong>
                 <br>
@@ -171,9 +176,11 @@
                             </td>
                             <td>{{ $student->pivot->fail_questions }}</td>
                             <td>
-                                <a component="delete-button"
-                                    option:delete-button:message="Bạn muốn xóa kết quả thi của người dùng này?"
-                                    option:delete-button:url="/reset-result/{{ $course->id }}/{{ $student->id }}">reset</a>
+                                @if (userCan('settings-manage'))
+                                    <a component="delete-button"
+                                        option:delete-button:message="Bạn muốn xóa kết quả thi của người dùng này?"
+                                        option:delete-button:url="/reset-result/{{ $course->id }}/{{ $student->id }}">reset</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

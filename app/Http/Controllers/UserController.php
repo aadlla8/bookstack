@@ -81,13 +81,13 @@ class UserController extends Controller
         foreach (explode("\n", $content) as $key => $line) {
             $array[$key] = explode(',', $line);
             if (count($array[$key]) > 0) {
-                $olduser = $this->userRepo->getByEmail(trim($array[$key][0], '/"'));
+                $olduser = $this->userRepo->getByEmail(trim($array[$key][1], '/"'));
                 if ($olduser) {
                     $this->userRepo->destroy($olduser);
                 }
                 $userImport = new User();
                 $userImport->name = trim($array[$key][1], '/"');
-                $userImport->email =  trim($array[$key][0], '/"');
+                $userImport->email =  trim($array[$key][1], '/"');
                 $userImport->password = bcrypt("p123@Abcd");
                 $userImport->refreshSlug();
                 $userImport->save();
