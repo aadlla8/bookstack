@@ -13,6 +13,9 @@ Route::post('questions', 'ReviewApiController@create');
 Route::put('questions/{id}', 'ReviewApiController@update');
 Route::get('questions/count', 'ReviewApiController@count');
 
+Route::get('menuitems', 'MenuItemsApiController@list');
+Route::post('menuitems', 'MenuItemsApiController@update');
+
 Route::get('activities', 'ActivityApiController@list');
 Route::get('books', 'BookApiController@list');
 Route::post('books', 'BookApiController@create');

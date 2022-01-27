@@ -52,7 +52,7 @@ import triLayout from "./tri-layout.js"
 import userSelect from "./user-select.js"
 import wysiwygEditor from "./wysiwyg-editor.js"
 import deleteButton from "./delete-button.js"
-
+import treeView from "./tree-view.js"
 const componentMapping = {
     "add-remove-rows": addRemoveRows,
     "ajax-delete-row": ajaxDeleteRow,
@@ -108,6 +108,7 @@ const componentMapping = {
     "user-select": userSelect,
     "wysiwyg-editor": wysiwygEditor,
     "delete-button": deleteButton,
+    'tree-view': treeView,
 };
 
 window.components = {};

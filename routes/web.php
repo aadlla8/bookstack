@@ -319,5 +319,8 @@ Route::post('/review', 'ReviewController@store')->name('reviewUpload');
 Route::get('/review/choose-question', 'ReviewController@chooseQuestion')->name('chooseQuestion');
 Route::post('/review/choose-question', 'ReviewController@beginAnswerQuestion')->name('beginAnswerQuestion');
 
+// show on menu
+Route::get('/showonmenu', 'ShowOnMenuController@index')->name('showonmenu');
+
 // Route::get('/deleteCourse/{id}' , 'CoursesController@destroy');
 Route::fallback('HomeController@notFound')->name('fallback');

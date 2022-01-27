@@ -10,6 +10,10 @@ function shelfs()
 {
     return Bookshelf::visible()->where('showonmenu', true)->orderBy('no')->get();
 }
+function allshelfs()
+{
+    return Bookshelf::visible()->orderBy('no')->get();
+}
 /**
  * Get the path to a versioned file.
  *

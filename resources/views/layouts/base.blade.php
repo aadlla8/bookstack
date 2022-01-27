@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.lang') }}"
-      dir="{{ config('app.rtl') ? 'rtl' : 'ltr' }}"
-      class="{{ setting()->getForCurrentUser('dark-mode-enabled') ? 'dark-mode ' : '' }}@yield('body-class')">
+<html lang="{{ config('app.lang') }}" dir="{{ config('app.rtl') ? 'rtl' : 'ltr' }}"
+    class="{{ setting()->getForCurrentUser('dark-mode-enabled') ? 'dark-mode ' : '' }}@yield('body-class')">
+
 <head>
     <title>{{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ setting('app-name') }}</title>
 
@@ -19,10 +19,10 @@
     <!-- Styles and Fonts -->
     <link rel="stylesheet" href="{{ versioned_asset('dist/styles.css') }}">
     <link rel="stylesheet" media="print" href="{{ versioned_asset('dist/print-styles.css') }}">
-      <!-- SmartMenus core CSS (required) -->
-      <link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
-      <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
-      <link href="/css/sm-mint/sm-mint.css" rel="stylesheet" type="text/css" />
+    <!-- SmartMenus core CSS (required) -->
+    <link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+    <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+    <link href="/css/sm-mint/sm-mint.css" rel="stylesheet" type="text/css" />
     @yield('head')
 
     <!-- Custom Styles & Head Content -->
@@ -34,6 +34,7 @@
     <!-- Translations for JS -->
     @stack('translations')
 </head>
+
 <body class="@yield('body-class')">
 
     @include('common.skip-to-content')
@@ -55,11 +56,11 @@
     @yield('bottom')
     <script src="{{ versioned_asset('dist/app.js') }}" nonce="{{ $cspNonce }}"></script>
     <!-- jQuery -->
-     
-    <script src="{{ url('/libs/jquery-3.5.1.js')}}" nonce="{{ $cspNonce }}"></script>
-    
+
+    <script src="{{ url('/libs/jquery-3.5.1.js') }}" nonce="{{ $cspNonce }}"></script>
+
     <!-- SmartMenus jQuery plugin -->
-    <script src="{{ url('/libs/jquery.smartmenus.js')}}" nonce="{{ $cspNonce }}"></script>
+    <script src="{{ url('/libs/jquery.smartmenus.js') }}" nonce="{{ $cspNonce }}"></script>
     <!-- SmartMenus jQuery init -->
     <script type="text/javascript" nonce="{{ $cspNonce }}">
         $(function() {
@@ -68,13 +69,12 @@
                 subMenusSubOffsetY: -8
             });
         });
-
-         
-    </script>    
+    </script>
 
     @yield('scripts')
 
-      
+
 
 </body>
+
 </html>
