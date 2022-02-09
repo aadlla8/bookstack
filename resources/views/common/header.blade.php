@@ -114,7 +114,7 @@
                                                                 @if ($chapter->pages->count() > 0)
                                                                     <ul>
                                                                         @foreach ($chapter->pages as $cpage)
-                                                                            @if (usercan('page-view', $cpage) && $cpage->showonmenu)
+                                                                            @if (usercan('page-view', $cpage) && $cpage->showonmenu && $cpage->draft == 0)
                                                                                 <li><a
                                                                                         href="/books/{{ $book->slug }}/page/{{ $cpage->slug }}">{{ $cpage->name }}</a>
                                                                                 </li>
@@ -129,7 +129,7 @@
                                                 @if ($book->directPages->count() > 0)
                                                     @if ($book->slug == 'thong-tin-moi-can-luu-y' || $book->slug == 'tin-trong-ngay')
                                                         @foreach ($book->directPages->sortByDesc('created_at') as $page)
-                                                            @if (usercan('page-view', $page) && $page->showonmenu)
+                                                            @if (usercan('page-view', $page) && $page->showonmenu && $page->draft == 0)
                                                                 <li><a
                                                                         href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
                                                                 </li>
@@ -137,7 +137,7 @@
                                                         @endforeach
                                                     @else
                                                         @foreach ($book->directPages as $page)
-                                                            @if (usercan('page-view', $page) && $page->showonmenu)
+                                                            @if (usercan('page-view', $page) && $page->showonmenu && $page->draft == 0)
                                                                 <li><a
                                                                         href="/books/{{ $book->slug }}/page/{{ $page->slug }}">{{ $page->name }}</a>
                                                                 </li>
