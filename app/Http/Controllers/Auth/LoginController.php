@@ -30,7 +30,7 @@ class LoginController extends Controller
     /**
      * Redirection paths.
      */
-    protected $redirectTo = '/shelves/tin-nong';
+    protected $redirectTo = '/books/tin-nong';
     protected $redirectPath = '/';
     protected $redirectAfterLogout = '/login';
 

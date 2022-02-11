@@ -1,7 +1,7 @@
 <header id="header" component="header-mobile-toggle" class="primary-background">
     <div class="grid mx-l">
         <div>
-            <a href="{{ url('/shelves/tin-nong') }}" class="logo">
+            <a href="{{ url('/books/tin-nong') }}" class="logo">
                 @if (setting('app-logo', '') !== 'none')
                     <img class="logo-image"
                         src="{{ setting('app-logo', '') === '' ? url('/logo.png') : url(setting('app-logo', '')) }}"
@@ -127,7 +127,7 @@
                                                     @endforeach
                                                 @endif
                                                 @if ($book->directPages->count() > 0)
-                                                    @if ($book->slug == 'thong-tin-moi-can-luu-y' || $book->slug == 'tin-trong-ngay')
+                                                    @if ($book->slug == 'tin-nong' || $book->slug == 'tin-trong-ngay')
                                                         @foreach ($book->directPages->sortByDesc('created_at') as $page)
                                                             @if (usercan('page-view', $page) && $page->showonmenu && $page->draft == 0)
                                                                 <li><a
